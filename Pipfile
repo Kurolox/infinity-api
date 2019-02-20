@@ -6,10 +6,10 @@ verify_ssl = true
 [dev-packages]
 pylint = "*"
 autopep8 = "*"
+pep8 = "*"
 
 [packages]
-scrapy = "*"
-beautifulsoup = "*"
+requests = "*"
 
 [requires]
 python_version = "3.7"
