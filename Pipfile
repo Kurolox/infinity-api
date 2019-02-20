@@ -8,6 +8,8 @@ pylint = "*"
 autopep8 = "*"
 
 [packages]
+scrapy = "*"
+beautifulsoup = "*"
 
 [requires]
 python_version = "3.7"
