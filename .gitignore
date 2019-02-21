@@ -146,3 +146,6 @@ dmypy.json
 .history
 
 # End of https://www.gitignore.io/api/git,python,visualstudiocode
+
+# Ignore generated json file folders
+json_*
