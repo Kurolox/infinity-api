@@ -8,7 +8,7 @@ def generate_dict(object_string: str) -> dict:
     """Modifies a JS object and returns a list with all valid python dictionaries on it."""
 
     object_string = object_string.replace(r"\'", r"\"")
-    invalid_chars = ["'", "+", " ", "\n", "\r", "//"]
+    invalid_chars = ["'", "+", " ", "\n", "\r", "//"] # TODO: Allow spaces so strings won't break
     for char in invalid_chars:
         object_string = object_string.replace(char, "")
 
@@ -33,7 +33,8 @@ def store_remote_data(
                 with open(f"{file_path}/{file_name or item}.json", "w") as open_file:
                     print(
                         f"Writting file {file_path}/{file_name or item}.json...")
-                    json.dump(content, open_file)
+                    json.dump(content, open_file, sort_keys=True,
+                              indent=4, separators=(',', ': '))
     except ConnectionError:
         print(f"There was an issue trying to fetch the url {url}.")
 
