@@ -8,11 +8,13 @@ def generate_dict(object_string: str) -> dict:
     """Modifies a JS object and returns a list with all valid python dictionaries on it."""
 
     object_string = object_string.replace(r"\'", r"\"")
-    invalid_chars = ["'", "+", " ", "\n", "\r", "//"] # TODO: Allow spaces so strings won't break
+    invalid_chars = ["'", "+", "\n", "\r", "//"]
     for char in invalid_chars:
         object_string = object_string.replace(char, "")
 
-    parsed_string = findall(r"(JSON_\w+)=(.*?[]}]);", object_string)
+    parsed_string = findall(r"(JSON_\w+)\s?=\s?(.*?[]}]);", object_string)
+    with open("debug.txt", "w") as my_file:
+        my_file.write(object_string)
 
     return {item[0]: json.loads(item[1]) for item in parsed_string}
 
