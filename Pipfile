@@ -10,6 +10,8 @@ pep8 = "*"
 
 [packages]
 requests = "*"
+regex = "*"
+json = "*"
 
 [requires]
 python_version = "3.7"
