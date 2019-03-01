@@ -11,7 +11,7 @@ pep8 = "*"
 [packages]
 requests = "*"
 regex = "*"
-json = "*"
+peewee = "*"
 
 [requires]
 python_version = "3.7"
