@@ -28,6 +28,7 @@ def store_remote_data(
         mkdir(file_path)
 
     try:
+        # TODO: Async requests to fetch multiple JSON?
         request = get(url)
         if request.status_code == 200:
             request_dict = generate_dict(request.text)
@@ -41,24 +42,34 @@ def store_remote_data(
         print(f"There was an issue trying to fetch the url {url}.")
 
 
+def fetch_sectorial_list(path: str) -> tuple:
+    """Returns a tuple with all the IDs of every sectorial.
+    The data is read from the locally stored JSON folder passed as argument."""
+
+    with open(f"{path}/JSON_SECTORIAL_NOMBRE.json", "r") as local_json_file:
+        return tuple(int(sectorial.split("_")[-1])
+                     for sectorial in json.load(local_json_file)
+                     ["nombresSectorial"].keys())
+
+
 def fetch_json(lang: str) -> None:
     """Attempts to fetch the newest JSON files with the data from all the units in the game.
     Possible lang values: esp, eng"""
 
-    if lang.upper() not in ("ESP", "ENG"):
+    if lang.upper() not in ("ESP", "ENG", "FRA"):
         raise ValueError(f"The language '{lang}' isn't supported.")
 
     store_remote_data(
         f"https://army.infinitythegame.com/import/idioma_{lang.upper()}.js",
         file_path=lang.upper())
 
-    for faction in range(100, 1000, 100):
-        for sectorial in range(10):
-            store_remote_data(
-                f"https://army.infinitythegame.com/import/json_dataUnidades_{faction + sectorial}_{lang.upper()}.js",
-                file_name=str(faction + sectorial),
-                file_path=lang.upper())
+    for sectorial in fetch_sectorial_list(lang.upper()):
+        store_remote_data(
+            f"https://army.infinitythegame.com/import/json_dataUnidades_{sectorial}_{lang.upper()}.js",
+            file_name=str(sectorial),
+            file_path=lang.upper())
 
 
 fetch_json("ESP")
 fetch_json("ENG")
+fetch_json("FRA")
