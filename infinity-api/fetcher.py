@@ -23,23 +23,21 @@ def store_remote_data(
         url: str, file_name: str = "", file_path: str = "") -> None:
     """Given an URL with a series of JS objects, it will attempt to fetch them and store them locally as JSON."""
 
+    # TODO: Async requests to fetch multiple JSON?
+    request = get(url)
+    if request.status_code != 200:
+        raise ConnectionError
+
     # TODO: Change paths and don't store data in .json when the db is set up
     if not path.exists(file_path):
         mkdir(file_path)
 
-    try:
-        # TODO: Async requests to fetch multiple JSON?
-        request = get(url)
-        if request.status_code == 200:
-            request_dict = generate_dict(request.text)
-            for item, content in request_dict.items():
-                with open(f"{file_path}/{file_name or item}.json", "w") as open_file:
-                    print(
-                        f"Writting file {file_path}/{file_name or item}.json...")
-                    json.dump(content, open_file, sort_keys=True,
-                              indent=4, separators=(',', ': '))
-    except ConnectionError:
-        print(f"There was an issue trying to fetch the url {url}.")
+    request_dict = generate_dict(request.text)
+    for item, content in request_dict.items():
+        with open(f"{file_path}/{file_name or item}.json", "w") as open_file:
+            print(f"Writting file {file_path}/{file_name or item}.json...")
+            json.dump(content, open_file, sort_keys=True,
+                      indent=4, separators=(',', ': '))
 
 
 def fetch_sectorial_list(path: str) -> tuple:
@@ -56,12 +54,14 @@ def fetch_json(lang: str) -> None:
     """Attempts to fetch the newest JSON files with the data from all the units in the game.
     Possible lang values: esp, eng"""
 
-    if lang.upper() not in ("ESP", "ENG", "FRA"):
-        raise ValueError(f"The language '{lang}' isn't supported.")
-
-    store_remote_data(
-        f"https://army.infinitythegame.com/import/idioma_{lang.upper()}.js",
-        file_path=lang.upper())
+    try:
+        store_remote_data(
+            f"https://army.infinitythegame.com/import/idioma_{lang.upper()}.js",
+            file_path=lang.upper())
+    except ConnectionError:
+        print(
+            f"There was an issue trying to connect to the URL https://army.infinitythegame.com/import/idioma_{lang.upper()}.js.")
+        return
 
     for sectorial in fetch_sectorial_list(lang.upper()):
         store_remote_data(
