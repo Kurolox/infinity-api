@@ -48,8 +48,7 @@ def fetch_sectorial_list(path: str) -> tuple:
 
 
 def fetch_json(lang: str) -> None:
-    """Attempts to fetch the newest JSON files with the data from all the units in the game.
-    Possible lang values: esp, eng"""
+    """Attempts to fetch the newest JSON files with the data from all the units in the game."""
 
     try:
         store_remote_data(
