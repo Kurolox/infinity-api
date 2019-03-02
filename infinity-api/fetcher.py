@@ -63,7 +63,7 @@ def fetch_json(lang: str) -> None:
             f"There was an issue trying to connect to the URL https://army.infinitythegame.com/import/idioma_{lang.upper()}.js.")
         return
 
-    for sectorial in fetch_sectorial_list(lang.upper()):
+    for sectorial in fetch_sectorial_list(f"JSON/{lang.upper()}"):
         store_remote_data(
             f"https://army.infinitythegame.com/import/json_dataUnidades_{sectorial}_{lang.upper()}.js",
             file_name=str(sectorial),
