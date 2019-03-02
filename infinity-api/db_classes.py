@@ -2,10 +2,16 @@ from peewee import Model, CharField, BooleanField, IntegerField
 from db_manager import db
 
 
-class Unit(Model):
-    unit_id = IntegerField()
-    name = CharField()
-    svg_icon = CharField()
+class BaseModel(Model):
+
+    class Meta:
+        database = db
+
+
+class Unit(BaseModel):
+    unit_id = IntegerField(primary_key=True)
+    name = CharField(unique=True)
+    svg_icon = CharField(unique=True)
     mov_1 = IntegerField()
     mov_2 = IntegerField()
     close_combat = IntegerField()
@@ -23,69 +29,45 @@ class Unit(Model):
     is_extremely_impetuous = BooleanField()
     has_structure = BooleanField()
 
-    class Meta:
-        database = db
 
-
-class Profile(Model):
-    profile_id = IntegerField()
+class Profile(BaseModel):
+    profile_id = IntegerField(primary_key=True)
     unit_id = IntegerField()
     cap = IntegerField()
     point_cost = IntegerField()
 
-    class Meta:
-        database = db
 
-
-class Weapon(Model):
-    weapon_id = IntegerField()
+class Weapon(BaseModel):
+    weapon_id = IntegerField(primary_key=True)
     damage = IntegerField()
-    name = CharField()
+    name = CharField(unique=True)
     burst_range = IntegerField()
     burst_melee = IntegerField()
     is_melee = BooleanField()
 
-    class Meta:
-        database = db
+
+class Ammo(BaseModel):
+    ammo_id = IntegerField(primary_key=True)
+    name = CharField(unique=True)
 
 
-class Ammo(Model):
-    ammo_id = IntegerField()
-    name = CharField()
-
-    class Meta:
-        database = db
+class Sectorial(BaseModel):
+    sectorial_id = IntegerField(primary_key=True)
+    name = CharField(unique=True)
 
 
-class Sectorial(Model):
-    sectorial_id = IntegerField()
-    name = CharField()
-
-    class Meta:
-        database = db
+class Faction(BaseModel):
+    faction_id = IntegerField(primary_key=True)
+    name = CharField(unique=True)
 
 
-class Faction(Model):
-    faction_id = IntegerField()
-    name = CharField()
-
-    class Meta:
-        database = db
-
-
-class Ability(Model):
-    ability_id = IntegerField()
-    name = CharField()
+class Ability(BaseModel):
+    ability_id = IntegerField(primary_key=True)
+    name = CharField(unique=True)
     wiki_url = CharField()
 
-    class Meta:
-        database = db
 
-
-class Characteristic(Model):
-    characteristic_id = IntegerField()
-    name = CharField()
+class Characteristic(BaseModel):
+    characteristic_id = IntegerField(primary_key=True)
+    name = CharField(unique=True)
     wiki_url = CharField()
-
-    class Meta:
-        database = db
