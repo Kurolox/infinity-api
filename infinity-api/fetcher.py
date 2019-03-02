@@ -1,5 +1,5 @@
 from requests import get
-from os import mkdir, path
+from pathlib import Path
 from re import findall
 import json
 
@@ -29,8 +29,7 @@ def store_remote_data(
         raise ConnectionError
 
     # TODO: Change paths and don't store data in .json when the db is set up
-    if not path.exists(file_path):
-        mkdir(file_path)
+    Path(file_path).mkdir(parents=True, exist_ok=True)
 
     request_dict = generate_dict(request.text)
     for item, content in request_dict.items():
@@ -57,7 +56,8 @@ def fetch_json(lang: str) -> None:
     try:
         store_remote_data(
             f"https://army.infinitythegame.com/import/idioma_{lang.upper()}.js",
-            file_path=lang.upper())
+            file_path=f"JSON/{lang.upper()}")
+
     except ConnectionError:
         print(
             f"There was an issue trying to connect to the URL https://army.infinitythegame.com/import/idioma_{lang.upper()}.js.")
@@ -67,7 +67,7 @@ def fetch_json(lang: str) -> None:
         store_remote_data(
             f"https://army.infinitythegame.com/import/json_dataUnidades_{sectorial}_{lang.upper()}.js",
             file_name=str(sectorial),
-            file_path=lang.upper())
+            file_path=f"JSON/{lang.upper()}")
 
 
 fetch_json("ESP")
