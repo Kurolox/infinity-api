@@ -13,8 +13,6 @@ def generate_dict(object_string: str) -> dict:
         object_string = object_string.replace(char, "")
 
     parsed_string = findall(r"(JSON_\w+)\s?=\s?(.*?[]}]);", object_string)
-    with open("debug.txt", "w") as my_file:
-        my_file.write(object_string)
 
     return {item[0]: json.loads(item[1]) for item in parsed_string}
 
