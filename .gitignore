@@ -148,4 +148,7 @@ dmypy.json
 # End of https://www.gitignore.io/api/git,python,visualstudiocode
 
 # Ignore generated json file folders
-json_*
+JSON
+
+# Ignore database file
+infinity.db
