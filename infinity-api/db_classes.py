@@ -54,12 +54,7 @@ class Ammo(BaseModel):
 class Sectorial(BaseModel):
     sectorial_id = IntegerField(primary_key=True)
     name = CharField(unique=True)
-
-
-class Faction(BaseModel):
-    faction_id = IntegerField(primary_key=True)
-    name = CharField(unique=True)
-
+    is_faction = BooleanField()
 
 class Ability(BaseModel):
     ability_id = IntegerField(primary_key=True)
