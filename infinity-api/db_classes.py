@@ -46,6 +46,11 @@ class Weapon(BaseModel):
     is_melee = BooleanField()
 
 
+class WeaponProperty(BaseModel):
+    weapon_property_id = IntegerField(primary_key=True)
+    name = CharField(unique=True)
+
+
 class Ammo(BaseModel):
     ammo_id = IntegerField(primary_key=True)
     name = CharField(unique=True)
@@ -55,6 +60,7 @@ class Sectorial(BaseModel):
     sectorial_id = IntegerField(primary_key=True)
     name = CharField(unique=True)
     is_faction = BooleanField()
+
 
 class Ability(BaseModel):
     ability_id = IntegerField(primary_key=True)
@@ -66,6 +72,7 @@ class Characteristic(BaseModel):
     characteristic_id = IntegerField(primary_key=True)
     name = CharField(unique=True)
     wiki_url = CharField()
+
 
 class String(BaseModel):
     string_id = CharField(primary_key=True)
