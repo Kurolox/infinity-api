@@ -71,3 +71,9 @@ class Characteristic(BaseModel):
     characteristic_id = IntegerField(primary_key=True)
     name = CharField(unique=True)
     wiki_url = CharField()
+
+class String(BaseModel):
+    string_id = CharField(primary_key=True)
+    spanish = CharField()
+    english = CharField()
+    french = CharField()

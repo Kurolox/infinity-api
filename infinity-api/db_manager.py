@@ -1,3 +1,3 @@
-import peewee
+from peewee import SqliteDatabase
 
-db = peewee.SqliteDatabase("infinity.db")
+db = SqliteDatabase("infinity.db")
