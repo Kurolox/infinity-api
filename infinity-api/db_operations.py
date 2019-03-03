@@ -29,12 +29,18 @@ def populate_ammo(db: SqliteDatabase) -> None:
         tuple(Ammo(ammo_id=ammo, name=f"ammo_{ammo}")
               for ammo in ammo_dict.keys()))
 
+    populate_strings(ammo_dict)
+
+def populate_strings(string_dict: tuple) -> None:
+    """Generates the strings in the database. It needs a dict of dicts,
+    with the key of each dict being the string id in the database and the values being the strings in each language."""
+
     # TODO: Remove hardcoded languages and make it depend on the String defined languages only
     String.bulk_create(
         tuple(String(
             string_id=f"ammo_{ammo_id}", english=ammo["ENG"],
             spanish=ammo["ESP"], french=ammo["FRA"])
-            for ammo_id, ammo in ammo_dict.items()))
+            for ammo_id, ammo in string_dict.items()))
 
 
 def populate_db(db: SqliteDatabase) -> None:
@@ -43,5 +49,6 @@ def populate_db(db: SqliteDatabase) -> None:
         populate_ammo(open_db)
 
 
-generate_db(db)
+if "infinity.py" not in listdir():
+    generate_db(db)
 populate_db(db)
