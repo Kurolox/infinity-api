@@ -3,6 +3,7 @@ from peewee import SqliteDatabase
 from json import load
 from os import listdir
 from collections import defaultdict
+from fetcher import fetch_json
 
 
 def generate_db(db: SqliteDatabase) -> None:
@@ -23,9 +24,12 @@ def populate_ammo(db: SqliteDatabase) -> None:
             for item in load(ammo_file):
                 ammo_dict[item["id"]][language] = item["nombre"]
 
-    Ammo.bulk_create(
-        tuple(Ammo(ammo_id=ammo, name=f"ammo_{ammo}")
-              for ammo in ammo_dict.keys()))
+    for ammo in ammo_dict.keys():
+        if not Ammo.select().where(Ammo.ammo_id == ammo).exists():
+
+            print(
+                f"Generating entry {ammo} in Ammo table...")
+            Ammo.create(ammo_id=ammo, name=f"ammo_{ammo}")
 
     populate_strings("ammo", ammo_dict)
 
@@ -36,11 +40,16 @@ def populate_strings(id_prefix: str, string_dict: tuple) -> None:
     The key of each language has to be the three initials in upper case (ENG, ESP, FRA...)"""
 
     # TODO: Remove hardcoded languages and make it depend on the String defined languages only
-    String.bulk_create(
-        tuple(String(
-            string_id=f"{id_prefix}_{str_id}", english=strings["ENG"],
-            spanish=strings["ESP"], french=strings["FRA"])
-            for str_id, strings in string_dict.items()))
+
+    for string_id, strings in string_dict.items():
+        if not String.select().where(String.string_id ==
+                                     f"{id_prefix}_{string_id}").exists():
+            print(
+                f"Generating entry {id_prefix}_{string_id} in String table...")
+            String.create(
+                string_id=f"{id_prefix}_{string_id}", english=strings["ENG"],
+                spanish=strings["ESP"],
+                french=strings["FRA"])
 
 
 def populate_sectorials(db: SqliteDatabase) -> None:
@@ -54,13 +63,13 @@ def populate_sectorials(db: SqliteDatabase) -> None:
                 sectorial_dict[int(sectorial.lstrip(
                     "idSectorial_"))][language] = name
 
-    Sectorial.bulk_create(
-        tuple(
-            Sectorial(
-                sectorial_id=sectorial,
-                name=f"sectorial_{sectorial}",
-                is_faction=True if sectorial % 100 == 1 else False)
-            for sectorial in sectorial_dict.keys()))
+    for sectorial in sectorial_dict.keys():
+        if not Sectorial.select().where(Sectorial.sectorial_id == sectorial).exists():
+            print(f"Generating entry {sectorial} in Sectorial table...")
+
+            Sectorial.create(sectorial_id=sectorial,
+                             name=f"sectorial_{sectorial}",
+                             is_faction=True if sectorial % 100 == 1 else False)
 
     populate_strings("sectorial", sectorial_dict)
 
@@ -86,11 +95,15 @@ def populate_weapon_properties(db: SqliteDatabase) -> None:
                         weapon["lista_propiedades"].split("|")):
                     weapon_property_dict[property_id][language] = property_name
 
-    WeaponProperty.bulk_create([
-        WeaponProperty(
-            weapon_property_id=property_id,
-            name=f"weapon_property_{property_id}")
-        for property_id in weapon_property_dict.keys()])
+    for property_id in weapon_property_dict.keys():
+        if not WeaponProperty.select().where(
+                WeaponProperty.weapon_property_id == property_id).exists():
+
+            print(
+                f"Generating entry {property_id} in WeaponProperty table...")
+            WeaponProperty.create(
+                weapon_property_id=property_id,
+                name=f"weapon_property_{property_id}")
 
     populate_strings("weapon_property", weapon_property_dict)
 
@@ -105,4 +118,7 @@ def populate_db(db: SqliteDatabase) -> None:
 
 if "infinity.db" not in listdir():
     generate_db(db)
+    # for language in ["ENG", "ESP", "FRA"]: TODO: Uncomment this before merging to develop
+    #    fetch_json(language)
+
 populate_db(db)
