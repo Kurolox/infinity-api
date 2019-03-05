@@ -1,6 +1,7 @@
-from peewee import Model, CharField, BooleanField, IntegerField
-from db_manager import db
+from peewee import SqliteDatabase, Model, CharField, BooleanField, IntegerField
 
+
+db = SqliteDatabase("infinity.db")
 
 class BaseModel(Model):
 

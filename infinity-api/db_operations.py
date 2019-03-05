@@ -1,5 +1,4 @@
-from db_manager import db
-from db_classes import Unit, Weapon, Ammo, Ability, Characteristic, Sectorial, Profile, String, WeaponProperty
+from db_classes import db, Unit, Weapon, Ammo, Ability, Characteristic, Sectorial, Profile, String, WeaponProperty
 from peewee import SqliteDatabase
 from json import load
 from os import listdir
@@ -17,13 +16,11 @@ def generate_db(db: SqliteDatabase) -> None:
 def populate_ammo(db: SqliteDatabase) -> None:
     """Populates the ammo types in it's database table. It will fetch the information from the specified language"""
 
-    ammo_dict = {}
+    ammo_dict = defaultdict(dict)
 
     for language in listdir("JSON"):
         with open(f"JSON/{language}/JSON_MUNICION.json") as ammo_file:
             for item in load(ammo_file):
-                if item["id"] not in ammo_dict.keys():
-                    ammo_dict[item["id"]] = {language: ""}
                 ammo_dict[item["id"]][language] = item["nombre"]
 
     Ammo.bulk_create(
@@ -49,15 +46,13 @@ def populate_strings(id_prefix: str, string_dict: tuple) -> None:
 def populate_sectorials(db: SqliteDatabase) -> None:
     """Populates the database with a list of sectorials and their respective ID's."""
 
-    sectorial_dict = {}
+    sectorial_dict = defaultdict(dict)
 
     for language in listdir("JSON"):
         with open(f"JSON/{language}/JSON_SECTORIAL_NOMBRE.json") as ammo_file:
             for sectorial, name in load(ammo_file)["nombresSectorial"].items():
-                sectorial_id = int(sectorial.lstrip("idSectorial_"))
-                if sectorial_id not in sectorial_dict.keys():
-                    sectorial_dict[sectorial_id] = {}
-                sectorial_dict[sectorial_id][language] = name
+                sectorial_dict[int(sectorial.lstrip(
+                    "idSectorial_"))][language] = name
 
     Sectorial.bulk_create(
         tuple(
@@ -79,7 +74,7 @@ def populate_weapon_properties(db: SqliteDatabase) -> None:
     """Based on the local weapons JSON, extracts all the weapon properties
     and populates the corresponding database table, and adds the strings to the string table."""
 
-    weapon_property_dict = {}
+    weapon_property_dict = defaultdict(dict)
 
     for language in listdir("JSON"):
         with open(f"JSON/{language}/JSON_ARMAS.json") as weapon_file:
@@ -89,8 +84,6 @@ def populate_weapon_properties(db: SqliteDatabase) -> None:
                     [int(identifier or 0)
                      for identifier in weapon["propiedades"].split("|")],
                         weapon["lista_propiedades"].split("|")):
-                    if property_id not in weapon_property_dict.keys():
-                        weapon_property_dict[property_id] = {}
                     weapon_property_dict[property_id][language] = property_name
 
     WeaponProperty.bulk_create([
@@ -100,7 +93,6 @@ def populate_weapon_properties(db: SqliteDatabase) -> None:
         for property_id in weapon_property_dict.keys()])
 
     populate_strings("weapon_property", weapon_property_dict)
-    print("wew")
 
 
 def populate_db(db: SqliteDatabase) -> None:
@@ -111,6 +103,6 @@ def populate_db(db: SqliteDatabase) -> None:
         populate_weapons(open_db)
 
 
-if "infinity.py" not in listdir():
+if "infinity.db" not in listdir():
     generate_db(db)
 populate_db(db)
