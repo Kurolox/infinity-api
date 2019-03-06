@@ -27,8 +27,8 @@ def populate_ammo() -> None:
     populate_strings("ammo", ammo_dict)
 
     for ammo in ammo_dict.keys():
-        if not Ammo.get_or_create(ammo_id=ammo, name=String.get(
-                String.string_id == f"ammo_{ammo}")):
+        if not Ammo.get_or_create(ammo_id=ammo, name=String.get_by_id(
+                f"ammo_{ammo}")):
             print(f"Generating entry {ammo} in Ammo table...")
 
 
@@ -65,8 +65,8 @@ def populate_sectorials() -> None:
 
     for sectorial in sectorial_dict.keys():
         if not Sectorial.get_or_create(
-                sectorial_id=sectorial, name=String.get(
-                    String.string_id == f"sectorial_{sectorial}"),
+                sectorial_id=sectorial, name=String.get_by_id(
+                    f"sectorial_{sectorial}"),
                 is_faction=True if sectorial % 100 == 1 else False):
             print(f"Generating entry {sectorial} in Sectorial table...")
 
@@ -99,8 +99,7 @@ def populate_weapons() -> None:
             weapon_properties = {
                 "weapon_id": int(weapon["id"]),
                 "damage": weapon["dano"],
-                "name": String.get(
-                    String.string_id == f"weapon_{weapon['id']}"),
+                "name": String.get_by_id(f"weapon_{weapon['id']}"),
                 "is_melee": True if weapon["CC"] == "1" else False, }
             Weapon.get_or_create(**weapon_properties)
 
@@ -126,8 +125,8 @@ def populate_weapon_properties() -> None:
 
     for property_id in weapon_property_dict.keys():
         if not WeaponProperty.get_or_create(
-            weapon_property_id=property_id, name=String.get(
-                String.string_id == f"weapon_property_{property_id}")):
+            weapon_property_id=property_id, name=String.get_by_id(
+                f"weapon_property_{property_id}")):
             print(f"Generating entry {property_id} in WeaponProperty table...")
 
 
