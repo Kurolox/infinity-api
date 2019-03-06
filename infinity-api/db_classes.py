@@ -40,10 +40,10 @@ class Profile(BaseModel):
 
 class Weapon(BaseModel):
     weapon_id = IntegerField(primary_key=True)
-    damage = IntegerField()
+    damage = CharField()
     name = CharField(unique=True)
-    burst_range = IntegerField()
-    burst_melee = IntegerField()
+    #burst_range = IntegerField(default=0)
+    #burst_melee = IntegerField(default=0)
     is_melee = BooleanField()
 
 

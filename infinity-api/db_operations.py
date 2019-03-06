@@ -25,11 +25,8 @@ def populate_ammo(db: SqliteDatabase) -> None:
                 ammo_dict[item["id"]][language] = item["nombre"]
 
     for ammo in ammo_dict.keys():
-        if not Ammo.select().where(Ammo.ammo_id == ammo).exists():
-
-            print(
-                f"Generating entry {ammo} in Ammo table...")
-            Ammo.create(ammo_id=ammo, name=f"ammo_{ammo}")
+        if not Ammo.get_or_create(ammo_id=ammo, name=f"ammo_{ammo}"):
+            print(f"Generating entry {ammo} in Ammo table...")
 
     populate_strings("ammo", ammo_dict)
 
@@ -42,14 +39,14 @@ def populate_strings(id_prefix: str, string_dict: tuple) -> None:
     # TODO: Remove hardcoded languages and make it depend on the String defined languages only
 
     for string_id, strings in string_dict.items():
-        if not String.select().where(String.string_id ==
-                                     f"{id_prefix}_{string_id}").exists():
+
+        if not String.get_or_create(
+                string_id=f"{id_prefix}_{string_id}",
+                english=strings["ENG"] if "ENG" in strings.keys() else "",
+                spanish=strings["ESP"] if "ESP" in strings.keys() else "",
+                french=strings["FRA"]  if "FRA" in strings.keys() else ""):
             print(
                 f"Generating entry {id_prefix}_{string_id} in String table...")
-            String.create(
-                string_id=f"{id_prefix}_{string_id}", english=strings["ENG"],
-                spanish=strings["ESP"],
-                french=strings["FRA"])
 
 
 def populate_sectorials(db: SqliteDatabase) -> None:
@@ -64,19 +61,48 @@ def populate_sectorials(db: SqliteDatabase) -> None:
                     "idSectorial_"))][language] = name
 
     for sectorial in sectorial_dict.keys():
-        if not Sectorial.select().where(Sectorial.sectorial_id == sectorial).exists():
+        if not Sectorial.get_or_create(
+                sectorial_id=sectorial, name=f"sectorial_{sectorial}",
+                is_faction=True if sectorial % 100 == 1 else False):
             print(f"Generating entry {sectorial} in Sectorial table...")
-
-            Sectorial.create(sectorial_id=sectorial,
-                             name=f"sectorial_{sectorial}",
-                             is_faction=True if sectorial % 100 == 1 else False)
 
     populate_strings("sectorial", sectorial_dict)
 
 
 def populate_weapons(db: SqliteDatabase) -> None:
     """Populates the weapons and weapon characteristic tables."""
+
     populate_weapon_properties(db)
+
+    weapon_dict = defaultdict(dict)
+
+    for language in listdir("JSON"):
+        with open(f"JSON/{language}/JSON_ARMAS.json") as weapon_file:
+            for weapon in load(weapon_file):
+                weapon_dict[int(weapon["id"])
+                            ][language] = weapon["nombre_completo"]
+
+    populate_strings("weapon", weapon_dict)
+
+    weapon_wiki_dict = defaultdict(dict)
+    for language in listdir("JSON"):
+        with open(f"JSON/{language}/JSON_ARMAS_WIKI_URLS.json") as weapon_wiki_file:
+            for weapon_id, weapon_wiki_link in load(weapon_wiki_file).items():
+                weapon_wiki_dict[int(weapon_id)][language] = weapon_wiki_link
+
+    populate_strings("weapon_wiki", weapon_wiki_dict)
+
+    with open(f"JSON/{listdir('JSON')[0]}/JSON_ARMAS.json") as weapon_file:
+         for weapon in load(weapon_file):
+             weapon_properties = {
+                 "weapon_id": int(weapon["id"]),
+                 "damage": weapon["dano"],
+                 "name": f"weapon_{weapon['id']}",
+                 "is_melee": True if weapon["CC"] == "1" else False,
+
+             }
+             Weapon.get_or_create(**weapon_properties)
+        
 
 
 def populate_weapon_properties(db: SqliteDatabase) -> None:
@@ -96,16 +122,11 @@ def populate_weapon_properties(db: SqliteDatabase) -> None:
                     if property_id != -1:
                         weapon_property_dict[property_id][language] = property_name
 
-
     for property_id in weapon_property_dict.keys():
-        if not WeaponProperty.select().where(
-                WeaponProperty.weapon_property_id == property_id).exists():
-
-            print(
-                f"Generating entry {property_id} in WeaponProperty table...")
-            WeaponProperty.create(
+        if not WeaponProperty.get_or_create(
                 weapon_property_id=property_id,
-                name=f"weapon_property_{property_id}")
+                name=f"weapon_property_{property_id}"):
+            print(f"Generating entry {property_id} in WeaponProperty table...")
 
     populate_strings("weapon_property", weapon_property_dict)
 
