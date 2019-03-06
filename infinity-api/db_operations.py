@@ -43,9 +43,9 @@ def populate_strings(id_prefix: str, string_dict: tuple) -> None:
 
         if not String.get_or_create(
                 string_id=f"{id_prefix}_{string_id}",
-                english=strings["ENG"] if "ENG" in strings.keys() else "",
-                spanish=strings["ESP"] if "ESP" in strings.keys() else "",
-                french=strings["FRA"] if "FRA" in strings.keys() else ""):
+                english=strings["ENG"] if "ENG" in strings.keys() else None,
+                spanish=strings["ESP"] if "ESP" in strings.keys() else None,
+                french=strings["FRA"] if "FRA" in strings.keys() else None):
             print(
                 f"Generating entry {id_prefix}_{string_id} in String table...")
 
@@ -100,7 +100,12 @@ def populate_weapons() -> None:
                 "weapon_id": int(weapon["id"]),
                 "damage": weapon["dano"],
                 "name": String.get_by_id(f"weapon_{weapon['id']}"),
-                "is_melee": True if weapon["CC"] == "1" else False, }
+                "is_melee": True if weapon["CC"] == "1" else False,
+                "short_range": weapon["corta"] if weapon["corta"] != "-" else None,
+                "medium_range": weapon["media"] if weapon["media"] != "-" else None,
+                "long_range": weapon["larga"] if weapon["larga"] != "-" else None,
+                "maximum_range": weapon["maxima"] if weapon["maxima"] != "-" else None
+            }
             Weapon.get_or_create(**weapon_properties)
 
 

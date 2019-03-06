@@ -10,9 +10,9 @@ class BaseModel(Model):
 
 class String(BaseModel):
     string_id = CharField(primary_key=True)
-    spanish = CharField()
-    english = CharField()
-    french = CharField()
+    spanish = CharField(null=True)
+    english = CharField(null=True)
+    french = CharField(null=True)
 
 class Unit(BaseModel):
     unit_id = IntegerField(primary_key=True)
@@ -50,7 +50,10 @@ class Weapon(BaseModel):
     #burst_range = IntegerField(default=0)
     #burst_melee = IntegerField(default=0)
     is_melee = BooleanField()
-
+    short_range = CharField(null=True)
+    medium_range = CharField(null=True)    
+    long_range = CharField(null=True)
+    maximum_range = CharField(null=True)
 
 class WeaponProperty(BaseModel):
     weapon_property_id = IntegerField(primary_key=True)
