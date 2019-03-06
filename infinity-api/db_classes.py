@@ -1,4 +1,4 @@
-from peewee import SqliteDatabase, Model, CharField, BooleanField, IntegerField
+from peewee import SqliteDatabase, Model, CharField, BooleanField, IntegerField, ForeignKeyField
 
 
 db = SqliteDatabase("infinity.db")
@@ -8,6 +8,11 @@ class BaseModel(Model):
     class Meta:
         database = db
 
+class String(BaseModel):
+    string_id = CharField(primary_key=True)
+    spanish = CharField()
+    english = CharField()
+    french = CharField()
 
 class Unit(BaseModel):
     unit_id = IntegerField(primary_key=True)
@@ -41,7 +46,7 @@ class Profile(BaseModel):
 class Weapon(BaseModel):
     weapon_id = IntegerField(primary_key=True)
     damage = CharField()
-    name = CharField(unique=True)
+    name = ForeignKeyField(String, backref="weapon_names")
     #burst_range = IntegerField(default=0)
     #burst_melee = IntegerField(default=0)
     is_melee = BooleanField()
@@ -49,34 +54,30 @@ class Weapon(BaseModel):
 
 class WeaponProperty(BaseModel):
     weapon_property_id = IntegerField(primary_key=True)
-    name = CharField(unique=True)
+    name = ForeignKeyField(String, backref="weapon_properties")
 
 
 class Ammo(BaseModel):
     ammo_id = IntegerField(primary_key=True)
-    name = CharField(unique=True)
+    name = ForeignKeyField(String, backref="ammo_names")
 
 
 class Sectorial(BaseModel):
     sectorial_id = IntegerField(primary_key=True)
-    name = CharField(unique=True)
+    name = ForeignKeyField(String, backref="sectorials")
     is_faction = BooleanField()
 
 
 class Ability(BaseModel):
     ability_id = IntegerField(primary_key=True)
-    name = CharField(unique=True)
+    name = ForeignKeyField(String, backref="abilities")
     wiki_url = CharField()
 
 
 class Characteristic(BaseModel):
     characteristic_id = IntegerField(primary_key=True)
-    name = CharField(unique=True)
+    name = ForeignKeyField(String, backref="characteristics")
     wiki_url = CharField()
 
 
-class String(BaseModel):
-    string_id = CharField(primary_key=True)
-    spanish = CharField()
-    english = CharField()
-    french = CharField()
+

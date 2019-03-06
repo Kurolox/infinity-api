@@ -14,7 +14,7 @@ def generate_db(db: SqliteDatabase) -> None:
              Profile, String, WeaponProperty])
 
 
-def populate_ammo(db: SqliteDatabase) -> None:
+def populate_ammo() -> None:
     """Populates the ammo types in it's database table. It will fetch the information from the specified language"""
 
     ammo_dict = defaultdict(dict)
@@ -24,11 +24,12 @@ def populate_ammo(db: SqliteDatabase) -> None:
             for item in load(ammo_file):
                 ammo_dict[item["id"]][language] = item["nombre"]
 
-    for ammo in ammo_dict.keys():
-        if not Ammo.get_or_create(ammo_id=ammo, name=f"ammo_{ammo}"):
-            print(f"Generating entry {ammo} in Ammo table...")
-
     populate_strings("ammo", ammo_dict)
+
+    for ammo in ammo_dict.keys():
+        if not Ammo.get_or_create(ammo_id=ammo, name=String.get(
+                String.string_id == f"ammo_{ammo}")):
+            print(f"Generating entry {ammo} in Ammo table...")
 
 
 def populate_strings(id_prefix: str, string_dict: tuple) -> None:
@@ -44,12 +45,12 @@ def populate_strings(id_prefix: str, string_dict: tuple) -> None:
                 string_id=f"{id_prefix}_{string_id}",
                 english=strings["ENG"] if "ENG" in strings.keys() else "",
                 spanish=strings["ESP"] if "ESP" in strings.keys() else "",
-                french=strings["FRA"]  if "FRA" in strings.keys() else ""):
+                french=strings["FRA"] if "FRA" in strings.keys() else ""):
             print(
                 f"Generating entry {id_prefix}_{string_id} in String table...")
 
 
-def populate_sectorials(db: SqliteDatabase) -> None:
+def populate_sectorials() -> None:
     """Populates the database with a list of sectorials and their respective ID's."""
 
     sectorial_dict = defaultdict(dict)
@@ -60,19 +61,20 @@ def populate_sectorials(db: SqliteDatabase) -> None:
                 sectorial_dict[int(sectorial.lstrip(
                     "idSectorial_"))][language] = name
 
+    populate_strings("sectorial", sectorial_dict)
+
     for sectorial in sectorial_dict.keys():
         if not Sectorial.get_or_create(
-                sectorial_id=sectorial, name=f"sectorial_{sectorial}",
+                sectorial_id=sectorial, name=String.get(
+                    String.string_id == f"sectorial_{sectorial}"),
                 is_faction=True if sectorial % 100 == 1 else False):
             print(f"Generating entry {sectorial} in Sectorial table...")
 
-    populate_strings("sectorial", sectorial_dict)
 
-
-def populate_weapons(db: SqliteDatabase) -> None:
+def populate_weapons() -> None:
     """Populates the weapons and weapon characteristic tables."""
 
-    populate_weapon_properties(db)
+    populate_weapon_properties()
 
     weapon_dict = defaultdict(dict)
 
@@ -93,19 +95,17 @@ def populate_weapons(db: SqliteDatabase) -> None:
     populate_strings("weapon_wiki", weapon_wiki_dict)
 
     with open(f"JSON/{listdir('JSON')[0]}/JSON_ARMAS.json") as weapon_file:
-         for weapon in load(weapon_file):
-             weapon_properties = {
-                 "weapon_id": int(weapon["id"]),
-                 "damage": weapon["dano"],
-                 "name": f"weapon_{weapon['id']}",
-                 "is_melee": True if weapon["CC"] == "1" else False,
-
-             }
-             Weapon.get_or_create(**weapon_properties)
-        
+        for weapon in load(weapon_file):
+            weapon_properties = {
+                "weapon_id": int(weapon["id"]),
+                "damage": weapon["dano"],
+                "name": String.get(
+                    String.string_id == f"weapon_{weapon['id']}"),
+                "is_melee": True if weapon["CC"] == "1" else False, }
+            Weapon.get_or_create(**weapon_properties)
 
 
-def populate_weapon_properties(db: SqliteDatabase) -> None:
+def populate_weapon_properties() -> None:
     """Based on the local weapons JSON, extracts all the weapon properties
     and populates the corresponding database table, and adds the strings to the string table."""
 
@@ -122,21 +122,21 @@ def populate_weapon_properties(db: SqliteDatabase) -> None:
                     if property_id != -1:
                         weapon_property_dict[property_id][language] = property_name
 
+    populate_strings("weapon_property", weapon_property_dict)
+
     for property_id in weapon_property_dict.keys():
         if not WeaponProperty.get_or_create(
-                weapon_property_id=property_id,
-                name=f"weapon_property_{property_id}"):
+            weapon_property_id=property_id, name=String.get(
+                String.string_id == f"weapon_property_{property_id}")):
             print(f"Generating entry {property_id} in WeaponProperty table...")
-
-    populate_strings("weapon_property", weapon_property_dict)
 
 
 def populate_db(db: SqliteDatabase) -> None:
     """Populates the database tables with the local JSON information."""
     with db as open_db:
-        populate_ammo(open_db)
-        populate_sectorials(open_db)
-        populate_weapons(open_db)
+        populate_ammo()
+        populate_sectorials()
+        populate_weapons()
 
 
 if "infinity.db" not in listdir():
