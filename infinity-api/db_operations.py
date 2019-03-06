@@ -90,10 +90,12 @@ def populate_weapon_properties(db: SqliteDatabase) -> None:
             for weapon in load(weapon_file):
                 for property_id, property_name in zip(
                     # TODO: Modify this workaround for weapons with no properties
-                    [int(identifier or 0)
+                    [int(identifier or -1)
                      for identifier in weapon["propiedades"].split("|")],
                         weapon["lista_propiedades"].split("|")):
-                    weapon_property_dict[property_id][language] = property_name
+                    if property_id != -1:
+                        weapon_property_dict[property_id][language] = property_name
+
 
     for property_id in weapon_property_dict.keys():
         if not WeaponProperty.select().where(
