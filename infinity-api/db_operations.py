@@ -27,8 +27,8 @@ def populate_ammo() -> None:
     populate_strings("ammo", ammo_dict)
 
     for ammo in ammo_dict.keys():
-        if not Ammo.get_or_create(ammo_id=ammo, name=String.get_by_id(
-                f"ammo_{ammo}")):
+        if Ammo.get_or_create(ammo_id=ammo, name=String.get_by_id(
+                f"ammo_{ammo}"))[1]:
             print(f"Generating entry {ammo} in Ammo table...")
 
 
@@ -41,11 +41,11 @@ def populate_strings(id_prefix: str, string_dict: tuple) -> None:
 
     for string_id, strings in string_dict.items():
 
-        if not String.get_or_create(
+        if String.get_or_create(
                 string_id=f"{id_prefix}_{string_id}",
                 english=strings["ENG"] if "ENG" in strings.keys() else None,
                 spanish=strings["ESP"] if "ESP" in strings.keys() else None,
-                french=strings["FRA"] if "FRA" in strings.keys() else None):
+                french=strings["FRA"] if "FRA" in strings.keys() else None)[1]:
             print(
                 f"Generating entry {id_prefix}_{string_id} in String table...")
 
@@ -64,10 +64,10 @@ def populate_sectorials() -> None:
     populate_strings("sectorial", sectorial_dict)
 
     for sectorial in sectorial_dict.keys():
-        if not Sectorial.get_or_create(
+        if Sectorial.get_or_create(
                 sectorial_id=sectorial, name=String.get_by_id(
                     f"sectorial_{sectorial}"),
-                is_faction=True if sectorial % 100 == 1 else False):
+                is_faction=True if sectorial % 100 == 1 else False)[1]:
             print(f"Generating entry {sectorial} in Sectorial table...")
 
 
@@ -104,9 +104,14 @@ def populate_weapons() -> None:
                 "short_range": weapon["corta"] if weapon["corta"] != "-" else None,
                 "medium_range": weapon["media"] if weapon["media"] != "-" else None,
                 "long_range": weapon["larga"] if weapon["larga"] != "-" else None,
-                "maximum_range": weapon["maxima"] if weapon["maxima"] != "-" else None
+                "maximum_range": weapon["maxima"] if weapon["maxima"] != "-" else None,
+                "ammo": Ammo.get_by_id(int(weapon["idMunicion"])) if int(weapon["idMunicion"]) else None,
+                "burst": weapon["rafaga"],
+
             }
-            Weapon.get_or_create(**weapon_properties)
+            if Weapon.get_or_create(**weapon_properties)[1]:
+                print(
+                    f"Generating entry {weapon_properties['weapon_id']} in Weapon table...")
 
 
 def populate_weapon_properties() -> None:
@@ -129,9 +134,9 @@ def populate_weapon_properties() -> None:
     populate_strings("weapon_property", weapon_property_dict)
 
     for property_id in weapon_property_dict.keys():
-        if not WeaponProperty.get_or_create(
+        if WeaponProperty.get_or_create(
             weapon_property_id=property_id, name=String.get_by_id(
-                f"weapon_property_{property_id}")):
+                f"weapon_property_{property_id}"))[1]:
             print(f"Generating entry {property_id} in WeaponProperty table...")
 
 

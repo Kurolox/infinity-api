@@ -3,16 +3,42 @@ from peewee import SqliteDatabase, Model, CharField, BooleanField, IntegerField,
 
 db = SqliteDatabase("infinity.db")
 
+
 class BaseModel(Model):
 
     class Meta:
         database = db
+
 
 class String(BaseModel):
     string_id = CharField(primary_key=True)
     spanish = CharField(null=True)
     english = CharField(null=True)
     french = CharField(null=True)
+
+
+class Ammo(BaseModel):
+    ammo_id = IntegerField(primary_key=True)
+    name = ForeignKeyField(String, backref="ammo_names")
+
+
+class Sectorial(BaseModel):
+    sectorial_id = IntegerField(primary_key=True)
+    name = ForeignKeyField(String, backref="sectorials")
+    is_faction = BooleanField()
+
+
+class Ability(BaseModel):
+    ability_id = IntegerField(primary_key=True)
+    name = ForeignKeyField(String, backref="abilities")
+    wiki_url = CharField()
+
+
+class Characteristic(BaseModel):
+    characteristic_id = IntegerField(primary_key=True)
+    name = ForeignKeyField(String, backref="characteristics")
+    wiki_url = CharField()
+
 
 class Unit(BaseModel):
     unit_id = IntegerField(primary_key=True)
@@ -51,36 +77,13 @@ class Weapon(BaseModel):
     #burst_melee = IntegerField(default=0)
     is_melee = BooleanField()
     short_range = CharField(null=True)
-    medium_range = CharField(null=True)    
+    medium_range = CharField(null=True)
     long_range = CharField(null=True)
     maximum_range = CharField(null=True)
+    ammo = ForeignKeyField(Ammo, null=True, backref="weapon_ammo")
+    burst = CharField()
+
 
 class WeaponProperty(BaseModel):
     weapon_property_id = IntegerField(primary_key=True)
     name = ForeignKeyField(String, backref="weapon_properties")
-
-
-class Ammo(BaseModel):
-    ammo_id = IntegerField(primary_key=True)
-    name = ForeignKeyField(String, backref="ammo_names")
-
-
-class Sectorial(BaseModel):
-    sectorial_id = IntegerField(primary_key=True)
-    name = ForeignKeyField(String, backref="sectorials")
-    is_faction = BooleanField()
-
-
-class Ability(BaseModel):
-    ability_id = IntegerField(primary_key=True)
-    name = ForeignKeyField(String, backref="abilities")
-    wiki_url = CharField()
-
-
-class Characteristic(BaseModel):
-    characteristic_id = IntegerField(primary_key=True)
-    name = ForeignKeyField(String, backref="characteristics")
-    wiki_url = CharField()
-
-
-
