@@ -96,22 +96,40 @@ def populate_weapons() -> None:
 
     with open(f"JSON/{listdir('JSON')[0]}/JSON_ARMAS.json") as weapon_file:
         for weapon in load(weapon_file):
+            burst_range, burst_melee = calculate_burst(weapon)
             weapon_properties = {
                 "weapon_id": int(weapon["id"]),
+                # TODO: Correct damage language by using JSON_ATRIBUTOS_ROT
                 "damage": weapon["dano"],
                 "name": String.get_by_id(f"weapon_{weapon['id']}"),
                 "is_melee": True if weapon["CC"] == "1" else False,
-                "short_range": weapon["corta"] if weapon["corta"] != "-" else None,
-                "medium_range": weapon["media"] if weapon["media"] != "-" else None,
-                "long_range": weapon["larga"] if weapon["larga"] != "-" else None,
-                "maximum_range": weapon["maxima"] if weapon["maxima"] != "-" else None,
-                "ammo": Ammo.get_by_id(int(weapon["idMunicion"])) if int(weapon["idMunicion"]) else None,
-                "burst": weapon["rafaga"],
-
-            }
+                "short_range": validate_range(weapon["corta"]),
+                "medium_range": validate_range(weapon["media"]),
+                "long_range": validate_range(weapon["larga"]),
+                "maximum_range": validate_range(weapon["maxima"]),
+                "ammo": Ammo.get_by_id(int(weapon["idMunicion"]))
+                if int(weapon["idMunicion"]) else None,
+                "burst_range": burst_range, "burst_melee": burst_melee}
             if Weapon.get_or_create(**weapon_properties)[1]:
                 print(
                     f"Generating entry {weapon_properties['weapon_id']} in Weapon table...")
+
+
+def calculate_burst(weapon: dict) -> tuple:
+    """Extracts the burst values of a weapon, depending if it's melee, ranged or both.
+    The first value is the ranged burst, while the second one is the close combat burst.
+    If the weapon only has one type of burst, the other one will be None."""
+
+    if "(" in weapon["rafaga"]:
+        return tuple(int(char) for char in weapon["rafaga"] if char.isdigit())
+    if not [char for char in weapon["rafaga"] if char.isdigit()]:
+        return None, None
+    return (int(weapon["rafaga"]), None) if not int(weapon["CC"]) else (None, int(weapon["rafaga"]))
+
+
+def validate_range(weapon_range: str) -> str:
+    """Given a weapon value range, it checks if it's a valid range or not. If it isn't, this returns Null."""
+    return weapon_range.replace("|", ",") if "|" in weapon_range else None
 
 
 def populate_weapon_properties() -> None:

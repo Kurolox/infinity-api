@@ -73,15 +73,14 @@ class Weapon(BaseModel):
     weapon_id = IntegerField(primary_key=True)
     damage = CharField()
     name = ForeignKeyField(String, backref="weapon_names")
-    #burst_range = IntegerField(default=0)
-    #burst_melee = IntegerField(default=0)
     is_melee = BooleanField()
     short_range = CharField(null=True)
     medium_range = CharField(null=True)
     long_range = CharField(null=True)
     maximum_range = CharField(null=True)
     ammo = ForeignKeyField(Ammo, null=True, backref="weapon_ammo")
-    burst = CharField()
+    burst_melee = IntegerField(null=True)
+    burst_range = IntegerField(null=True)
 
 
 class WeaponProperty(BaseModel):
