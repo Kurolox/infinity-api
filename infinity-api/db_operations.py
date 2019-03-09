@@ -1,4 +1,5 @@
-from db_classes import db, Unit, Weapon, Ammo, Ability, Characteristic, Sectorial, Profile, String, WeaponProperty
+from db_classes import db, Unit, Weapon, Ammo, Ability, Characteristic, \
+    Sectorial, Profile, String, WeaponProperty
 from peewee import SqliteDatabase
 from json import load
 from os import listdir
@@ -15,7 +16,7 @@ def generate_db(db: SqliteDatabase) -> None:
 
 
 def populate_ammo() -> None:
-    """Populates the ammo types in it's database table. It will fetch the information from the specified language"""
+    """Populates the ammo types in it's database table."""
 
     ammo_dict = defaultdict(dict)
 
@@ -34,10 +35,11 @@ def populate_ammo() -> None:
 
 def populate_strings(id_prefix: str, string_dict: tuple) -> None:
     """Generates the strings in the database. It needs a dict of dicts,
-    with the key of each dict being the string id in the database and the values being the strings in each language.
-    The key of each language has to be the three initials in upper case (ENG, ESP, FRA...)"""
+    with the key of each dict being the string id in the database, 
+    and the values being the strings in each language.
+    The key of each language has to be the three initials (ENG, ESP, FRA...)"""
 
-    # TODO: Remove hardcoded languages and make it depend on the String defined languages only
+    # TODO: Make language recognition automated rather than hardcoded
 
     for string_id, strings in string_dict.items():
 
@@ -51,7 +53,7 @@ def populate_strings(id_prefix: str, string_dict: tuple) -> None:
 
 
 def populate_sectorials() -> None:
-    """Populates the database with a list of sectorials and their respective ID's."""
+    """Populates the database with the sectorials and their respective ID's."""
 
     sectorial_dict = defaultdict(dict)
 
@@ -88,8 +90,8 @@ def populate_weapons() -> None:
 
     weapon_wiki_dict = defaultdict(dict)
     for language in listdir("JSON"):
-        with open(f"JSON/{language}/JSON_ARMAS_WIKI_URLS.json") as weapon_wiki_file:
-            for weapon_id, weapon_wiki_link in load(weapon_wiki_file).items():
+        with open(f"JSON/{language}/JSON_ARMAS_WIKI_URLS.json") as weapon_wiki:
+            for weapon_id, weapon_wiki_link in load(weapon_wiki).items():
                 weapon_wiki_dict[int(weapon_id)][language] = weapon_wiki_link
 
     populate_strings("weapon_wiki", weapon_wiki_dict)
@@ -112,46 +114,49 @@ def populate_weapons() -> None:
                 "burst_range": burst_range, "burst_melee": burst_melee}
             if Weapon.get_or_create(**weapon_properties)[1]:
                 print(
-                    f"Generating entry {weapon_properties['weapon_id']} in Weapon table...")
+                    f"Generating entry {weapon['id']} in Weapon table...")
 
 
 def calculate_burst(weapon: dict) -> tuple:
-    """Extracts the burst values of a weapon, depending if it's melee, ranged or both.
-    The first value is the ranged burst, while the second one is the close combat burst.
+    """Get the burst values of a weapon depending if it's melee, ranged or both.
+    The first value is the ranged burst, while the second one is the CC burst.
     If the weapon only has one type of burst, the other one will be None."""
 
-    if "(" in weapon["rafaga"]:
-        return tuple(int(char) for char in weapon["rafaga"] if char.isdigit())
-    if not [char for char in weapon["rafaga"] if char.isdigit()]:
+    burst = weapon["rafaga"]
+
+    if "(" in burst:
+        return tuple(int(char) for char in burst if char.isdigit())
+    if not [char for char in burst if char.isdigit()]:
         return None, None
-    return (int(weapon["rafaga"]), None) if not int(weapon["CC"]) else (None, int(weapon["rafaga"]))
+    return (int(burst), None) if not int(weapon["CC"]) else (None, int(burst))
 
 
 def validate_range(weapon_range: str) -> str:
-    """Given a weapon value range, it checks if it's a valid range or not. If it isn't, this returns Null."""
+    """Given a weapon value range, it checks if it's a valid range or not.
+     If it isn't, this returns Null."""
+
     return weapon_range.replace("|", ",") if "|" in weapon_range else None
 
 
 def populate_weapon_properties() -> None:
     """Based on the local weapons JSON, extracts all the weapon properties
-    and populates the corresponding database table, and adds the strings to the string table."""
+    and populates the database with them.."""
 
-    weapon_property_dict = defaultdict(dict)
+    weapon_properties = defaultdict(dict)
 
     for language in listdir("JSON"):
         with open(f"JSON/{language}/JSON_ARMAS.json") as weapon_file:
             for weapon in load(weapon_file):
                 for property_id, property_name in zip(
-                    # TODO: Modify this workaround for weapons with no properties
                     [int(identifier or -1)
                      for identifier in weapon["propiedades"].split("|")],
                         weapon["lista_propiedades"].split("|")):
                     if property_id != -1:
-                        weapon_property_dict[property_id][language] = property_name
+                        weapon_properties[property_id][language] = property_name
 
-    populate_strings("weapon_property", weapon_property_dict)
+    populate_strings("weapon_property", weapon_properties)
 
-    for property_id in weapon_property_dict.keys():
+    for property_id in weapon_properties.keys():
         if WeaponProperty.get_or_create(
             weapon_property_id=property_id, name=String.get_by_id(
                 f"weapon_property_{property_id}"))[1]:
@@ -168,7 +173,8 @@ def populate_db(db: SqliteDatabase) -> None:
 
 if "infinity.db" not in listdir():
     generate_db(db)
-    # for language in ["ENG", "ESP", "FRA"]: TODO: Uncomment this before merging to develop
+    # TODO: Uncomment this before merging to develop
+    # for language in ["ENG", "ESP", "FRA"]:
     #    fetch_json(language)
 
 populate_db(db)

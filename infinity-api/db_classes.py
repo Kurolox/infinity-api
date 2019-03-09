@@ -1,4 +1,5 @@
-from peewee import SqliteDatabase, Model, CharField, BooleanField, IntegerField, ForeignKeyField
+from peewee import SqliteDatabase, Model, CharField, BooleanField, \
+    IntegerField, ForeignKeyField
 
 
 db = SqliteDatabase("infinity.db")
