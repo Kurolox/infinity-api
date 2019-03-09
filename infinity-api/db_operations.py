@@ -1,5 +1,5 @@
 from db_classes import db, Unit, Weapon, Ammo, Ability, Characteristic, \
-    Sectorial, Profile, String, WeaponProperty
+    Sectorial, Profile, String, WeaponProperty, Property
 from peewee import SqliteDatabase
 from json import load
 from os import listdir
@@ -12,7 +12,7 @@ def generate_db(db: SqliteDatabase) -> None:
     with db as open_db:
         open_db.create_tables(
             [Unit, Weapon, Ammo, Ability, Characteristic, Sectorial,
-             Profile, String, WeaponProperty])
+             Profile, String, Property, WeaponProperty])
 
 
 def populate_ammo() -> None:
@@ -27,10 +27,13 @@ def populate_ammo() -> None:
 
     populate_strings("ammo", ammo_dict)
 
+    print("Generating DB Ammo entries...", end=" ")
+
     for ammo in ammo_dict.keys():
-        if Ammo.get_or_create(ammo_id=ammo, name=String.get_by_id(
-                f"ammo_{ammo}"))[1]:
-            print(f"Generating entry {ammo} in Ammo table...")
+        Ammo.get_or_create(ammo_id=ammo, name=String.get_by_id(
+            f"ammo_{ammo}"))
+
+    print("Done.")
 
 
 def populate_strings(id_prefix: str, string_dict: tuple) -> None:
@@ -41,15 +44,17 @@ def populate_strings(id_prefix: str, string_dict: tuple) -> None:
 
     # TODO: Make language recognition automated rather than hardcoded
 
+    print(f"Generating DB String entries for {id_prefix}...", end=" ")
+
     for string_id, strings in string_dict.items():
 
-        if String.get_or_create(
-                string_id=f"{id_prefix}_{string_id}",
-                english=strings["ENG"] if "ENG" in strings.keys() else None,
-                spanish=strings["ESP"] if "ESP" in strings.keys() else None,
-                french=strings["FRA"] if "FRA" in strings.keys() else None)[1]:
-            print(
-                f"Generating entry {id_prefix}_{string_id} in String table...")
+        String.get_or_create(
+            string_id=f"{id_prefix}_{string_id}",
+            english=strings["ENG"] if "ENG" in strings.keys() else None,
+            spanish=strings["ESP"] if "ESP" in strings.keys() else None,
+            french=strings["FRA"] if "FRA" in strings.keys() else None)
+
+    print("Done.")
 
 
 def populate_sectorials() -> None:
@@ -65,18 +70,21 @@ def populate_sectorials() -> None:
 
     populate_strings("sectorial", sectorial_dict)
 
+    print("Generating DB Sectorial entries...", end=" ")
+
     for sectorial in sectorial_dict.keys():
-        if Sectorial.get_or_create(
-                sectorial_id=sectorial, name=String.get_by_id(
-                    f"sectorial_{sectorial}"),
-                is_faction=True if sectorial % 100 == 1 else False)[1]:
-            print(f"Generating entry {sectorial} in Sectorial table...")
+        Sectorial.get_or_create(
+            sectorial_id=sectorial, name=String.get_by_id(
+                f"sectorial_{sectorial}"),
+            is_faction=True if sectorial % 100 == 1 else False)
+
+    print("Done.")
 
 
 def populate_weapons() -> None:
     """Populates the weapons and weapon characteristic tables."""
 
-    populate_weapon_properties()
+    populate_properties()
 
     weapon_dict = defaultdict(dict)
 
@@ -96,10 +104,13 @@ def populate_weapons() -> None:
 
     populate_strings("weapon_wiki", weapon_wiki_dict)
 
+    print("Generating DB Weapon entries...", end=" ")
+
     with open(f"JSON/{listdir('JSON')[0]}/JSON_ARMAS.json") as weapon_file:
+
         for weapon in load(weapon_file):
             burst_range, burst_melee = calculate_burst(weapon)
-            weapon_properties = {
+            weapon_stats = {
                 "weapon_id": int(weapon["id"]),
                 # TODO: Correct damage language by using JSON_ATRIBUTOS_ROT
                 "damage": weapon["dano"],
@@ -112,9 +123,16 @@ def populate_weapons() -> None:
                 "ammo": Ammo.get_by_id(int(weapon["idMunicion"]))
                 if int(weapon["idMunicion"]) else None,
                 "burst_range": burst_range, "burst_melee": burst_melee}
-            if Weapon.get_or_create(**weapon_properties)[1]:
-                print(
-                    f"Generating entry {weapon['id']} in Weapon table...")
+            db_weapon = Weapon.get_or_create(**weapon_stats)
+
+            properties = [int(prop_id)
+                          for prop_id in weapon["propiedades"].split("|")
+                          if weapon["propiedades"]]
+            for property_id in properties:
+                WeaponProperty.get_or_create(
+                    weapon=db_weapon[0],
+                    weapon_property=Property.get_by_id(property_id))
+        print("Done.")
 
 
 def calculate_burst(weapon: dict) -> tuple:
@@ -138,7 +156,7 @@ def validate_range(weapon_range: str) -> str:
     return weapon_range.replace("|", ",") if "|" in weapon_range else None
 
 
-def populate_weapon_properties() -> None:
+def populate_properties() -> None:
     """Based on the local weapons JSON, extracts all the weapon properties
     and populates the database with them.."""
 
@@ -156,11 +174,13 @@ def populate_weapon_properties() -> None:
 
     populate_strings("weapon_property", weapon_properties)
 
+    print("Generating DB Property entries...", end=" ")
+
     for property_id in weapon_properties.keys():
-        if WeaponProperty.get_or_create(
+        Property.get_or_create(
             weapon_property_id=property_id, name=String.get_by_id(
-                f"weapon_property_{property_id}"))[1]:
-            print(f"Generating entry {property_id} in WeaponProperty table...")
+                f"weapon_property_{property_id}"))
+    print("Done.")
 
 
 def populate_db(db: SqliteDatabase) -> None:

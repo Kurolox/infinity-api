@@ -84,6 +84,10 @@ class Weapon(BaseModel):
     burst_range = IntegerField(null=True)
 
 
-class WeaponProperty(BaseModel):
+class Property(BaseModel):
     weapon_property_id = IntegerField(primary_key=True)
     name = ForeignKeyField(String, backref="weapon_properties")
+
+class WeaponProperty(BaseModel):
+    weapon = ForeignKeyField(Weapon)
+    weapon_property = ForeignKeyField(Property)
