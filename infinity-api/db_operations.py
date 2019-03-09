@@ -107,8 +107,9 @@ def populate_weapons() -> None:
     print("Generating DB Weapon entries...", end=" ")
 
     with open(f"JSON/{listdir('JSON')[0]}/JSON_ARMAS.json") as weapon_file:
-
-        for weapon in load(weapon_file):
+        # This has to be sorted, otherwise it may attempt to generate weapons
+        # with a parent that hasn't been generated yet
+        for weapon in sorted(load(weapon_file), key=lambda x: x["parent"]):
             burst_range, burst_melee = calculate_burst(weapon)
             weapon_stats = {
                 "weapon_id": int(weapon["id"]),
@@ -122,7 +123,10 @@ def populate_weapons() -> None:
                 "maximum_range": validate_range(weapon["maxima"]),
                 "ammo": Ammo.get_by_id(int(weapon["idMunicion"]))
                 if int(weapon["idMunicion"]) else None,
-                "burst_range": burst_range, "burst_melee": burst_melee}
+                "burst_range": burst_range,
+                "burst_melee": burst_melee,
+                "parent_weapon": Weapon.get_by_id(int(weapon["parent"]))
+                 if int(weapon["parent"]) else None}
             db_weapon = Weapon.get_or_create(**weapon_stats)
 
             properties = [int(prop_id)

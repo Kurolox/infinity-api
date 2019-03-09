@@ -82,6 +82,7 @@ class Weapon(BaseModel):
     ammo = ForeignKeyField(Ammo, null=True, backref="weapon_ammo")
     burst_melee = IntegerField(null=True)
     burst_range = IntegerField(null=True)
+    parent_weapon = ForeignKeyField("self", null=True)
 
 
 class Property(BaseModel):
