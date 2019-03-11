@@ -45,7 +45,7 @@ class Characteristic(BaseModel):
 class Unit(BaseModel):
     unit_id = IntegerField(primary_key=True)
     name = CharField(unique=True)
-    svg_icon = CharField(unique=True)
+    svg_icon = CharField()
     mov_1 = IntegerField()
     mov_2 = IntegerField()
     close_combat = IntegerField()
@@ -57,10 +57,6 @@ class Unit(BaseModel):
     wounds = IntegerField()
     silhouette = IntegerField()
     availability = IntegerField()
-    is_regular = BooleanField()
-    is_irregular = BooleanField()
-    is_impetuous = BooleanField()
-    is_extremely_impetuous = BooleanField()
     has_structure = BooleanField()
 
 

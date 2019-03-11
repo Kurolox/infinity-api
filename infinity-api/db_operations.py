@@ -62,7 +62,55 @@ def populate_strings(id_prefix: str, string_dict: tuple) -> None:
 def populate_units() -> None:
     """Populates the database with the units and their profiles."""
 
+    strings = defaultdict(dict)
+
+    # 901 sectorial is an outlier that makes everything harder since it doesn't
+    # follow any structure, so we blacklist it.
+    sectorials = [item.sectorial_id for item in Sectorial.select()
+                  if item.sectorial_id != 901]
+
     populate_unit_profiles()
+
+    for language in listdir("JSON"):
+        for sectorial in sectorials:
+            with open(f"JSON/{language}/{sectorial}.json") as sectorial_json:
+                for unit in load(sectorial_json):
+                    for profile in unit["perfiles"]:
+                        unit_id = int(profile["id"])
+                        strings[unit_id][language] = profile["nombre"]
+
+    populate_strings("unit", strings)
+
+    print("Generating DB Unit entries...", end=" ")
+
+    for sectorial in sectorials:
+        file_path = f"JSON/{listdir('JSON')[0]}/{sectorial}.json"
+        with open(file_path) as sectorial_json:
+            for unit in load(sectorial_json):
+                for profile in unit["perfiles"]:
+                    unit_id = int(profile["id"])
+                    unit_dict = {
+                        "unit_id": unit_id,
+                        "name": String.get_by_id(f"unit_{unit_id}"),
+                        "mov_1": int(profile["atributos"]["MOV1"]),
+                        "mov_2": int(profile["atributos"]["MOV2"]),
+                        "close_combat": int(profile["atributos"]["CC"]),
+                        "ballistic_skill": int(profile["atributos"]["CD"]),
+                        "phisique": int(profile["atributos"]["FIS"]),
+                        "willpower": int(profile["atributos"]["VOL"]),
+                        "armor": int(profile["atributos"]["BLI"]),
+                        "bts": int(profile["atributos"]["PB"]),
+                        "wounds": int(profile["atributos"]["H"]),
+                        "silhouette": int(profile["atributos"]["S"]),
+                        "availability": int(profile["atributos"]["Disp"]),
+                        "has_structure": bool(int(profile["atributos"]["EST"])),
+                        # TODO: Fix svg_icon to work with non-first profiles
+                        "svg_icon": f"https://assets.infinitythegame.net/infinityarmy/img/logos/logos_{sectorial}/logo_{unit['IDArmy']}.svg"
+                    }
+
+                    Unit.get_or_create(**unit_dict)
+
+    print("Done.")
 
 
 def populate_unit_profiles() -> None:
