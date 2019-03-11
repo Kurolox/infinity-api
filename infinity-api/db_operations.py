@@ -66,8 +66,7 @@ def populate_units() -> None:
 def populate_unit_profiles() -> None:
     """Populates each unit profile in the database."""
 
-    print("Generating DB Profile entries...", end=" ")
-
+    strings = defaultdict(dict)
 
     # 901 sectorial is an outlier that makes everything harder since it doesn't
     # follow any structure, so we blacklist it.
@@ -80,14 +79,29 @@ def populate_unit_profiles() -> None:
                 for unit in load(sectorial_json):
                     for unit_profile in unit["perfiles"]:
                         for profile in unit_profile["opciones"]:
+                            profile_id = int(profile["id"])
+                            strings[profile_id][language] = profile["nombre"]
+
+    populate_strings("profile", strings)
+
+    print("Generating DB Profile entries...", end=" ")
+
+    for language in listdir("JSON"):
+        for sectorial in sectorials:
+            with open(f"JSON/{language}/{sectorial}.json") as sectorial_json:
+                for unit in load(sectorial_json):
+                    for unit_profile in unit["perfiles"]:
+                        for profile in unit_profile["opciones"]:
                             profile_dict = {
                                 "profile_id": int(profile["id"]),
                                 "unit_id": int(profile["idUnidad"]),
                                 "cap": float(profile["CAP"])
                                 if profile["CAP"].replace("-", "") else 0.,
-                                "point_cost": int(profile["puntos"])}
+                                "point_cost": int(profile["puntos"]),
+                                "name": String.get_by_id(
+                                    f"profile_{int(profile['id'])}")}
 
-                        Profile.get_or_create(**profile_dict)
+                            Profile.get_or_create(**profile_dict)
 
     print("Done.")
 

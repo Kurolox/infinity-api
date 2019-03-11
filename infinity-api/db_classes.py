@@ -68,6 +68,7 @@ class Profile(BaseModel):
     unit_id = IntegerField()
     cap = FloatField()
     point_cost = IntegerField()
+    name = ForeignKeyField(String)
 
 
 class Weapon(BaseModel):
