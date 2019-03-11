@@ -1,5 +1,5 @@
 from peewee import SqliteDatabase, Model, CharField, BooleanField, \
-    IntegerField, ForeignKeyField
+    IntegerField, ForeignKeyField, FloatField
 
 
 db = SqliteDatabase("infinity.db")
@@ -66,7 +66,7 @@ class Unit(BaseModel):
 class Profile(BaseModel):
     profile_id = IntegerField(primary_key=True)
     unit_id = IntegerField()
-    cap = IntegerField()
+    cap = FloatField()
     point_cost = IntegerField()
 
 

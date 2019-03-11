@@ -57,6 +57,41 @@ def populate_strings(id_prefix: str, string_dict: tuple) -> None:
     print("Done.")
 
 
+def populate_units() -> None:
+    """Populates the database with the units and their profiles."""
+
+    populate_unit_profiles()
+
+
+def populate_unit_profiles() -> None:
+    """Populates each unit profile in the database."""
+
+    print("Generating DB Profile entries...", end=" ")
+
+
+    # 901 sectorial is an outlier that makes everything harder since it doesn't
+    # follow any structure, so we blacklist it.
+    sectorials = [item.sectorial_id for item in Sectorial.select()
+                  if item.sectorial_id != 901]
+
+    for language in listdir("JSON"):
+        for sectorial in sectorials:
+            with open(f"JSON/{language}/{sectorial}.json") as sectorial_json:
+                for unit in load(sectorial_json):
+                    for unit_profile in unit["perfiles"]:
+                        for profile in unit_profile["opciones"]:
+                            profile_dict = {
+                                "profile_id": int(profile["id"]),
+                                "unit_id": int(profile["idUnidad"]),
+                                "cap": float(profile["CAP"])
+                                if profile["CAP"].replace("-", "") else 0.,
+                                "point_cost": int(profile["puntos"])}
+
+                        Profile.get_or_create(**profile_dict)
+
+    print("Done.")
+
+
 def populate_sectorials() -> None:
     """Populates the database with the sectorials and their respective ID's."""
 
@@ -126,7 +161,7 @@ def populate_weapons() -> None:
                 "burst_range": burst_range,
                 "burst_melee": burst_melee,
                 "parent_weapon": Weapon.get_by_id(int(weapon["parent"]))
-                 if int(weapon["parent"]) else None}
+                if int(weapon["parent"]) else None}
             db_weapon = Weapon.get_or_create(**weapon_stats)
 
             properties = [int(prop_id)
@@ -136,6 +171,7 @@ def populate_weapons() -> None:
                 WeaponProperty.get_or_create(
                     weapon=db_weapon[0],
                     weapon_property=Property.get_by_id(property_id))
+
         print("Done.")
 
 
@@ -184,6 +220,7 @@ def populate_properties() -> None:
         Property.get_or_create(
             weapon_property_id=property_id, name=String.get_by_id(
                 f"weapon_property_{property_id}"))
+
     print("Done.")
 
 
@@ -193,6 +230,7 @@ def populate_db(db: SqliteDatabase) -> None:
         populate_ammo()
         populate_sectorials()
         populate_weapons()
+        populate_units()
 
 
 if "infinity.db" not in listdir():
