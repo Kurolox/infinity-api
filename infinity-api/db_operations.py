@@ -1,5 +1,6 @@
 from db_classes import db, Unit, Weapon, Ammo, Ability, Characteristic, \
-    Sectorial, Profile, String, WeaponProperty, Property, ProfileWeapon
+    Sectorial, Profile, String, WeaponProperty, Property, ProfileWeapon, \
+    ProfileCharacteristic, ProfileAbility
 from peewee import SqliteDatabase
 from json import load
 from os import listdir
@@ -11,8 +12,9 @@ def generate_db(db: SqliteDatabase) -> None:
     """Generates all the database tables."""
     with db as open_db:
         open_db.create_tables(
-            [Unit, Weapon, Ammo, Ability, Characteristic, Sectorial,
-             Profile, String, Property, WeaponProperty, ProfileWeapon])
+            [Unit, Weapon, Ammo, Ability, Characteristic, Sectorial, Profile,
+             String, Property, WeaponProperty, ProfileWeapon,
+             ProfileCharacteristic, ProfileAbility])
 
 
 def populate_ammo() -> None:
@@ -93,26 +95,59 @@ def populate_unit_profiles() -> None:
                 for unit_profile in unit["perfiles"]:
                     for profile in unit_profile["opciones"]:
                         profile_id = int(profile["id"])
+                        reg, irreg, impetuous = get_orders(profile["ordenes"])
                         profile_dict = {
                             "profile_id": profile_id,
+                            "name": String.get_by_id(
+                                f"profile_{int(profile['id'])}"),
                             "unit_id": int(profile["idUnidad"]),
                             "cap": float(profile["CAP"])
                             if profile["CAP"].replace("-", "") else 0.,
                             "point_cost": int(profile["puntos"]),
-                            "name": String.get_by_id(
-                                f"profile_{int(profile['id'])}")}
+                            "regular_orders": reg,
+                            "irregular_orders": irreg,
+                            "impetuous_orders": impetuous}
 
                         profile_item = Profile.get_or_create(**profile_dict)[0]
 
-                        for weapon_id in [
-                                int(weapon)
-                                for weapon in profile["armas"].strip("|").split("|")
-                                if profile["armas"].strip("|")]:
+                        for weapon_id in strip_separators(profile["armas"]):
                             ProfileWeapon.get_or_create(
                                 weapon=Weapon.get_by_id(weapon_id),
                                 profile=profile_item)
 
+                        for characteristic_id in strip_separators(
+                                profile["caracteristicas"]):
+
+                            ProfileCharacteristic.get_or_create(
+                                characteristic=Characteristic.get_by_id(
+                                    characteristic_id), profile=profile_item)
+
+                        for ability_id in strip_separators(profile["extra"]):
+
+                            ProfileAbility.get_or_create(
+                                ability=Ability.get_by_id(ability_id),
+                                profile=profile_item)
+
     print("Done.")
+
+
+def strip_separators(raw_string: str, separator: str = "|") -> tuple:
+    """Given a string with numerical values separated by separators, 
+    it returns a tuple with it's contents."""
+
+    return tuple(
+        int(value) for value in raw_string.strip("|").split("|")
+        if raw_string.strip("|"))
+
+
+def get_orders(raw_orders: str) -> tuple:
+    """Returns a tuple with the orders of an unit. They are, from left to right,
+    the regular, irregular, and impetuous orders."""
+
+    orders = [int(order) if int(order) else None
+              for order in raw_orders.split("%")]
+
+    return orders[0], orders[1], orders[2]
 
 
 def populate_sectorials() -> None:

@@ -32,7 +32,7 @@ class Sectorial(BaseModel):
 class Ability(BaseModel):
     ability_id = IntegerField(primary_key=True)
     name = ForeignKeyField(String, backref="abilities")
-    #TODO: Separate items to a different class?
+    # TODO: Separate items to a different class?
     is_item = BooleanField()
     wiki_url = CharField(null=True)
 
@@ -40,6 +40,7 @@ class Ability(BaseModel):
 class Characteristic(BaseModel):
     characteristic_id = IntegerField(primary_key=True)
     name = ForeignKeyField(String, backref="characteristics")
+
 
 class Unit(BaseModel):
     unit_id = IntegerField(primary_key=True)
@@ -69,6 +70,9 @@ class Profile(BaseModel):
     cap = FloatField()
     point_cost = IntegerField()
     name = ForeignKeyField(String)
+    regular_orders = IntegerField(null=True)
+    irregular_orders = IntegerField(null=True)
+    impetuous_orders = IntegerField(null=True)
 
 
 class Weapon(BaseModel):
@@ -90,10 +94,22 @@ class Property(BaseModel):
     weapon_property_id = IntegerField(primary_key=True)
     name = ForeignKeyField(String, backref="weapon_properties")
 
+
 class ProfileWeapon(BaseModel):
     profile = ForeignKeyField(Profile)
     weapon = ForeignKeyField(Weapon)
 
+
 class WeaponProperty(BaseModel):
     weapon = ForeignKeyField(Weapon)
     weapon_property = ForeignKeyField(Property)
+
+
+class ProfileCharacteristic(BaseModel):
+    profile = ForeignKeyField(Profile)
+    characteristic = ForeignKeyField(Characteristic)
+
+
+class ProfileAbility(BaseModel):
+    profile = ForeignKeyField(Profile)
+    ability = ForeignKeyField(Ability)
