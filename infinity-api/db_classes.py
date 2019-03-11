@@ -90,6 +90,10 @@ class Property(BaseModel):
     weapon_property_id = IntegerField(primary_key=True)
     name = ForeignKeyField(String, backref="weapon_properties")
 
+class ProfileWeapon(BaseModel):
+    profile = ForeignKeyField(Profile)
+    weapon = ForeignKeyField(Weapon)
+
 class WeaponProperty(BaseModel):
     weapon = ForeignKeyField(Weapon)
     weapon_property = ForeignKeyField(Property)

@@ -1,5 +1,5 @@
 from db_classes import db, Unit, Weapon, Ammo, Ability, Characteristic, \
-    Sectorial, Profile, String, WeaponProperty, Property
+    Sectorial, Profile, String, WeaponProperty, Property, ProfileWeapon
 from peewee import SqliteDatabase
 from json import load
 from os import listdir
@@ -12,7 +12,7 @@ def generate_db(db: SqliteDatabase) -> None:
     with db as open_db:
         open_db.create_tables(
             [Unit, Weapon, Ammo, Ability, Characteristic, Sectorial,
-             Profile, String, Property, WeaponProperty])
+             Profile, String, Property, WeaponProperty, ProfileWeapon])
 
 
 def populate_ammo() -> None:
@@ -38,7 +38,7 @@ def populate_ammo() -> None:
 
 def populate_strings(id_prefix: str, string_dict: tuple) -> None:
     """Generates the strings in the database. It needs a dict of dicts,
-    with the key of each dict being the string id in the database, 
+    with the key of each dict being the string id in the database,
     and the values being the strings in each language.
     The key of each language has to be the three initials (ENG, ESP, FRA...)"""
 
@@ -86,22 +86,31 @@ def populate_unit_profiles() -> None:
 
     print("Generating DB Profile entries...", end=" ")
 
-    for language in listdir("JSON"):
-        for sectorial in sectorials:
-            with open(f"JSON/{language}/{sectorial}.json") as sectorial_json:
-                for unit in load(sectorial_json):
-                    for unit_profile in unit["perfiles"]:
-                        for profile in unit_profile["opciones"]:
-                            profile_dict = {
-                                "profile_id": int(profile["id"]),
-                                "unit_id": int(profile["idUnidad"]),
-                                "cap": float(profile["CAP"])
-                                if profile["CAP"].replace("-", "") else 0.,
-                                "point_cost": int(profile["puntos"]),
-                                "name": String.get_by_id(
-                                    f"profile_{int(profile['id'])}")}
+    for sectorial in sectorials:
+        file_path = f"JSON/{listdir('JSON')[0]}/{sectorial}.json"
+        with open(file_path) as sectorial_json:
+            for unit in load(sectorial_json):
+                for unit_profile in unit["perfiles"]:
+                    for profile in unit_profile["opciones"]:
+                        profile_id = int(profile["id"])
+                        profile_dict = {
+                            "profile_id": profile_id,
+                            "unit_id": int(profile["idUnidad"]),
+                            "cap": float(profile["CAP"])
+                            if profile["CAP"].replace("-", "") else 0.,
+                            "point_cost": int(profile["puntos"]),
+                            "name": String.get_by_id(
+                                f"profile_{int(profile['id'])}")}
 
-                            Profile.get_or_create(**profile_dict)
+                        Profile.get_or_create(**profile_dict)
+
+                        for weapon_id in [
+                                int(weapon)
+                                for weapon in profile["armas"].strip("|").split("|")
+                                if profile["armas"].strip("|")]:
+                            ProfileWeapon.get_or_create(
+                                weapon=Weapon.get_by_id(weapon_id),
+                                profile=Profile.get_by_id(profile_id))
 
     print("Done.")
 
