@@ -109,3 +109,18 @@ class ProfileCharacteristic(BaseModel):
 class ProfileAbility(BaseModel):
     profile = ForeignKeyField(Profile)
     ability = ForeignKeyField(Ability)
+
+
+class UnitProfile(BaseModel):
+    unit = ForeignKeyField(Unit)
+    profile = ForeignKeyField(Profile)
+
+
+class UnitCharacteristic(BaseModel):
+    unit = ForeignKeyField(Unit)
+    characteristic = ForeignKeyField(Characteristic)
+
+
+class UnitAbility(BaseModel):
+    unit = ForeignKeyField(Unit)
+    ability = ForeignKeyField(Ability)

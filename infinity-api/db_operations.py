@@ -1,11 +1,13 @@
 from db_classes import db, Unit, Weapon, Ammo, Ability, Characteristic, \
     Sectorial, Profile, String, WeaponProperty, Property, ProfileWeapon, \
-    ProfileCharacteristic, ProfileAbility
+    ProfileCharacteristic, ProfileAbility, UnitProfile, UnitCharacteristic, \
+    UnitAbility
 from peewee import SqliteDatabase
 from json import load
 from os import listdir
 from collections import defaultdict
 from fetcher import fetch_json
+from re import findall
 
 
 def generate_db(db: SqliteDatabase) -> None:
@@ -14,7 +16,8 @@ def generate_db(db: SqliteDatabase) -> None:
         open_db.create_tables(
             [Unit, Weapon, Ammo, Ability, Characteristic, Sectorial, Profile,
              String, Property, WeaponProperty, ProfileWeapon,
-             ProfileCharacteristic, ProfileAbility])
+             ProfileCharacteristic, ProfileAbility, UnitProfile,
+             UnitCharacteristic, UnitAbility])
 
 
 def populate_ammo() -> None:
@@ -108,7 +111,26 @@ def populate_units() -> None:
                         "svg_icon": f"https://assets.infinitythegame.net/infinityarmy/img/logos/logos_{sectorial}/logo_{unit['IDArmy']}.svg"
                     }
 
-                    Unit.get_or_create(**unit_dict)
+                    unit_item = Unit.get_or_create(**unit_dict)[0]
+
+                    for profile_item in Profile.select().where(Profile.unit_id == unit_id):
+                        UnitProfile.get_or_create(
+                            unit=unit_item, profile=profile_item)
+
+                    for characteristic_id in strip_separators(
+                            profile["caracteristicas"]):
+
+                        UnitCharacteristic.get_or_create(
+                            unit=unit_item,
+                            characteristic=Characteristic.get_by_id(
+                                characteristic_id))
+
+                    for ability_id in strip_separators(
+                            profile["equipo_habs"]):
+
+                        UnitAbility.get_or_create(
+                            unit=unit_item, ability=Ability.get_by_id(
+                                ability_id))
 
     print("Done.")
 
@@ -183,8 +205,10 @@ def strip_separators(raw_string: str, separator: str = "|") -> tuple:
     """Given a string with numerical values separated by separators, 
     it returns a tuple with it's contents."""
 
+    # TODO: Remove extra replace due to some scenarios where multiple
+    # separators are being used at once
     return tuple(
-        int(value) for value in raw_string.strip("|").split("|")
+        int(value) for value in findall(r"(\d+)", raw_string)
         if raw_string.strip("|"))
 
 
