@@ -32,14 +32,14 @@ class Sectorial(BaseModel):
 class Ability(BaseModel):
     ability_id = IntegerField(primary_key=True)
     name = ForeignKeyField(String, backref="abilities")
-    wiki_url = CharField()
+    #TODO: Separate items to a different class?
+    is_item = BooleanField()
+    wiki_url = CharField(null=True)
 
 
 class Characteristic(BaseModel):
     characteristic_id = IntegerField(primary_key=True)
     name = ForeignKeyField(String, backref="characteristics")
-    wiki_url = CharField()
-
 
 class Unit(BaseModel):
     unit_id = IntegerField(primary_key=True)

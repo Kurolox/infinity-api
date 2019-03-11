@@ -102,7 +102,7 @@ def populate_unit_profiles() -> None:
                             "name": String.get_by_id(
                                 f"profile_{int(profile['id'])}")}
 
-                        Profile.get_or_create(**profile_dict)
+                        profile_item = Profile.get_or_create(**profile_dict)[0]
 
                         for weapon_id in [
                                 int(weapon)
@@ -110,7 +110,7 @@ def populate_unit_profiles() -> None:
                                 if profile["armas"].strip("|")]:
                             ProfileWeapon.get_or_create(
                                 weapon=Weapon.get_by_id(weapon_id),
-                                profile=Profile.get_by_id(profile_id))
+                                profile=profile_item)
 
     print("Done.")
 
@@ -247,10 +247,71 @@ def populate_properties() -> None:
     print("Done.")
 
 
+def populate_abilities() -> None:
+    """Populates the database with the list of abilities."""
+
+    abilities = defaultdict(dict)
+    wiki_links = defaultdict(dict)
+
+    for language in listdir("JSON"):
+        with open(f"JSON/{language}/JSON_HABILIDADES.json") as abilities_file:
+            for ability in load(abilities_file):
+                abilities[ability["id"]][language] = ability["nombre"]
+
+    populate_strings("ability", abilities)
+
+    for language in listdir("JSON"):
+        with open(f"JSON/{language}/JSON_HABS_WIKI_URLS.json") as wiki_file:
+            for ability_id, name in load(wiki_file).items():
+                wiki_links[int(ability_id)][language] = name
+
+    populate_strings("ability_wiki", wiki_links)
+
+    print("Generating DB Ability entries...", end=" ")
+
+    with open(f"JSON/{listdir('JSON')[0]}/JSON_HABILIDADES.json") as skill_file:
+        for ability in load(skill_file):
+            ability_id = int(ability["id"])
+            ability_breakdown = {
+                "ability_id": ability_id, "name": String.get_by_id(
+                    f"ability_{ability_id}"),
+                "is_item": bool(int(ability["equipo"])),
+                "wiki_url": String.get_or_none(
+                    String.string_id == f"ability_wiki_{ability_id}")}
+
+            Ability.get_or_create(**ability_breakdown)
+
+    print("Done.")
+
+
+def populate_characteristics() -> None:
+    """Populates the database with the list of characteristics."""
+
+    characteristics = defaultdict(dict)
+
+    for language in listdir("JSON"):
+        with open(f"JSON/{language}/JSON_CARACTERISTICAS.json") as traits_file:
+            for item in load(traits_file):
+                characteristics[item["id"]][language] = item["nombre"]
+
+    populate_strings("characteristic", characteristics)
+
+    print("Generating DB Characteristic entries...", end=" ")
+
+    for characteristic in characteristics.keys():
+        Characteristic.get_or_create(
+            characteristic_id=characteristic, name=String.get_by_id(
+                f"characteristic_{characteristic}"))
+
+    print("Done.")
+
+
 def populate_db(db: SqliteDatabase) -> None:
     """Populates the database tables with the local JSON information."""
     with db as open_db:
         populate_ammo()
+        populate_abilities()
+        populate_characteristics()
         populate_sectorials()
         populate_weapons()
         populate_units()
