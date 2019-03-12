@@ -426,7 +426,6 @@ def populate_db(db: SqliteDatabase) -> None:
 
 if "infinity.db" not in listdir():
     generate_db(db)
-    # TODO: Uncomment this before merging to develop
-    # for language in ["ENG", "ESP", "FRA"]:
-    #    fetch_json(language)
+    for language in ["ENG", "ESP", "FRA"]:
+        fetch_json(language)
     populate_db(db)
