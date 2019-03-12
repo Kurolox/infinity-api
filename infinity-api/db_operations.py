@@ -108,7 +108,9 @@ def populate_units() -> None:
                         "availability": int(profile["atributos"]["Disp"]),
                         "has_structure": bool(int(profile["atributos"]["EST"])),
                         # TODO: Fix svg_icon to work with non-first profiles
-                        "svg_icon": f"https://assets.infinitythegame.net/infinityarmy/img/logos/logos_{sectorial}/logo_{unit['IDArmy']}.svg"
+                        "svg_icon": f"https://assets.infinitythegame.net/\
+                            infinityarmy/img/logos/logos_{sectorial}/\
+                            logo_{unit['IDArmy']}.svg"
                     }
 
                     unit_item = Unit.get_or_create(**unit_dict)[0]
@@ -170,7 +172,7 @@ def populate_unit_profiles() -> None:
                             "profile_id": profile_id,
                             "name": String.get_by_id(
                                 f"profile_{int(profile['id'])}"),
-                            "unit_id": int(profile["idUnidad"]),
+                            "unit_id": int(profile["idPerfil"]),
                             "cap": float(profile["CAP"])
                             if profile["CAP"].replace("-", "") else 0.,
                             "point_cost": int(profile["puntos"]),
@@ -429,5 +431,4 @@ if "infinity.db" not in listdir():
     # TODO: Uncomment this before merging to develop
     # for language in ["ENG", "ESP", "FRA"]:
     #    fetch_json(language)
-
 populate_db(db)
