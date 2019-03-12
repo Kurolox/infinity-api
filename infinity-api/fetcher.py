@@ -65,8 +65,3 @@ def fetch_json(lang: str) -> None:
             f"https://army.infinitythegame.com/import/json_dataUnidades_{sectorial}_{lang.upper()}.js",
             file_name=str(sectorial),
             file_path=f"JSON/{lang.upper()}")
-
-
-fetch_json("ESP")
-fetch_json("ENG")
-fetch_json("FRA")
