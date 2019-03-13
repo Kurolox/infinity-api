@@ -107,6 +107,7 @@ def populate_units() -> None:
                         "silhouette": int(profile["atributos"]["S"]),
                         "availability": int(profile["atributos"]["Disp"]),
                         "has_structure": bool(int(profile["atributos"]["EST"])),
+                        "sectorial": Sectorial.get_by_id(int(unit["idFaccion"])),
                         # TODO: Fix svg_icon to work with non-first profiles
                         "svg_icon": f"https://assets.infinitythegame.net/infinityarmy/img/logos/logos_{sectorial}/logo_{unit['IDArmy']}.svg"
                     }
@@ -426,6 +427,7 @@ def populate_db(db: SqliteDatabase) -> None:
 
 if "infinity.db" not in listdir():
     generate_db(db)
-    for language in ["ENG", "ESP", "FRA"]:
-        fetch_json(language)
+    if "JSON" not in listdir():
+        for language in ["ENG", "ESP", "FRA"]:
+            fetch_json(language)
     populate_db(db)

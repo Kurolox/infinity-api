@@ -70,6 +70,7 @@ class Unit(BaseModel):
     silhouette = IntegerField()
     availability = IntegerField()
     has_structure = BooleanField()
+    sectorial = ForeignKeyField(Sectorial)
 
 
 class Profile(BaseModel):
