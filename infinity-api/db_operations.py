@@ -1,6 +1,6 @@
 from db_classes import db, Unit, Weapon, Ammo, Ability, Characteristic, \
     Sectorial, Profile, String, WeaponProperty, Property, ProfileWeapon, \
-    ProfileCharacteristic, ProfileAbility, UnitProfile, UnitCharacteristic, \
+    ProfileCharacteristic, ProfileAbility, UnitCharacteristic, \
     UnitAbility
 from peewee import SqliteDatabase
 from json import load
@@ -16,7 +16,7 @@ def generate_db(db: SqliteDatabase) -> None:
         open_db.create_tables(
             [Unit, Weapon, Ammo, Ability, Characteristic, Sectorial, Profile,
              String, Property, WeaponProperty, ProfileWeapon,
-             ProfileCharacteristic, ProfileAbility, UnitProfile,
+             ProfileCharacteristic, ProfileAbility,
              UnitCharacteristic, UnitAbility])
 
 
@@ -72,8 +72,6 @@ def populate_units() -> None:
     sectorials = [item.sectorial_id for item in Sectorial.select()
                   if item.sectorial_id != 901]
 
-    populate_unit_profiles()
-
     for language in listdir("JSON"):
         for sectorial in sectorials:
             with open(f"JSON/{language}/{sectorial}.json") as sectorial_json:
@@ -114,10 +112,6 @@ def populate_units() -> None:
 
                     unit_item = Unit.get_or_create(**unit_dict)[0]
 
-                    for profile_item in Profile.select().where(Profile.unit_id == unit_id):
-                        UnitProfile.get_or_create(
-                            unit=unit_item, profile=profile_item)
-
                     for characteristic_id in strip_separators(
                             profile["caracteristicas"]):
 
@@ -134,6 +128,8 @@ def populate_units() -> None:
                                 ability_id))
 
     print("Done.")
+
+    populate_unit_profiles()
 
 
 def populate_unit_profiles() -> None:
@@ -171,7 +167,7 @@ def populate_unit_profiles() -> None:
                             "profile_id": profile_id,
                             "name": String.get_by_id(
                                 f"profile_{int(profile['id'])}"),
-                            "unit_id": int(profile["idPerfil"]),
+                            "unit": Unit[int(profile["idPerfil"])],
                             "cap": float(profile["CAP"])
                             if profile["CAP"].replace("-", "") else 0.,
                             "point_cost": int(profile["puntos"]),
@@ -431,3 +427,4 @@ if "infinity.db" not in listdir():
         for language in ["ENG", "ESP", "FRA"]:
             fetch_json(language)
     populate_db(db)
+

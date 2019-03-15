@@ -77,7 +77,7 @@ class Profile(BaseModel):
     """This class stores all the profiles of each unit."""
 
     profile_id = IntegerField(primary_key=True)
-    unit_id = IntegerField()
+    unit = ForeignKeyField(Unit, backref="profiles")
     cap = FloatField()
     point_cost = IntegerField()
     name = ForeignKeyField(String)
@@ -141,14 +141,6 @@ class ProfileAbility(BaseModel):
 
     profile = ForeignKeyField(Profile)
     ability = ForeignKeyField(Ability)
-
-
-class UnitProfile(BaseModel):
-    """This class stores the relations between an unit and all the profiles
-    that unit has."""
-
-    unit = ForeignKeyField(Unit)
-    profile = ForeignKeyField(Profile)
 
 
 class UnitCharacteristic(BaseModel):
