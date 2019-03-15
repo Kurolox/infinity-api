@@ -35,8 +35,7 @@ def populate_ammo() -> None:
     print("Generating DB Ammo entries...", end=" ")
 
     for ammo in ammo_dict.keys():
-        Ammo.get_or_create(ammo_id=ammo, name=String.get_by_id(
-            f"ammo_{ammo}"))
+        Ammo.get_or_create(ammo_id=ammo, name=String[f"ammo_{ammo}"])
 
     print("Done.")
 
@@ -92,7 +91,7 @@ def populate_units() -> None:
                     unit_id = int(profile["id"])
                     unit_dict = {
                         "unit_id": unit_id,
-                        "name": String.get_by_id(f"unit_{unit_id}"),
+                        "name": String[f"unit_{unit_id}"],
                         "mov_1": int(profile["atributos"]["MOV1"]),
                         "mov_2": int(profile["atributos"]["MOV2"]),
                         "close_combat": int(profile["atributos"]["CC"]),
@@ -105,7 +104,7 @@ def populate_units() -> None:
                         "silhouette": int(profile["atributos"]["S"]),
                         "availability": int(profile["atributos"]["Disp"]),
                         "has_structure": bool(int(profile["atributos"]["EST"])),
-                        "sectorial": Sectorial.get_by_id(int(unit["idFaccion"])),
+                        "sectorial": Sectorial[int(unit["idFaccion"])],
                         # TODO: Fix svg_icon to work with non-first profiles
                         "svg_icon": f"https://assets.infinitythegame.net/infinityarmy/img/logos/logos_{sectorial}/logo_{unit['IDArmy']}.svg"
                     }
@@ -117,15 +116,13 @@ def populate_units() -> None:
 
                         UnitCharacteristic.get_or_create(
                             unit=unit_item,
-                            characteristic=Characteristic.get_by_id(
-                                characteristic_id))
+                            characteristic=Characteristic[characteristic_id])
 
                     for ability_id in strip_separators(
                             profile["equipo_habs"]):
 
                         UnitAbility.get_or_create(
-                            unit=unit_item, ability=Ability.get_by_id(
-                                ability_id))
+                            unit=unit_item, ability=Ability[ability_id])
 
     print("Done.")
 
@@ -165,8 +162,7 @@ def populate_unit_profiles() -> None:
                         reg, irreg, impetuous = get_orders(profile["ordenes"])
                         profile_dict = {
                             "profile_id": profile_id,
-                            "name": String.get_by_id(
-                                f"profile_{int(profile['id'])}"),
+                            "name": String[f"profile_{profile['id']}"],
                             "unit": Unit[int(profile["idPerfil"])],
                             "cap": float(profile["CAP"])
                             if profile["CAP"].replace("-", "") else 0.,
@@ -179,20 +175,21 @@ def populate_unit_profiles() -> None:
 
                         for weapon_id in strip_separators(profile["armas"]):
                             ProfileWeapon.get_or_create(
-                                weapon=Weapon.get_by_id(weapon_id),
+                                weapon=Weapon[weapon_id],
                                 profile=profile_item)
 
                         for characteristic_id in strip_separators(
                                 profile["caracteristicas"]):
 
                             ProfileCharacteristic.get_or_create(
-                                characteristic=Characteristic.get_by_id(
-                                    characteristic_id), profile=profile_item)
+                                characteristic=Characteristic
+                                [characteristic_id],
+                                profile=profile_item)
 
                         for ability_id in strip_separators(profile["extra"]):
 
                             ProfileAbility.get_or_create(
-                                ability=Ability.get_by_id(ability_id),
+                                ability=Ability[ability_id],
                                 profile=profile_item)
 
     print("Done.")
@@ -236,8 +233,7 @@ def populate_sectorials() -> None:
 
     for sectorial in sectorial_dict.keys():
         Sectorial.get_or_create(
-            sectorial_id=sectorial, name=String.get_by_id(
-                f"sectorial_{sectorial}"),
+            sectorial_id=sectorial, name=String[f"sectorial_{sectorial}"],
             is_faction=True if sectorial % 100 == 1 else False)
 
     print("Done.")
@@ -277,17 +273,17 @@ def populate_weapons() -> None:
                 "weapon_id": int(weapon["id"]),
                 # TODO: Correct damage language by using JSON_ATRIBUTOS_ROT
                 "damage": weapon["dano"],
-                "name": String.get_by_id(f"weapon_{weapon['id']}"),
+                "name": String[f"weapon_{weapon['id']}"],
                 "is_melee": True if weapon["CC"] == "1" else False,
                 "short_range": validate_range(weapon["corta"]),
                 "medium_range": validate_range(weapon["media"]),
                 "long_range": validate_range(weapon["larga"]),
                 "maximum_range": validate_range(weapon["maxima"]),
-                "ammo": Ammo.get_by_id(int(weapon["idMunicion"]))
+                "ammo": Ammo[int(weapon["idMunicion"])]
                 if int(weapon["idMunicion"]) else None,
                 "burst_range": burst_range,
                 "burst_melee": burst_melee,
-                "parent_weapon": Weapon.get_by_id(int(weapon["parent"]))
+                "parent_weapon": Weapon[int(weapon["parent"])]
                 if int(weapon["parent"]) else None}
             db_weapon = Weapon.get_or_create(**weapon_stats)
 
@@ -297,7 +293,7 @@ def populate_weapons() -> None:
             for property_id in properties:
                 WeaponProperty.get_or_create(
                     weapon=db_weapon[0],
-                    weapon_property=Property.get_by_id(property_id))
+                    weapon_property=Property[property_id])
 
         print("Done.")
 
@@ -345,8 +341,7 @@ def populate_properties() -> None:
 
     for property_id in weapon_properties.keys():
         Property.get_or_create(
-            property_id=property_id, name=String.get_by_id(
-                f"property_{property_id}"))
+            property_id=property_id, name=String[f"property_{property_id}"])
 
     print("Done.")
 
@@ -376,12 +371,12 @@ def populate_abilities() -> None:
     with open(f"JSON/{listdir('JSON')[0]}/JSON_HABILIDADES.json") as skill_file:
         for ability in load(skill_file):
             ability_id = int(ability["id"])
-            ability_breakdown = {
-                "ability_id": ability_id, "name": String.get_by_id(
-                    f"ability_{ability_id}"),
-                "is_item": bool(int(ability["equipo"])),
-                "wiki_url": String.get_or_none(
-                    String.string_id == f"ability_wiki_{ability_id}")}
+            ability_breakdown = {"ability_id": ability_id,
+                                 "name": String[f"ability_{ability_id}"],
+                                 "is_item": bool(int(ability["equipo"])),
+                                 "wiki_url": String.get_or_none(
+                                     String.string_id ==
+                                     f"ability_wiki_{ability_id}")}
 
             Ability.get_or_create(**ability_breakdown)
 
@@ -404,8 +399,8 @@ def populate_characteristics() -> None:
 
     for characteristic in characteristics.keys():
         Characteristic.get_or_create(
-            characteristic_id=characteristic, name=String.get_by_id(
-                f"characteristic_{characteristic}"))
+            characteristic_id=characteristic,
+            name=String[f"characteristic_{characteristic}"])
 
     print("Done.")
 
