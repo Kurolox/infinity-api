@@ -29,7 +29,7 @@ class Ammo(BaseModel):
     """This class stores the ammunition types."""
 
     ammo_id = IntegerField(primary_key=True)
-    name = ForeignKeyField(String, backref="ammo_names")
+    name = ForeignKeyField(String, backref="ammo")
 
 
 class Sectorial(BaseModel):
@@ -45,7 +45,6 @@ class Ability(BaseModel):
 
     ability_id = IntegerField(primary_key=True)
     name = ForeignKeyField(String, backref="abilities")
-    # TODO: Separate items to a different class?
     is_item = BooleanField()
     wiki_url = CharField(null=True)
 
@@ -75,7 +74,7 @@ class Unit(BaseModel):
     silhouette = IntegerField()
     availability = IntegerField()
     has_structure = BooleanField()
-    sectorial = ForeignKeyField(Sectorial)
+    sectorial = ForeignKeyField(Sectorial, backref="units")
 
 
 class Profile(BaseModel):
@@ -85,11 +84,11 @@ class Profile(BaseModel):
     unit = ForeignKeyField(Unit, backref="profiles")
     cap = FloatField()
     point_cost = IntegerField()
-    name = ForeignKeyField(String)
+    name = ForeignKeyField(String, backref="profiles")
     regular_orders = IntegerField(null=True)
     irregular_orders = IntegerField(null=True)
     impetuous_orders = IntegerField(null=True)
-    linked_units = ForeignKeyField(Unit, null=True)
+    linked_units = ForeignKeyField(Unit, null=True, backref="linked_units")
 
 
 class Weapon(BaseModel):
@@ -97,67 +96,67 @@ class Weapon(BaseModel):
 
     weapon_id = IntegerField(primary_key=True)
     damage = CharField()
-    name = ForeignKeyField(String, backref="weapon_names")
+    name = ForeignKeyField(String)
     is_melee = BooleanField()
     short_range = CharField(null=True)
     medium_range = CharField(null=True)
     long_range = CharField(null=True)
     maximum_range = CharField(null=True)
-    ammo = ForeignKeyField(Ammo, null=True, backref="weapon_ammo")
+    ammo = ForeignKeyField(Ammo, null=True, backref="weapons")
     burst_melee = IntegerField(null=True)
     burst_range = IntegerField(null=True)
-    parent_weapon = ForeignKeyField("self", null=True)
+    parent_weapon = ForeignKeyField("self", null=True, backref="childs")
 
 
 class Property(BaseModel):
     """This class stores all the weapon properties."""
 
     property_id = IntegerField(primary_key=True)
-    name = ForeignKeyField(String, backref="weapon_properties")
+    name = ForeignKeyField(String, backref="properties")
 
 
 class ProfileWeapon(BaseModel):
     """This class stores the relations between an unit profile and
     all the weapons that profile has available."""
 
-    profile = ForeignKeyField(Profile)
-    weapon = ForeignKeyField(Weapon)
+    profile = ForeignKeyField(Profile, backref="weapons")
+    weapon = ForeignKeyField(Weapon, backref="profiles")
 
 
 class WeaponProperty(BaseModel):
     """This class stores the relations between a weapon and
      all of it's properties."""
 
-    weapon = ForeignKeyField(Weapon)
-    weapon_property = ForeignKeyField(Property)
+    weapon = ForeignKeyField(Weapon, backref="properties")
+    weapon_property = ForeignKeyField(Property, backref="weapons")
 
 
 class ProfileCharacteristic(BaseModel):
     """This class stores the relations between an unit profile and
         all the characteristics that profile adds."""
 
-    profile = ForeignKeyField(Profile)
-    characteristic = ForeignKeyField(Characteristic)
+    profile = ForeignKeyField(Profile, backref="characteristics")
+    characteristic = ForeignKeyField(Characteristic, backref="profiles")
 
 
 class ProfileAbility(BaseModel):
     """This class stores the relations between an unit profile and
         all the abilities that profile adds."""
 
-    profile = ForeignKeyField(Profile)
-    ability = ForeignKeyField(Ability)
+    profile = ForeignKeyField(Profile, backref="abilities")
+    ability = ForeignKeyField(Ability, backref="profiles")
 
 
 class UnitCharacteristic(BaseModel):
     """This class stores the relations between an unit and all the
     characteristics that unit has."""
 
-    unit = ForeignKeyField(Unit)
-    characteristic = ForeignKeyField(Characteristic)
+    unit = ForeignKeyField(Unit, backref="characteristics")
+    characteristic = ForeignKeyField(Characteristic, backref="units")
 
 
 class UnitAbility(BaseModel):
     """This class stores the relations between an unit and all the abilities 
     that unit has."""
-    unit = ForeignKeyField(Unit)
-    ability = ForeignKeyField(Ability)
+    unit = ForeignKeyField(Unit, backref="abilities")
+    ability = ForeignKeyField(Ability, backref="units")
