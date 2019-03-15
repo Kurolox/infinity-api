@@ -2,7 +2,12 @@ from peewee import SqliteDatabase, Model, CharField, BooleanField, \
     IntegerField, ForeignKeyField, FloatField
 
 
-db = SqliteDatabase("infinity.db")
+db = SqliteDatabase('infinity.db', pragmas={
+    'journal_mode': 'wal',
+    'cache_size': -1 * 64000,  # 64MB
+    'foreign_keys': 1,
+    'ignore_check_constraints': 0,
+    'synchronous': 0})
 
 
 class BaseModel(Model):
@@ -107,7 +112,7 @@ class Weapon(BaseModel):
 class Property(BaseModel):
     """This class stores all the weapon properties."""
 
-    weapon_property_id = IntegerField(primary_key=True)
+    property_id = IntegerField(primary_key=True)
     name = ForeignKeyField(String, backref="weapon_properties")
 
 

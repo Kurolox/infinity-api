@@ -339,14 +339,14 @@ def populate_properties() -> None:
                     if property_id != -1:
                         weapon_properties[property_id][language] = property_name
 
-    populate_strings("weapon_property", weapon_properties)
+    populate_strings("property", weapon_properties)
 
     print("Generating DB Property entries...", end=" ")
 
     for property_id in weapon_properties.keys():
         Property.get_or_create(
-            weapon_property_id=property_id, name=String.get_by_id(
-                f"weapon_property_{property_id}"))
+            property_id=property_id, name=String.get_by_id(
+                f"property_{property_id}"))
 
     print("Done.")
 
@@ -412,13 +412,17 @@ def populate_characteristics() -> None:
 
 def populate_db(db: SqliteDatabase) -> None:
     """Populates the database tables with the local JSON information."""
-    with db as open_db:
-        populate_ammo()
-        populate_abilities()
-        populate_characteristics()
-        populate_sectorials()
-        populate_weapons()
-        populate_units()
+
+    db.connect()
+
+    populate_ammo()
+    populate_abilities()
+    populate_characteristics()
+    populate_sectorials()
+    populate_weapons()
+    populate_units()
+
+    db.close()
 
 
 if "infinity.db" not in listdir():
@@ -427,4 +431,3 @@ if "infinity.db" not in listdir():
         for language in ["ENG", "ESP", "FRA"]:
             fetch_json(language)
     populate_db(db)
-
