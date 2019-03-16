@@ -12,6 +12,8 @@ pep8 = "*"
 requests = "*"
 regex = "*"
 peewee = "*"
+flask = "*"
+flask-restplus = "*"
 
 [requires]
 python_version = "3.7"
