@@ -12,7 +12,19 @@ This API currently provides the following resources:
 - Every ability, ammo type, characteristic and keyword
 - Support for all the translated languages (English, Spanish and French)
 
-In addition, since all the data is fetched directly from the [Infinity army builder](), the data is constantly updated without any need to manually add entries
+In addition, since all the data is fetched directly from the [Infinity army builder](https://army.infinitythegame.com/), the data is constantly updated without any need to manually add entries
+
+## Instructions
+
+If you want to run this by yourself, all you have to do is following this steps:
+
+```
+git clone https://github.com/Kurolox/infinity-api
+cd inginity-api
+pipenv install
+pipenv run infinity-api/db_operations.py
+pipenv run infinity-api/infinity_api.py
+```
 
 ## Documentation
 
