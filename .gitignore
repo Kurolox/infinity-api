@@ -151,4 +151,4 @@ dmypy.json
 JSON
 
 # Ignore database file
-infinity.db
+infinity.db*
