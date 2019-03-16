@@ -60,7 +60,7 @@ class Unit(BaseModel):
     """This class stores all the units, their stats and their SVG URL."""
 
     unit_id = IntegerField(primary_key=True)
-    name = CharField(unique=True)
+    name = ForeignKeyField(String, backref="units")
     svg_icon = CharField()
     mov_1 = IntegerField()
     mov_2 = IntegerField()
@@ -96,7 +96,7 @@ class Weapon(BaseModel):
 
     weapon_id = IntegerField(primary_key=True)
     damage = CharField()
-    name = ForeignKeyField(String)
+    name = ForeignKeyField(String, backref="weapons")
     is_melee = BooleanField()
     short_range = CharField(null=True)
     medium_range = CharField(null=True)
