@@ -1,0 +1,106 @@
+[
+    {
+        "id": "1",
+        "nombre": "Cube"
+    },
+    {
+        "id": "2",
+        "nombre": "Sans Cube"
+    },
+    {
+        "id": "3",
+        "nombre": "R\u00e9gulier"
+    },
+    {
+        "id": "4",
+        "nombre": "Irr\u00e9gulier"
+    },
+    {
+        "id": "5",
+        "nombre": "Non Imp\u00e9tueux"
+    },
+    {
+        "id": "6",
+        "nombre": "Imp\u00e9tueux"
+    },
+    {
+        "id": "7",
+        "nombre": "Fr\u00e9n\u00e9sie"
+    },
+    {
+        "id": "8",
+        "nombre": "G: Command\u00e9 \u00e0 Distance"
+    },
+    {
+        "id": "9",
+        "nombre": "G: Mn\u00e9motechnique"
+    },
+    {
+        "id": "10",
+        "nombre": "G: Jumper N1"
+    },
+    {
+        "id": "11",
+        "nombre": "G: Serviteur"
+    },
+    {
+        "id": "12",
+        "nombre": "G: Synchronis\u00e9"
+    },
+    {
+        "id": "13",
+        "nombre": "Antipode"
+    },
+    {
+        "id": "14",
+        "nombre": "Transformation"
+    },
+    {
+        "id": "15",
+        "nombre": "Transformation M\u00e9canique"
+    },
+    {
+        "id": "16",
+        "nombre": "Morat"
+    },
+    {
+        "id": "17",
+        "nombre": "Exrah"
+    },
+    {
+        "id": "18",
+        "nombre": "Shasvastii"
+    },
+    {
+        "id": "19",
+        "nombre": "G: Auto-outil"
+    },
+    {
+        "id": "20",
+        "nombre": "Cube 2.0"
+    },
+    {
+        "id": "21",
+        "nombre": "Piratable"
+    },
+    {
+        "id": "22",
+        "nombre": "Habit\u00e9"
+    },
+    {
+        "id": "23",
+        "nombre": "Extr\u00eamement Imp\u00e9tueuse"
+    },
+    {
+        "id": "24",
+        "nombre": "Non Piratable"
+    },
+    {
+        "id": "25",
+        "nombre": "G: Marionette"
+    },
+    {
+        "id": "26",
+        "nombre": "G: Jumper NZ"
+    }
+]

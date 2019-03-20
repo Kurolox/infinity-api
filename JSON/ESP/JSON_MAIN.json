@@ -1,0 +1,818 @@
+{
+    "QSM": {
+        "CAP": "Coste Armas Pesadas",
+        "armasCC": "Armas Cuerpo a Cuerpo",
+        "armasCD": "Armas Combate a Distancia",
+        "puntos": "Coste en Puntos"
+    },
+    "SYS": {
+        "abrirArmy": "Abrir en Infinity Army",
+        "anuncio": "Informaci\u00f3n de su inter\u00e9s",
+        "bienvenido": "Bienvenid@",
+        "borrarLista": "Borrar Lista",
+        "borrarLista_ITS": "\u00bfDesea borrar la lista $ del I.T.S.?",
+        "borrarLista_Slot": "\u00bfDesea borrar la lista?",
+        "cambios_guardados": "Se perder\u00e1n los cambios no guardados. \u00bfDesea continuar?",
+        "cancelar": "Cancelar",
+        "cargar": "Cargar",
+        "cargarLista": "Cargar Lista",
+        "cargarLista_Nada": "No se encuentran listas guardadas en este navegador.",
+        "cargarLista_Nada_ITS": "No se encuentran listas guardadas en nuestro sistema.",
+        "cerrar_app": "Se cerrar\u00e1 completamente la aplicaci\u00f3n.",
+        "codigoArmy": "C\u00f3digo Army",
+        "codigoArmy_ERR1": "Al no estar identificado en I.T.S., no estoy autorizada a guardar su lista en el sistema. Sin embargo, aqu\u00ed tiene el c\u00f3digo con el que poder reproducirla nuevamente en el futuro:",
+        "codigoArmy_entra": "Importar C\u00f3digo Army",
+        "codigoArmy_entra_ERR1": "Introduzca un c\u00f3digo, por favor.",
+        "codigoArmy_entra_ERR2": "El c\u00f3digo es incorrecto.",
+        "codigoArmy_entra_cambio": "Al cargar la nueva lista se perder\u00e1n todos los cambios no guardados. \u00bfDesea continuar?",
+        "codigoArmy_entra_text": "Introduzca el c\u00f3digo Army y pulse el bot\u00f3n para cargar la lista.",
+        "codigoArmy_show": "Aqu\u00ed tiene el c\u00f3digo con el que poder reproducir su lista nuevamente en el futuro:",
+        "continuar": "Continuar",
+        "exportarLista_plano": "Lista en texto plano.",
+        "exportarLista_text": "Copie el siguiente c\u00f3digo y p\u00e9guelo en el mensaje que est\u00e9 componiendo en el foro para publicar la lista con formato.",
+        "guardarLista": "Guardar Lista",
+        "guardarLista_ADV1": "Seleccione una entrada para guardar la lista actual. Si la entrada est\u00e1 ya ocupada tendr\u00e1 la opci\u00f3n a sobreescribirla.",
+        "guardarLista_ADV2": "\u00bfDesea sobreescribir en la entrada seleccionada?",
+        "guardarLista_Vacio": "Sitio libre",
+        "holoeco": "Holoeco",
+        "holos": "Despliegue de Holoproyectores",
+        "holos_ninguno": "No usar holoeco",
+        "holos_texto": "Veo que ha inclu\u00eddo en su lista el uso del Holoproyector. Puesto que se va a generar la Lista de Cortes\u00eda, puede que le interese crear sustitutos:",
+        "listaBorrada_ITS": "Lista borrada de I.T.S.",
+        "listaBorrada_ITS_error": "La lista no pudo borrarse de I.T.S. Int\u00e9ntelo m\u00e1s tarde.",
+        "listaBorrada_Slot": "Lista borrada.",
+        "lista_carga_ITS": "Hubo un error al intentar cargar sus listas almacenadas en I.T.S. Vuelva a intentarlo m\u00e1s tarde.",
+        "lista_chequeada": "Lista revisada",
+        "lista_chk_error_1": "Has invertido m\u00e1s puntos de los fijados (<b>$</b>).",
+        "lista_chk_error_10": "No se pueden incluir m\u00e1s de <b>2 Caballeros Cofrades</b>.",
+        "lista_chk_error_11": "Los <b>Kuang Shi</b> y el <b>Dispositivo de Control Kuang Shi</b> deben pertenecer al mismo grupo (o haber uno en cada grupo que contenga <b>Kuang Shi</b>).",
+        "lista_chk_error_12": "No se puede incluir <b>Kuang Shi</b> sin la presencia de un <b>Dispositivo de Control Kuang Shi</b>.",
+        "lista_chk_error_13": "La Disponibilidad conjunta de <b>Dog-Warriors</b> y <b>Cameronians</b> es de 2.",
+        "lista_chk_error_14": "No se puede incluir un <b>Traktor Mul</b> sin la presencia de un <b>Dispositivo de Control Traktor Mul</b>.",
+        "lista_chk_error_15": "El <b>Traktor Mul</b> y el <b>Dispositivo de Control Traktor Mul</b> deben pertenecer al mismo <b>Grupo</b>.",
+        "lista_chk_error_16": "S\u00f3lo se permite un <b>enlace Haris</b>.",
+        "lista_chk_error_17": "Las tropas con <b>G: Autotool</b> precisan de un <b>Hacker</b>, un <b>TAG</b> o un <b>G: Mnemotecno</b> para ser desplegadas.",
+        "lista_chk_error_18": "Debe desplegarse m\u00ednimo 2 <b>Post-Humanos</b>; m\u00e1ximo de 3.",
+        "lista_chk_error_19": "Los <b>Post-Humanos</b> deben desplegarse todos en el mismo grupo.",
+        "lista_chk_error_2": "El <b>CAP</b> usado excede el permitido (#) para <b>$ Puntos</b>.",
+        "lista_chk_error_20": "Los <b>Civiles</b> no est\u00e1n permitidos en ITS.",
+        "lista_chk_error_21": "<b>CO: Mimetismo</b> y <b>Holoproyectores</b> no pueden coincidir en el perfil del <b>Spec-Ops</b>",
+        "lista_chk_error_22": "Los <b>Hambrientos</b> y el <b>Dispositivo de Control de Hambrientos</b> deben pertenecer al mismo grupo (o haber uno en cada grupo que contenga <b>Hambrientos</b>).",
+        "lista_chk_error_23": "No se puede incluir <b>Hambrientos</b> sin la presencia de un <b>Dispositivo de Control de Hambrientos</b>.",
+        "lista_chk_error_24": "Se han inclu\u00eddo <b>Mercenarios</b> no permitidos en I.T.S.",
+        "lista_chk_error_25": "Una Partida de Caza Ashcroft se compone de <b>1 Miranda Ashcroft</b> y <b>1 Cazarrecompensas Autorizado</b> Regulares y en el mismo grupo.",
+        "lista_chk_error_26": "Lista correcta para I.T.S. \u00fanicamente con el extra <b>Soldiers of Fortune</b>",
+        "lista_chk_error_27": "La tropa: <b>$</b> no est\u00e1 permitida en I.T.S. (Backd00r Crisis)",
+        "lista_chk_error_28": "Los Puppetbots deben compartir <b>grupo</b> con un <b>Marionetista</b>.",
+        "lista_chk_error_29": "Los Puppetbots sobrepasan su <b>Disponibilidad</b>.",
+        "lista_chk_error_3": "No hay <b>Teniente</b>.",
+        "lista_chk_error_30": "La DISP del 112 es <b>compartida</b> entre todas sus unidades, por tanto s\u00f3lo puede haber un 112 en la Lista de Ej\u00e9rcito.",
+        "lista_chk_error_31": "La DISP del 112 es <b>compartida</b> entre todas sus unidades, por tanto s\u00f3lo puede haber dos 112 (cualquier unidad) en la Lista de Ej\u00e9rcito.",
+        "lista_chk_error_32": "La DISP del 112 es <b>compartida</b> entre todas sus unidades, por tanto s\u00f3lo puede haber tres 112 (cualquier unidad) en la Lista de Ej\u00e9rcito.",
+        "lista_chk_error_4": "S\u00f3lo se puede incluir una tropa <b>Teniente</b>.",
+        "lista_chk_error_5": "El <b>Grupo $</b> sobrepasa el l\u00edmite de 10 tropas por grupo.",
+        "lista_chk_error_6": "La tropa: <b>$</b>, sobrepasa su <b>Disponibilidad</b>.",
+        "lista_chk_error_7": "No se pueden alinear tropas de tipo <b>Remoto</b> sin la presencia de un <b>Hacker</b> o un <b>TAG</b>.",
+        "lista_chk_error_8": "Los Remotos con <b>G: Servidor</b> deben compartir <b>grupo</b> con al menos un <b>Ingeniero</b> o un <b>M\u00e9dico</b>.",
+        "lista_chk_error_9": "No puede repetirse a <b>$</b> en la lista.",
+        "lista_guardada": "Lista guardada correctamente en nuestro sistema.",
+        "lista_guardada_error": "Hubo un error al intentar guardar la lista en el sistema. Vuelva a intentarlo m\u00e1s tarde.",
+        "lista_ok": "<p>La lista es correcta seg\u00fan la <b>Temporada 10 I.T.S.</b></p>",
+        "local": "Local",
+        "login": "Login",
+        "loginITS": "Login I.T.S.",
+        "loginITS_ERROR_401": "No se encuentra ning\u00fan usuario registrado con estos datos.",
+        "loginITS_ERROR_403": "Usuario deshabilitado.",
+        "loginITS_ERROR_412": "El usuario necesita iniciar el proceso de reseteo de contrase\u00f1a. Haga click <a href=https:profile.corvusbelli.com/forget target=_blank>AQU\u00cd</a>",
+        "loginITS_ERROR_500": "Usuario o contrase\u00f1a inv\u00e1lidos.",
+        "loginITS_EXITO": "Identificaci\u00f3n correcta",
+        "logout": "\u00bfDesea cerrar sesi\u00f3n en el sistema I.T.S.?",
+        "menu_volver_inicio": "Volver al Men\u00fa Inicio",
+        "no": "No",
+        "reset_lista_titulo": "Borrar lista",
+        "reset_lista_txt": "\u00bfEst\u00e1 seguro que desea borrar la lista actual? Se borrar\u00e1n todas las unidades as\u00ed como los cambios efectuados en ellas.",
+        "saberMas": "\u00bfDesea saber m\u00e1s?",
+        "salir": "Salir",
+        "si": "S\u00ed"
+    },
+    "SpecOps": {
+        "Armas": "Armas",
+        "Equipo": "Equipo",
+        "Habilidades": "Habilidades",
+        "anadirSO": "A\u00f1adir a la lista",
+        "editarSO": "Editar Spec-Ops",
+        "perfilBase": "Perfil Base",
+        "selArma": "Selecciona Arma",
+        "selEquipo": "Selecciona Equipo",
+        "selHabilidad": "Selecciona Habilidad"
+    },
+    "armas": {
+        "dano": "Da\u00f1o",
+        "distancia": "Distancia",
+        "faccion": "Facci\u00f3n",
+        "lista": "Lista",
+        "muestra1": "Ej\u00e9rcito",
+        "muestra2": "Unidad",
+        "muestra3": "Lista",
+        "municion": "Munici\u00f3n",
+        "nombre": "Nombre",
+        "propiedades": "Propiedades",
+        "rafaga": "R",
+        "unidad": "Unidad"
+    },
+    "filtros": {
+        "CAP": "CAP",
+        "armas": "Armas",
+        "atributo": "Atributo",
+        "caracteristica": "Caracter\u00edstica",
+        "categoria": "Categor\u00eda",
+        "habilidad": "Habilidad/Equipo",
+        "icon_X": "X",
+        "municion": "Munici\u00f3n",
+        "puntos": "Puntos",
+        "tipo": "Tipo",
+        "todos": "Todos",
+        "varios": "Varios"
+    },
+    "iconos": {
+        "cargarLista": "Cargar Lista",
+        "codigoArmy": "Importar C\u00f3digo Army",
+        "icon_X": "X",
+        "icon_its": "Login I.T.S.",
+        "icon_its_logout": "Cerrar sesi\u00f3n I.T.S.",
+        "icon_main": "Men\u00fa Principal",
+        "listaArmas": "Tabla de Armas",
+        "listaHackeo": "Tabla de Programas",
+        "panel_CC": "Haz click en \"Armas CC\" para abrir la ventana de Armamento",
+        "panel_CD": "Haz click en \"Armas CD\" para abrir la ventana de Armamento",
+        "reset_filtros": "Resetear Filtros"
+    },
+    "impresion": {
+        "CLAW-1": [
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "15",
+                "especial": "Zona de Hackeo. Estado: Inutilizado.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Blackout",
+                "objetivo": "Equipo de Comunicaciones"
+            },
+            {
+                "R": "2",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "13",
+                "especial": "2 Turnos. Zona de Hackeo. Estado: IMM-1.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Gotcha!",
+                "objetivo": "TAG, IP, REM, Hacker"
+            },
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "14",
+                "especial": "Zona de Hackeo. Mun. Esp. Breaker. Estado: POS.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Overlord",
+                "objetivo": "TAG"
+            },
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "-3",
+                "dano": "-",
+                "especial": "Turno. Zona de Hackeo. Estado: Marcado.",
+                "habilidad": "Corta",
+                "nombre": "Spotlight",
+                "objetivo": "-"
+            }
+        ],
+        "CLAW-2": [
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "13",
+                "especial": "Zona de Hackeo. El TAG expulsa al Piloto.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Expulsi\u00f3n",
+                "objetivo": "TAG Tripulado"
+            },
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "16",
+                "especial": "Zona de Hackeo. Estado: Aislado",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Oblivion",
+                "objetivo": "TAG, IP, REM, Hacker"
+            }
+        ],
+        "CLAW-3": [
+            {
+                "R": "3",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "13",
+                "especial": "2 Turnos. Zona de Hackeo. Estado: IMM-1.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Basilisco",
+                "objetivo": "TAG, IP, REM, Hacker"
+            },
+            {
+                "R": "2",
+                "adversario": "0",
+                "ataque": "3",
+                "dano": "13",
+                "especial": "Zona de Hackeo. Mun. Esp. DT. Estado: IMM-1.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Carbonita",
+                "objetivo": "TAG, IP, REM, Hacker"
+            },
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "16",
+                "especial": "Zona de Hackeo. Mun. Esp. DT. Estado: POS.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Control Total",
+                "objetivo": "TAG"
+            }
+        ],
+        "GADGET-1": [
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Turnos. Todas las IPs obtienen los MODs de Firewall.",
+                "habilidad": "Orden Completa",
+                "nombre": "Fairy Dust",
+                "objetivo": "IP"
+            },
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "-",
+                "especial": "Peana con peana. Permite abrir/activar escenograf\u00eda de Seguridad.",
+                "habilidad": "Hab. Corta",
+                "nombre": "Ganz\u00faa",
+                "objetivo": "-"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "Turno. MOD de 3 a FIS de todas las tropas que ejecutan Salto de Combate.",
+                "habilidad": "Orden Completa",
+                "nombre": "Salto Controlado",
+                "objetivo": ""
+            }
+        ],
+        "GADGET-2": [
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Turnos. La miniatura objetivo gana Punter\u00eda N2.",
+                "habilidad": "Orden Completa",
+                "nombre": "Disparo Asistido",
+                "objetivo": "REM"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Turnos. El objetivo obtiene R 2 en ORA.",
+                "habilidad": "Orden Completa",
+                "nombre": "Reacci\u00f3n Mejorada",
+                "objetivo": "REM"
+            }
+        ],
+        "GADGET-EVO": [
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Turnos. El objetivo impone un MOD de -3 a VOL.",
+                "habilidad": "Orden Completa",
+                "nombre": "Caleidoscopio",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Turnos. Todos los objetivos obtienen R2 en ORA.",
+                "habilidad": "Orden Completa",
+                "nombre": "Overclock",
+                "objetivo": "REM con Repetidor"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Turnos. En Tirada Enfrentada impone un MOD de -3 a VOL al declarar Reset.",
+                "habilidad": "Orden Completa",
+                "nombre": "Reboot",
+                "objetivo": "TAG, IP, REM, Hacker"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Turnos. Permite nombrar nuevo L\u00edder de Equipo y el uso de Fireteam: D\u00fao en Ej\u00e9rcitos Gen\u00e9ricos.",
+                "habilidad": "Orden Completa",
+                "nombre": "TeamPro",
+                "objetivo": "Fireteam"
+            }
+        ],
+        "SHIELD-1": [
+            {
+                "R": "2",
+                "adversario": "-3",
+                "ataque": "0",
+                "dano": "18",
+                "especial": "Cancela el estado Pose\u00eddo. Mun. Esp. DT.",
+                "habilidad": "Hab. Corta",
+                "nombre": "Exorcismo",
+                "objetivo": "TAG Pose\u00eddo"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-6",
+                "dano": "-",
+                "especial": "Tirada Enfrentada contra FIS de tropa que efect\u00faa un Salto de Combate. Aplica la regla de Dispersi\u00f3n.",
+                "habilidad": "ORA",
+                "nombre": "Hackear Aerotransportes",
+                "objetivo": "-"
+            },
+            {
+                "R": "1",
+                "adversario": "-3",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "MOD acumulativo a los Ataques con Mun. Esp. Guiada.",
+                "habilidad": "ORA",
+                "nombre": "U-Turn",
+                "objetivo": "Mun. Esp. Guiada"
+            }
+        ],
+        "SHIELD-2": [
+            {
+                "R": "1",
+                "adversario": "-6",
+                "ataque": "0",
+                "dano": "-",
+                "especial": "Anula Ataque de Hackeo.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Rompeolas",
+                "objetivo": "Hacker"
+            }
+        ],
+        "SHIELD-3": [
+            {
+                "R": "1",
+                "adversario": "-3",
+                "ataque": "-3",
+                "dano": "-",
+                "especial": "Devuelve Ataque de Hackeo al adversario.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Counterstrike",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "2*",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "-",
+                "especial": "Anula Ataque PAH. R2 en ORA",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Zero Pain",
+                "objetivo": "Hacker"
+            }
+        ],
+        "SWORD-1": [
+            {
+                "R": "2",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "14",
+                "especial": "Zona de Hackeo. P\u00e9rdida de 1 punto de Heridas/EST.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Brain Blast",
+                "objetivo": "Hacker"
+            }
+        ],
+        "SWORD-2": [
+            {
+                "R": "2",
+                "adversario": "-3",
+                "ataque": "0",
+                "dano": "16",
+                "especial": "Zona de Hackeo. Mun. Esp. DT. P\u00e9rdida de 1 punto de Heridas/EST.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Redrum",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "2",
+                "adversario": "0",
+                "ataque": "3",
+                "dano": "16",
+                "especial": "Zona de Hackeo. Mun. Esp. Breaker. P\u00e9rdida de 1 punto de Heridas/EST.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Skullbuster",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "3",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "16",
+                "especial": "Zona de Hackeo. Mun. Esp. Shock. P\u00e9rdida de 1 punto de Heridas/EST.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Trinity",
+                "objetivo": "Hacker"
+            }
+        ],
+        "UPGRADE": [
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "-",
+                "especial": "Sustituye al Hacker por un Marcador de Suplantaci\u00f3n Estado 2.",
+                "habilidad": "Orden Completa",
+                "nombre": "Cybermask",
+                "objetivo": ""
+            },
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "-",
+                "especial": "Turno. Retroalimentaci\u00f3n. Zona de Hackeo. Reflectante: Plantilla Circular sin LDT para Visores Multiespectrales.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Ruido Blanco",
+                "objetivo": ""
+            },
+            {
+                "R": "2",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "16",
+                "especial": "2 Turnos. Zona de Hackeo. Mun. Esp. Breaker. Estado: IMM-1. Cat. IE.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Stop!",
+                "objetivo": "TAG, IP, REM, Hacker"
+            },
+            {
+                "R": "1",
+                "adversario": "-3",
+                "ataque": "0",
+                "dano": "17",
+                "especial": "Zona de Hackeo. Mun. Esp. DT. P\u00e9rdida de 1 punto de Heridas/EST. Cat. IE.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Sucker Punch",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "16",
+                "especial": "Zona de Hackeo. Estado: Aislado. Cancelaci\u00f3n de Fireteam.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Exilio",
+                "objetivo": "Miembro de un Fireteam"
+            },
+            {
+                "R": "2",
+                "adversario": "-",
+                "ataque": "3",
+                "dano": "16",
+                "especial": "Zona de Hackeo. Mun. Esp. Breaker. Estado: Muerto.",
+                "habilidad": "Hab. Corta",
+                "nombre": "Goodnight",
+                "objetivo": "Presencia Remota en estado Inconsciente"
+            },
+            {
+                "R": "2",
+                "adversario": "-3",
+                "ataque": "3",
+                "dano": "14",
+                "especial": "Zona de Hackeo. Mun. Esp. Breaker. Estado: Inconsciente.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Maestro",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "2",
+                "adversario": "-6",
+                "ataque": "0",
+                "dano": "15",
+                "especial": "Zona de Hackeo. Mun. Esp. Breaker. P\u00e9rdida de 1 punto de Heridas/EST.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Rel\u00e1mpago",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "2",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "12",
+                "especial": "Zona de Hackeo. Reduce el PB a 0. Estado: IMM-1.",
+                "habilidad": "Hab. Corta/ ORA",
+                "nombre": "Rompehielos",
+                "objetivo": "TAG, IP, REM, Hacker"
+            }
+        ],
+        "botin1": [
+            {
+                "d": "1-3",
+                "rot": "1 BLI"
+            },
+            {
+                "d": "4",
+                "rot": "Arma CC EXP"
+            },
+            {
+                "d": "5",
+                "rot": "Escopeta Ligera"
+            },
+            {
+                "d": "6",
+                "rot": "4 BLI"
+            },
+            {
+                "d": "7",
+                "rot": "Granadas"
+            },
+            {
+                "d": "8",
+                "rot": "Lanza-adhesivo"
+            },
+            {
+                "d": "9",
+                "rot": "Lanzagranadas Lig."
+            },
+            {
+                "d": "10",
+                "rot": "Lanzallamas Ligero"
+            },
+            {
+                "d": "11",
+                "rot": "Panzerfaust"
+            },
+            {
+                "d": "12",
+                "rot": "Granadas E/M"
+            },
+            {
+                "d": "13",
+                "rot": "Arma CC E/M"
+            },
+            {
+                "d": "14-15",
+                "rot": "2 BLI"
+            },
+            {
+                "d": "16",
+                "rot": "Visor X"
+            },
+            {
+                "d": "17",
+                "rot": "Arma CC Monofilo"
+            },
+            {
+                "d": "18",
+                "rot": "Fusil Combi"
+            },
+            {
+                "d": "19",
+                "rot": "Fusil AP"
+            },
+            {
+                "d": "20",
+                "rot": "AutoMedikit"
+            }
+        ],
+        "botin2": [
+            {
+                "d": "1-2",
+                "rot": "1 BLI"
+            },
+            {
+                "d": "3",
+                "rot": "Chain Rifle"
+            },
+            {
+                "d": "4",
+                "rot": "AutoMedikit"
+            },
+            {
+                "d": "5",
+                "rot": "Nanopulser"
+            },
+            {
+                "d": "6",
+                "rot": "Panzerfaust"
+            },
+            {
+                "d": "7",
+                "rot": "F. de Francotirador MULTI"
+            },
+            {
+                "d": "8",
+                "rot": "Granadas de Humo"
+            },
+            {
+                "d": "9",
+                "rot": "CO: Mimetismo"
+            },
+            {
+                "d": "10",
+                "rot": "2 BLI"
+            },
+            {
+                "d": "11",
+                "rot": "Fusil MULTI"
+            },
+            {
+                "d": "12",
+                "rot": "Visor Multiespectral N1"
+            },
+            {
+                "d": "13",
+                "rot": "Fusil Breaker"
+            },
+            {
+                "d": "14-15",
+                "rot": "Lanza-Adhesivo"
+            },
+            {
+                "d": "16",
+                "rot": "3 BLI"
+            },
+            {
+                "d": "17",
+                "rot": "Pulso Flash"
+            },
+            {
+                "d": "18",
+                "rot": "Moto (MOV 20-15"
+            },
+            {
+                "d": "19",
+                "rot": "DDO: Disruptor \u00d3ptico"
+            },
+            {
+                "d": "20",
+                "rot": "Ametralladora"
+            }
+        ],
+        "metaquimica1": [
+            {
+                "d": "1-3",
+                "rot": "Blindaje Natural (1 BLI)"
+            },
+            {
+                "d": "4-5",
+                "rot": "V:Tenaz"
+            },
+            {
+                "d": "6",
+                "rot": "Bioinmunidad"
+            },
+            {
+                "d": "7-8",
+                "rot": "Movimiento Superior (MOV 20-10)"
+            },
+            {
+                "d": "9",
+                "rot": "Refuerzo Biotech (6 PB)"
+            },
+            {
+                "d": "10-11",
+                "rot": "S\u00faper F\u00edsicas (3 FIS)"
+            },
+            {
+                "d": "12-13",
+                "rot": "V: Sin Incapacidad Por Herida"
+            },
+            {
+                "d": "14",
+                "rot": "Sexto Sentido N2"
+            },
+            {
+                "d": "15-16",
+                "rot": "Regeneraci\u00f3n"
+            },
+            {
+                "d": "17-18",
+                "rot": "S\u00faper-Salto"
+            },
+            {
+                "d": "19",
+                "rot": "Trepar Plus"
+            },
+            {
+                "d": "20",
+                "rot": "Inmunidad: Total"
+            }
+        ],
+        "metaquimica2": [
+            {
+                "d": "1-4",
+                "rot": "Blindaje Natural (1 BLI)  Bioinmunidad"
+            },
+            {
+                "d": "5-8",
+                "rot": "V:Tenaz  Inmunidad Total"
+            },
+            {
+                "d": "9-12",
+                "rot": "Movimiento Superior (MOV 15-10)  S\u00faper-Salto"
+            },
+            {
+                "d": "13-16",
+                "rot": "Movimiento Superior (MOV 15-10)  Trepar Plus"
+            },
+            {
+                "d": "17-20",
+                "rot": "S\u00faper F\u00edsicas (3 FIS)  Regeneraci\u00f3n"
+            }
+        ]
+    },
+    "lista": {
+        "AHD": "A",
+        "DHD": "Def.",
+        "EIAHD": "AIE",
+        "EIHD": "HIE",
+        "EIKHD": "Ases. IE",
+        "EVO": "EVO",
+        "HD": "H",
+        "HDP": "H",
+        "KHD": "Ases.",
+        "R": "R",
+        "WHD": "B",
+        "chequealista": "Informe de errores I.T.S.",
+        "codigolista": "Generar c\u00f3digo Army",
+        "codigolista_entra": "Importar c\u00f3digo Army",
+        "dano": "Da\u00f1o",
+        "dispositivo": "Dispositivo",
+        "especial": "Especial",
+        "exportalista": "Exportar lista al foro",
+        "grupo": "GRUPO",
+        "guardalista": "Guardar lista",
+        "imprimirlista": "Imprimir lista",
+        "lista_cortesia": "Lista de cortes\u00eda",
+        "maxpuntos": "M\u00e1x. Puntos:",
+        "mod_adversario": "MOD Adversario",
+        "mod_ataque": "MOD Ataque",
+        "no_opcion": "No hay m\u00e1s opciones.",
+        "nombre": "Nombre",
+        "nombreLista": "Nombre lista",
+        "nuevogrupo": "Nuevo Grupo",
+        "objetivo": "Objetivo",
+        "resetealista": "Borrar lista",
+        "resultado": "Resultado",
+        "sustituir_opcion": "Reemplazar opci\u00f3n",
+        "tabla_armamento": "Tabla de Armamento",
+        "tabla_botin": "Tabla de Bot\u00edn N$",
+        "tabla_hackeo": "Programas de Hackeo",
+        "tabla_metaquimica": "Tabla de MetaQu\u00edmica N$",
+        "tabla_notas": "Tabla de FireTeams",
+        "texto_plano": "Texto plano",
+        "tipo_habilidad": "Tipo de Habilidad",
+        "tipo_programa": "Tipo de Programa",
+        "tirada": "Tirada"
+    },
+    "perfil": {
+        "CAP": "CAP",
+        "armasCC": "Armas CC",
+        "armasCD": "Armas CD",
+        "nombre": "Nombre",
+        "puntos": "C"
+    },
+    "rotulos": {
+        "rot_0": "Cargando...",
+        "rot_1": "Men\u00fa Principal",
+        "rot_2": "Guardando..."
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "rotulos": {
+        "iniciativa": "Initiative Order",
+        "mando": "Command Tokens",
+        "perdida": "Loss of Lieutenant",
+        "ppretirada": "Points to Retreat:",
+        "retirada": "Retreat!!",
+        "rotulo": "Retreat control",
+        "teniente": "Lieutenant Order",
+        "turnoAC": "Active Turn",
+        "turnoDES": "Deployment",
+        "turnoRE": "Reactive Turn"
+    }
+}

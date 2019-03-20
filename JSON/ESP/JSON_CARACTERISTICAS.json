@@ -1,0 +1,106 @@
+[
+    {
+        "id": "1",
+        "nombre": "Petaca"
+    },
+    {
+        "id": "2",
+        "nombre": "Sin Petaca"
+    },
+    {
+        "id": "3",
+        "nombre": "Regular"
+    },
+    {
+        "id": "4",
+        "nombre": "Irregular"
+    },
+    {
+        "id": "5",
+        "nombre": "No Impetuoso"
+    },
+    {
+        "id": "6",
+        "nombre": "Impetuoso"
+    },
+    {
+        "id": "7",
+        "nombre": "Frenes\u00ed"
+    },
+    {
+        "id": "8",
+        "nombre": "G: Presencia Remota"
+    },
+    {
+        "id": "9",
+        "nombre": "G: Mnemotecno"
+    },
+    {
+        "id": "10",
+        "nombre": "G: Jumper N1"
+    },
+    {
+        "id": "11",
+        "nombre": "G: Servidor"
+    },
+    {
+        "id": "12",
+        "nombre": "G: Sincronizado"
+    },
+    {
+        "id": "13",
+        "nombre": "Ant\u00edpoda"
+    },
+    {
+        "id": "14",
+        "nombre": "Transmutaci\u00f3n"
+    },
+    {
+        "id": "15",
+        "nombre": "Transmutaci\u00f3n Mec\u00e1nica"
+    },
+    {
+        "id": "16",
+        "nombre": "Morat"
+    },
+    {
+        "id": "17",
+        "nombre": "Exrah"
+    },
+    {
+        "id": "18",
+        "nombre": "Shasvastii"
+    },
+    {
+        "id": "19",
+        "nombre": "G: Autotool"
+    },
+    {
+        "id": "20",
+        "nombre": "Petaca 2.0"
+    },
+    {
+        "id": "21",
+        "nombre": "Hackeable"
+    },
+    {
+        "id": "22",
+        "nombre": "Tripulado"
+    },
+    {
+        "id": "23",
+        "nombre": "Impetuoso Extremo"
+    },
+    {
+        "id": "24",
+        "nombre": "No Hackeable"
+    },
+    {
+        "id": "25",
+        "nombre": "G: Marionette"
+    },
+    {
+        "id": "26",
+        "nombre": "G: Jumper Nivel Z"
+    }
+]

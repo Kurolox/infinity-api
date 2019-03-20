@@ -1,0 +1,15 @@
+{
+    "atributosROT": {
+        "0": "Movement",
+        "10": "Availability",
+        "11": "Structure",
+        "2": "Close Combat",
+        "3": "Ballistic Skills",
+        "4": "Physique",
+        "5": "Willpower",
+        "6": "Armor",
+        "7": "Bio-Technological Shield",
+        "8": "Wounds",
+        "9": "Silhouette"
+    }
+}

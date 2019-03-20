@@ -1,0 +1,50 @@
+[
+    {
+        "id": "1",
+        "nombre": "T. Guarnici\u00f3n"
+    },
+    {
+        "id": "2",
+        "nombre": "T. L\u00ednea"
+    },
+    {
+        "id": "3",
+        "nombre": "T. Ent. Especial"
+    },
+    {
+        "id": "4",
+        "nombre": "T. Veterana"
+    },
+    {
+        "id": "5",
+        "nombre": "T. \u00c9lite"
+    },
+    {
+        "id": "6",
+        "nombre": "T. Cuartel General"
+    },
+    {
+        "id": "7",
+        "nombre": "T. Mecanizada"
+    },
+    {
+        "id": "8",
+        "nombre": "T. Apoyo"
+    },
+    {
+        "id": "9",
+        "nombre": "Enlazable"
+    },
+    {
+        "id": "10",
+        "nombre": "Personaje"
+    },
+    {
+        "id": "11",
+        "nombre": "T. Mercenaria"
+    },
+    {
+        "id": "12",
+        "nombre": "T. Cuartel General / T. Mecanizada"
+    }
+]

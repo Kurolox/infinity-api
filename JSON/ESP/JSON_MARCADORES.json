@@ -1,0 +1,14 @@
+{
+    "rotulos": {
+        "iniciativa": "Orden de Iniciativa",
+        "mando": "Tokens de Mando",
+        "perdida": "P\u00e9rdida de teniente",
+        "ppretirada": "Puntos para Retirada:",
+        "retirada": "\u00a1\u00a1Retirada!!",
+        "rotulo": "Control de Retirada",
+        "teniente": "Orden de Teniente",
+        "turnoAC": "Turno Activo",
+        "turnoDES": "Despliegue",
+        "turnoRE": "Turno Reactivo"
+    }
+}

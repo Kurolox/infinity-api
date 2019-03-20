@@ -1,0 +1,987 @@
+[
+    {
+        "equipo": "0",
+        "id": "19",
+        "nombre": "Arts Martiaux N1"
+    },
+    {
+        "equipo": "0",
+        "id": "20",
+        "nombre": "Arts Martiaux N2"
+    },
+    {
+        "equipo": "0",
+        "id": "21",
+        "nombre": "Arts Martiaux N3"
+    },
+    {
+        "equipo": "0",
+        "id": "22",
+        "nombre": "Arts Martiaux N4"
+    },
+    {
+        "equipo": "0",
+        "id": "23",
+        "nombre": "Arts Martiaux N5"
+    },
+    {
+        "equipo": "0",
+        "id": "24",
+        "nombre": "Berserk"
+    },
+    {
+        "equipo": "0",
+        "id": "25",
+        "nombre": "Butin N1"
+    },
+    {
+        "equipo": "0",
+        "id": "26",
+        "nombre": "Cha\u00eene de Commandement"
+    },
+    {
+        "equipo": "0",
+        "id": "27",
+        "nombre": "CD: Camouflage Limit\u00e9"
+    },
+    {
+        "equipo": "0",
+        "id": "28",
+        "nombre": "CD: Mim\u00e9tisme"
+    },
+    {
+        "equipo": "0",
+        "id": "29",
+        "nombre": "CD: Camouflage"
+    },
+    {
+        "equipo": "0",
+        "id": "30",
+        "nombre": "CD: Camouflage TO"
+    },
+    {
+        "equipo": "0",
+        "id": "31",
+        "nombre": "Coma"
+    },
+    {
+        "equipo": "0",
+        "id": "32",
+        "nombre": "CC avec 2 Armes"
+    },
+    {
+        "equipo": "0",
+        "id": "33",
+        "nombre": "DA: Parachutiste"
+    },
+    {
+        "equipo": "0",
+        "id": "34",
+        "nombre": "DA: Infiltration A\u00e9roport\u00e9e"
+    },
+    {
+        "equipo": "0",
+        "id": "35",
+        "nombre": "DA: Saut de Combat"
+    },
+    {
+        "equipo": "0",
+        "id": "36",
+        "nombre": "DA: Saut Tactique"
+    },
+    {
+        "equipo": "0",
+        "id": "37",
+        "nombre": "D\u00e9ploiement M\u00e9canis\u00e9"
+    },
+    {
+        "equipo": "0",
+        "id": "38",
+        "nombre": "Exploser"
+    },
+    {
+        "equipo": "0",
+        "id": "39",
+        "nombre": "Guerrier N\u00e9"
+    },
+    {
+        "equipo": "0",
+        "id": "40",
+        "nombre": "Hyper-Dynamique N1"
+    },
+    {
+        "equipo": "0",
+        "id": "41",
+        "nombre": "Hyper-Dynamique N2"
+    },
+    {
+        "equipo": "0",
+        "id": "42",
+        "nombre": "Hyper-Dynamique N3"
+    },
+    {
+        "equipo": "0",
+        "id": "43",
+        "nombre": "I-kohl N1"
+    },
+    {
+        "equipo": "0",
+        "id": "44",
+        "nombre": "I-kohl N2"
+    },
+    {
+        "equipo": "0",
+        "id": "45",
+        "nombre": "I-kohl N3"
+    },
+    {
+        "equipo": "0",
+        "id": "46",
+        "nombre": "Infiltration Inf\u00e9rieure"
+    },
+    {
+        "equipo": "0",
+        "id": "47",
+        "nombre": "Infiltration"
+    },
+    {
+        "equipo": "0",
+        "id": "48",
+        "nombre": "Infiltration Sup\u00e9rieure"
+    },
+    {
+        "equipo": "0",
+        "id": "49",
+        "nombre": "Ing\u00e9nieur"
+    },
+    {
+        "equipo": "0",
+        "id": "50",
+        "nombre": "Immunit\u00e9: Shock"
+    },
+    {
+        "equipo": "0",
+        "id": "51",
+        "nombre": "Immunit\u00e9: Totale"
+    },
+    {
+        "equipo": "0",
+        "id": "52",
+        "nombre": "Inspiration"
+    },
+    {
+        "equipo": "0",
+        "id": "53",
+        "nombre": "M\u00e9decin"
+    },
+    {
+        "equipo": "0",
+        "id": "54",
+        "nombre": "Meta-Agilit\u00e9"
+    },
+    {
+        "equipo": "0",
+        "id": "55",
+        "nombre": "M\u00e9ta-Chimie N1"
+    },
+    {
+        "equipo": "0",
+        "id": "56",
+        "nombre": "Poseur de Mines"
+    },
+    {
+        "equipo": "0",
+        "id": "57",
+        "nombre": "Mouvement Sup\u00e9rieur"
+    },
+    {
+        "equipo": "0",
+        "id": "58",
+        "nombre": "Multi-Terrain"
+    },
+    {
+        "equipo": "0",
+        "id": "59",
+        "nombre": "Observateur d\"Artillerie"
+    },
+    {
+        "equipo": "0",
+        "id": "60",
+        "nombre": "Pilote"
+    },
+    {
+        "equipo": "0",
+        "id": "61",
+        "nombre": "R\u00e9action Totale"
+    },
+    {
+        "equipo": "0",
+        "id": "62",
+        "nombre": "R\u00e9g\u00e9n\u00e9ration"
+    },
+    {
+        "equipo": "1",
+        "id": "63",
+        "nombre": "R\u00e9p\u00e9titeur"
+    },
+    {
+        "equipo": "0",
+        "id": "64",
+        "nombre": "Infirmier"
+    },
+    {
+        "equipo": "0",
+        "id": "65",
+        "nombre": "Capteur"
+    },
+    {
+        "equipo": "0",
+        "id": "66",
+        "nombre": "\u0152uf-Embryon"
+    },
+    {
+        "equipo": "0",
+        "id": "67",
+        "nombre": "Sixi\u00e8me Sens N1"
+    },
+    {
+        "equipo": "0",
+        "id": "68",
+        "nombre": "Sixi\u00e8me Sens N2"
+    },
+    {
+        "equipo": "0",
+        "id": "69",
+        "nombre": "Strategos N1"
+    },
+    {
+        "equipo": "0",
+        "id": "70",
+        "nombre": "Strategos N2"
+    },
+    {
+        "equipo": "0",
+        "id": "71",
+        "nombre": "Strategos N3"
+    },
+    {
+        "equipo": "0",
+        "id": "72",
+        "nombre": "Protheion N1"
+    },
+    {
+        "equipo": "0",
+        "id": "73",
+        "nombre": "Morpho-scan"
+    },
+    {
+        "equipo": "0",
+        "id": "74",
+        "nombre": "Super-Saut"
+    },
+    {
+        "equipo": "0",
+        "id": "75",
+        "nombre": "Supplantation"
+    },
+    {
+        "equipo": "0",
+        "id": "76",
+        "nombre": "Supplantation Plus"
+    },
+    {
+        "equipo": "0",
+        "id": "77",
+        "nombre": "Terrain Aquatique"
+    },
+    {
+        "equipo": "0",
+        "id": "78",
+        "nombre": "Terrain Montagne"
+    },
+    {
+        "equipo": "0",
+        "id": "79",
+        "nombre": "Terrain Jungle"
+    },
+    {
+        "equipo": "0",
+        "id": "80",
+        "nombre": "Z\u00e9ro-G"
+    },
+    {
+        "equipo": "0",
+        "id": "81",
+        "nombre": "Terrain D\u00e9sert"
+    },
+    {
+        "equipo": "0",
+        "id": "82",
+        "nombre": "Escalader Plus"
+    },
+    {
+        "equipo": "0",
+        "id": "83",
+        "nombre": "Troupe Religieuse"
+    },
+    {
+        "equipo": "0",
+        "id": "84",
+        "nombre": "V: Courage"
+    },
+    {
+        "equipo": "0",
+        "id": "85",
+        "nombre": "V: Tenace"
+    },
+    {
+        "equipo": "0",
+        "id": "86",
+        "nombre": "V: Ignorer les Blessures"
+    },
+    {
+        "equipo": "0",
+        "id": "87",
+        "nombre": "Poison"
+    },
+    {
+        "equipo": "0",
+        "id": "88",
+        "nombre": "V\u00e9t\u00e9ran N1"
+    },
+    {
+        "equipo": "0",
+        "id": "89",
+        "nombre": "Sapeur"
+    },
+    {
+        "equipo": "1",
+        "id": "90",
+        "nombre": "AutoM\u00e9diKit"
+    },
+    {
+        "equipo": "1",
+        "id": "91",
+        "nombre": "Bagage"
+    },
+    {
+        "equipo": "1",
+        "id": "92",
+        "nombre": "Balise IA"
+    },
+    {
+        "equipo": "1",
+        "id": "93",
+        "nombre": "Nettoyeur de mines"
+    },
+    {
+        "equipo": "1",
+        "id": "94",
+        "nombre": "Biolocalisateur"
+    },
+    {
+        "equipo": "1",
+        "id": "95",
+        "nombre": "Disp. de Contr\u00f4le d\"Antipodes"
+    },
+    {
+        "equipo": "1",
+        "id": "96",
+        "nombre": "Disp. de Contr\u00f4le de Kuang Shi"
+    },
+    {
+        "equipo": "1",
+        "id": "97",
+        "nombre": "Disp. de Contr\u00f4le de Traktor Mul"
+    },
+    {
+        "equipo": "1",
+        "id": "98",
+        "nombre": "DDO: Disruption optique"
+    },
+    {
+        "equipo": "1",
+        "id": "99",
+        "nombre": "DDO: Champs de disruption opti"
+    },
+    {
+        "equipo": "1",
+        "id": "100",
+        "nombre": "Disp. de Piratage"
+    },
+    {
+        "equipo": "1",
+        "id": "101",
+        "nombre": "Dispitif de Piratage Plus"
+    },
+    {
+        "equipo": "1",
+        "id": "102",
+        "nombre": "ECM"
+    },
+    {
+        "equipo": "1",
+        "id": "103",
+        "nombre": "\u00c9triers"
+    },
+    {
+        "equipo": "1",
+        "id": "104",
+        "nombre": "Holoprojecteur N1"
+    },
+    {
+        "equipo": "1",
+        "id": "105",
+        "nombre": "Holoprojecteur N2"
+    },
+    {
+        "equipo": "1",
+        "id": "106",
+        "nombre": "M\u00e9diKit"
+    },
+    {
+        "equipo": "1",
+        "id": "107",
+        "nombre": "Moto"
+    },
+    {
+        "equipo": "1",
+        "id": "108",
+        "nombre": "Nano-\u00e9cran"
+    },
+    {
+        "equipo": "0",
+        "id": "109",
+        "nombre": "Neurocin\u00e9tiques"
+    },
+    {
+        "equipo": "1",
+        "id": "110",
+        "nombre": "R\u00e9p\u00e9titeur EVO"
+    },
+    {
+        "equipo": "1",
+        "id": "111",
+        "nombre": "R\u00e9p\u00e9titeur de Position"
+    },
+    {
+        "equipo": "1",
+        "id": "112",
+        "nombre": "DE: Systeme d\"\u00e9jection"
+    },
+    {
+        "equipo": "1",
+        "id": "113",
+        "nombre": "Viseur 360\u00ba"
+    },
+    {
+        "equipo": "1",
+        "id": "114",
+        "nombre": "Viseur Multi-Spectral N1"
+    },
+    {
+        "equipo": "1",
+        "id": "115",
+        "nombre": "Viseur Multi-Spectral N2"
+    },
+    {
+        "equipo": "1",
+        "id": "116",
+        "nombre": "Viseur Multi-Spectral N3"
+    },
+    {
+        "equipo": "1",
+        "id": "117",
+        "nombre": "Viseur X"
+    },
+    {
+        "equipo": "1",
+        "id": "118",
+        "nombre": "Viseur X-2"
+    },
+    {
+        "equipo": "0",
+        "id": "119",
+        "nombre": "Lieutenant"
+    },
+    {
+        "equipo": "0",
+        "id": "120",
+        "nombre": "Fireteam: Core"
+    },
+    {
+        "equipo": "0",
+        "id": "121",
+        "nombre": "Fireteam: Haris"
+    },
+    {
+        "equipo": "0",
+        "id": "122",
+        "nombre": "Num\u00e9ro 2"
+    },
+    {
+        "equipo": "0",
+        "id": "123",
+        "nombre": "Troup Sp\u00e9cialiste"
+    },
+    {
+        "equipo": "1",
+        "id": "124",
+        "nombre": "Disp. de Contr\u00f4le d\"Affam\u00e9s"
+    },
+    {
+        "equipo": "0",
+        "id": "125",
+        "nombre": "Fireteam: Enomotarchos"
+    },
+    {
+        "equipo": "1",
+        "id": "126",
+        "nombre": "Spotter"
+    },
+    {
+        "equipo": "0",
+        "id": "127",
+        "nombre": "Journaliste N1"
+    },
+    {
+        "equipo": "0",
+        "id": "128",
+        "nombre": "Journaliste N2"
+    },
+    {
+        "equipo": "0",
+        "id": "129",
+        "nombre": "Fireteam: Triade"
+    },
+    {
+        "equipo": "1",
+        "id": "130",
+        "nombre": "Disp. de Piratage D\u00e9fensif"
+    },
+    {
+        "equipo": "1",
+        "id": "131",
+        "nombre": "Armure Symbiote"
+    },
+    {
+        "equipo": "0",
+        "id": "132",
+        "nombre": "Civil"
+    },
+    {
+        "equipo": "0",
+        "id": "133",
+        "nombre": "MEDEVAC Plus"
+    },
+    {
+        "equipo": "0",
+        "id": "134",
+        "nombre": "CUBEVAC Plus"
+    },
+    {
+        "equipo": "0",
+        "id": "135",
+        "nombre": "DA: Saut de Combat Inf\u00e9rieur"
+    },
+    {
+        "equipo": "0",
+        "id": "136",
+        "nombre": "Butin N2"
+    },
+    {
+        "equipo": "1",
+        "id": "137",
+        "nombre": "DE: Syst\u00e8me de Survie"
+    },
+    {
+        "equipo": "0",
+        "id": "138",
+        "nombre": "Bio-immunit\u00e9"
+    },
+    {
+        "equipo": "1",
+        "id": "139",
+        "nombre": "Disp. de Piratage d\"Assaut"
+    },
+    {
+        "equipo": "0",
+        "id": "140",
+        "nombre": "Assaut"
+    },
+    {
+        "equipo": "0",
+        "id": "141",
+        "nombre": "Kinematika N1"
+    },
+    {
+        "equipo": "1",
+        "id": "142",
+        "nombre": "ECM Avanc\u00e9"
+    },
+    {
+        "equipo": "1",
+        "id": "143",
+        "nombre": "D\u00e9sactivateur"
+    },
+    {
+        "equipo": "0",
+        "id": "144",
+        "nombre": "Sat-lock"
+    },
+    {
+        "equipo": "1",
+        "id": "145",
+        "nombre": "Disp. de Piratage Tueur"
+    },
+    {
+        "equipo": "0",
+        "id": "146",
+        "nombre": "Ordre Ex\u00e9cutif"
+    },
+    {
+        "equipo": "0",
+        "id": "147",
+        "nombre": "Commandement Avanc\u00e9"
+    },
+    {
+        "equipo": "0",
+        "id": "148",
+        "nombre": "CD: Camouflage Embusqu\u00e9"
+    },
+    {
+        "equipo": "0",
+        "id": "149",
+        "nombre": "Tir Pr\u00e9cis NX"
+    },
+    {
+        "equipo": "0",
+        "id": "150",
+        "nombre": "Tir Pr\u00e9cis N1"
+    },
+    {
+        "equipo": "0",
+        "id": "151",
+        "nombre": "V\u00e9t\u00e9ran N2 (Sixi\u00e8me Sens N2, V: IlB)"
+    },
+    {
+        "equipo": "0",
+        "id": "152",
+        "nombre": "Pilleur"
+    },
+    {
+        "equipo": "0",
+        "id": "153",
+        "nombre": "Kinematika N2"
+    },
+    {
+        "equipo": "0",
+        "id": "154",
+        "nombre": "DA: Saut de Combat Sup\u00e9rieur"
+    },
+    {
+        "equipo": "0",
+        "id": "155",
+        "nombre": "M\u00e9decin Plus"
+    },
+    {
+        "equipo": "0",
+        "id": "156",
+        "nombre": "Tir Pr\u00e9cis N2"
+    },
+    {
+        "equipo": "0",
+        "id": "157",
+        "nombre": "M\u00e9decin Akbar"
+    },
+    {
+        "equipo": "0",
+        "id": "158",
+        "nombre": "Poids Lourd"
+    },
+    {
+        "equipo": "1",
+        "id": "159",
+        "nombre": "Disp. de Piratage IE"
+    },
+    {
+        "equipo": "1",
+        "id": "160",
+        "nombre": "Disp. de Piratage d\"Assaut IE"
+    },
+    {
+        "equipo": "0",
+        "id": "161",
+        "nombre": "D\u00e9ploiement Avanc\u00e9 N1"
+    },
+    {
+        "equipo": "0",
+        "id": "162",
+        "nombre": "Immunit\u00e9: POS"
+    },
+    {
+        "equipo": "0",
+        "id": "163",
+        "nombre": "Exploser N1"
+    },
+    {
+        "equipo": "0",
+        "id": "164",
+        "nombre": "Furtivit\u00e9"
+    },
+    {
+        "equipo": "1",
+        "id": "165",
+        "nombre": "Lance-Grenades Fumig\u00e8nes L\u00e9ger"
+    },
+    {
+        "equipo": "0",
+        "id": "166",
+        "nombre": "Lieutenant N2"
+    },
+    {
+        "equipo": "1",
+        "id": "167",
+        "nombre": "A\u00e9rocam"
+    },
+    {
+        "equipo": "1",
+        "id": "168",
+        "nombre": "TinBot A (D\u00e9flecteur N1)"
+    },
+    {
+        "equipo": "1",
+        "id": "169",
+        "nombre": "TinBot B (D\u00e9flecteur N2)"
+    },
+    {
+        "equipo": "0",
+        "id": "170",
+        "nombre": "Discipline Corahtar N1"
+    },
+    {
+        "equipo": "0",
+        "id": "171",
+        "nombre": "M\u00e9ta-Chimie N2"
+    },
+    {
+        "equipo": "0",
+        "id": "172",
+        "nombre": "Protheion N2"
+    },
+    {
+        "equipo": "0",
+        "id": "173",
+        "nombre": "Protheion N3"
+    },
+    {
+        "equipo": "0",
+        "id": "174",
+        "nombre": "Protheion N4"
+    },
+    {
+        "equipo": "0",
+        "id": "175",
+        "nombre": "Protheion N5"
+    },
+    {
+        "equipo": "0",
+        "id": "176",
+        "nombre": "D\u00e9ploiement Avanc\u00e9 N2"
+    },
+    {
+        "equipo": "0",
+        "id": "177",
+        "nombre": "Gardien N1"
+    },
+    {
+        "equipo": "0",
+        "id": "178",
+        "nombre": "Gardien N2"
+    },
+    {
+        "equipo": "0",
+        "id": "179",
+        "nombre": "Gardien N3"
+    },
+    {
+        "equipo": "0",
+        "id": "180",
+        "nombre": "Gardien N4"
+    },
+    {
+        "equipo": "0",
+        "id": "181",
+        "nombre": "Fireteam: Duo"
+    },
+    {
+        "equipo": "1",
+        "id": "182",
+        "nombre": "Disp. de Piratage EVO"
+    },
+    {
+        "equipo": "1",
+        "id": "183",
+        "nombre": "Albedo"
+    },
+    {
+        "equipo": "1",
+        "id": "184",
+        "nombre": "Viseur Biom\u00e9trique N1"
+    },
+    {
+        "equipo": "1",
+        "id": "185",
+        "nombre": "Viseur Biom\u00e9trique N2"
+    },
+    {
+        "equipo": "0",
+        "id": "186",
+        "nombre": "Agent Libre"
+    },
+    {
+        "equipo": "0",
+        "id": "187",
+        "nombre": "Habit\u00e9"
+    },
+    {
+        "equipo": "1",
+        "id": "188",
+        "nombre": "TinBot C (Neourocin\u00e9tiques)"
+    },
+    {
+        "equipo": "0",
+        "id": "189",
+        "nombre": "Op\u00e9rateur Sp\u00e9cialiste"
+    },
+    {
+        "equipo": "0",
+        "id": "190",
+        "nombre": "Lo-Tech A"
+    },
+    {
+        "equipo": "0",
+        "id": "191",
+        "nombre": "Tir Surprise N1"
+    },
+    {
+        "equipo": "0",
+        "id": "192",
+        "nombre": "Tir Surprise N2"
+    },
+    {
+        "equipo": "1",
+        "id": "193",
+        "nombre": "TinBot D (Albedo)"
+    },
+    {
+        "equipo": "1",
+        "id": "194",
+        "nombre": "TinBot E (D\u00e9signateur)"
+    },
+    {
+        "equipo": "1",
+        "id": "195",
+        "nombre": "Holoprojecteur N3"
+    },
+    {
+        "equipo": "1",
+        "id": "196",
+        "nombre": "Disp. de Piratage Blanc"
+    },
+    {
+        "equipo": "0",
+        "id": "197",
+        "nombre": "Pilot \u00e0 Distance"
+    },
+    {
+        "equipo": "0",
+        "id": "198",
+        "nombre": "Assistant \u00e0 Distance N1"
+    },
+    {
+        "equipo": "0",
+        "id": "199",
+        "nombre": "Fatalit\u00e9 N1"
+    },
+    {
+        "equipo": "0",
+        "id": "200",
+        "nombre": "Fatalit\u00e9 N2"
+    },
+    {
+        "equipo": "0",
+        "id": "201",
+        "nombre": "Full Auto N1"
+    },
+    {
+        "equipo": "0",
+        "id": "202",
+        "nombre": "Full Auto N2"
+    },
+    {
+        "equipo": "1",
+        "id": "203",
+        "nombre": "Disp. de Piratage Tueur IE"
+    },
+    {
+        "equipo": "0",
+        "id": "204",
+        "nombre": "Infinity Spec-Ops"
+    },
+    {
+        "equipo": "1",
+        "id": "205",
+        "nombre": "Moto IA"
+    },
+    {
+        "equipo": "1",
+        "id": "206",
+        "nombre": "1 Zondmate"
+    },
+    {
+        "equipo": "0",
+        "id": "207",
+        "nombre": "Contrespionnage"
+    },
+    {
+        "equipo": "1",
+        "id": "208",
+        "nombre": "Chain Rifle"
+    },
+    {
+        "equipo": "1",
+        "id": "209",
+        "nombre": "Lance-grenades Fumig\u00e8nes L\u00e9ger"
+    },
+    {
+        "equipo": "1",
+        "id": "210",
+        "nombre": "Medjector"
+    },
+    {
+        "equipo": "0",
+        "id": "211",
+        "nombre": "Sous-officier"
+    },
+    {
+        "equipo": "1",
+        "id": "212",
+        "nombre": "Disperseur de Mines"
+    },
+    {
+        "equipo": "0",
+        "id": "213",
+        "nombre": "Conscience Tactique"
+    },
+    {
+        "equipo": "0",
+        "id": "214",
+        "nombre": "Exploser NX"
+    },
+    {
+        "equipo": "0",
+        "id": "215",
+        "nombre": "Leurre"
+    }
+]

@@ -1,0 +1,818 @@
+{
+    "QSM": {
+        "CAP": "Co\u00fbt des Armes d\"Appui",
+        "armasCC": "Armes de Corps \u00e0 Corps",
+        "armasCD": "Armes de Tir",
+        "puntos": "Co\u00fbt en Points"
+    },
+    "SYS": {
+        "abrirArmy": "Ouvrir dans Infinity Army",
+        "anuncio": "Avertissement",
+        "bienvenido": "Bienvenue",
+        "borrarLista": "Supprimer une liste",
+        "borrarLista_ITS": "Voulez-vous supprimer la liste $ de l\"I.T.S. ?",
+        "borrarLista_Slot": "Do you want to remove the list?",
+        "cambios_guardados": "Toutes les modifications non sauvegard\u00e9es seront perdues. Voulez-vous continuer ?",
+        "cancelar": "Annuler",
+        "cargar": "Chargement",
+        "cargarLista": "Charger une liste",
+        "cargarLista_Nada": "Aucune liste n\"a \u00e9t\u00e9 trouv\u00e9e dans ce navigateur.",
+        "cargarLista_Nada_ITS": "Aucune liste n\"a \u00e9t\u00e9 trouv\u00e9e dans l\"I.T.S.",
+        "cerrar_app": "L\"application sera totalement ferm\u00e9e",
+        "codigoArmy": "Code Army",
+        "codigoArmy_ERR1": "Comme vous n\"\u00eates pas enregistr\u00e9s en I.T.S., je ne suis pas authoris\u00e9e \u00e0 sauvegarder votre liste. Cependant, vous pouvez utiliser ce Code Army pour la reproduire ult\u00e9rieurement:",
+        "codigoArmy_entra": "Importer un Code Army",
+        "codigoArmy_entra_ERR1": "Merci de taper ou de coller un code.",
+        "codigoArmy_entra_ERR2": "Le Code Army est erron\u00e9.",
+        "codigoArmy_entra_cambio": "Charger une nouvelle liste fera perdre tous les changements non sauvegard\u00e9s. Voulez-vous continuer ?",
+        "codigoArmy_entra_text": "Ins\u00e9rez votre Code Army et cliquez sur le bouton pour charger votre liste.",
+        "codigoArmy_show": "Vous pouvez utiliser le Code Army pour reproduire votre liste ult\u00e9rieurement:",
+        "continuar": "Continuer",
+        "exportarLista_plano": "Liste en texte brut.",
+        "exportarLista_text": "Copiez le code ci-dessous et collez-le dans votre commentaire sur nos forums pour qu\"il soit pr\u00e9sent\u00e9 format\u00e9.",
+        "guardarLista": "Sauvegarder la liste",
+        "guardarLista_ADV1": "Selectionnez un emplacement pour y sauvegarder votre liste. Si l\"emplacement n\"est pas vide, vous aurez l\"option de l\"\u00e9craser.",
+        "guardarLista_ADV2": "Voulez-vous \u00e9craser l\"emplacement s\u00e9lectionn\u00e9 ?",
+        "guardarLista_Vacio": "Emplacement vide",
+        "holoeco": "Holo-\u00e9cho",
+        "holos": "D\u00e9ployer les Holo-projecteurs",
+        "holos_ninguno": "N\"utilise pas d\"Holo-\u00e9cho",
+        "holos_texto": "Je constate que vous utilisez un Holo-projecteur dans votre liste. Vous pouvez indiquer un substitut pour chaque cas, ci-dessous:",
+        "listaBorrada_ITS": "La liste a \u00e9t\u00e9 supprim\u00e9e de l\"I.T.S. avec succ\u00e8s.",
+        "listaBorrada_ITS_error": "La liste ne peut pas \u00eatre supprim\u00e9e de l\"I.T.S. Merci de r\u00e9essayer ult\u00e9rieurement.",
+        "listaBorrada_Slot": "List was successfully removed.",
+        "lista_carga_ITS": "Une erreur est survenue lors de la r\u00e9cup\u00e9ration de votre liste de l\"I.T.S. Merci de r\u00e9essayer ult\u00e9rieurement.",
+        "lista_chequeada": "Liste V\u00e9rifi\u00e9e",
+        "lista_chk_error_1": "Vous avez d\u00e9pens\u00e9 plus de points que s\u00e9lectionn\u00e9 (<b>$</b>).",
+        "lista_chk_error_10": "Vous ne pouvez pas inclure plus de <b>2 Chevaliers Confr\u00e8res</b>.",
+        "lista_chk_error_11": "Les <b>Kuang Shi</b> et le <b>Dispositif de Contr\u00f4le de Kuang Shi</b> doivent \u00eatre dans le m\u00eame Groupe de Combat (ou il doit y en avoir un dans chaque Groupe de Combat comprenant des <b>Kuang Shi</b>).",
+        "lista_chk_error_12": "Vous ne pouvez pas inclure de <b>Kuang Shi</b> sans ajouter un <b>Dispositif de Contr\u00f4le de Kuang Shi</b>.",
+        "lista_chk_error_13": "La Disponibilit\u00e9 partag\u00e9e entre les <b>Dog-Warriors</b> et les <b>Cameronians</b> est de 2.",
+        "lista_chk_error_14": "Vous ne pouvez pas inclure de <b>Traktor Mul</b> sans ajouter de <b>Dispositif de Contr\u00f4le de Traktor Mul</b>.",
+        "lista_chk_error_15": "Le <b>Traktor Mul</b> et le <b>Dispositif de Contr\u00f4le de Traktor Mul</b> doivent \u00eatre dans le m\u00eame <b>Groupe de Combat</b>.",
+        "lista_chk_error_16": "Une seule <b>Fireteam Haris</b> est autoris\u00e9e.",
+        "lista_chk_error_17": "Les troupes avec <b>G : Auto-outil</b> ont besoin d\"un <b>Hacker</b>, d\"un <b>T.A.G</b> ou d\"un <b>G: Mn\u00e9motechnique</b> pour \u00eatre d\u00e9ploy\u00e9es.",
+        "lista_chk_error_18": "Au moins 2 <b>Posthumains</b> doivent \u00eatre d\u00e9ploy\u00e9s, avec un maximum de 3.",
+        "lista_chk_error_19": "Tous les <b>Posthumains</b> doivent \u00eatre d\u00e9ploy\u00e9s dans le m\u00eame Groupe de Combat.",
+        "lista_chk_error_2": "Le <b>CAP</b> exc\u00e8de la limite autoris\u00e9e (#) pour <b>$ Points</b>.",
+        "lista_chk_error_20": "Les <b>Civils</b> ne sont pas \u00e9ligibles pour l\"I.T.S.",
+        "lista_chk_error_21": "Un profil de <b>Spec-Ops</b> ne peut pas avoir plus d\"un <b>Mim\u00e9tisme</b>, <b>Holo-projecteur N1</b>, ou <b>Holo-projecteur N2</b>.",
+        "lista_chk_error_22": "Les <b>Affam\u00e9s</b> et le <b>Dispositif de Contr\u00f4le d\"Affam\u00e9s</b> doivent \u00eatre dans le m\u00eame Groupe de Combat (ou il doit y en avoir un dans chaque Groupe de Combat comprenant des <b>Affam\u00e9s</b>).",
+        "lista_chk_error_23": "Vou ne pouvez pas inclure d\"<b>Affam\u00e9s</b> sans ajouter de <b>Dispositif de Contr\u00f4le d\"Affam\u00e9s</b>.",
+        "lista_chk_error_24": "Vous ne pouvez pas enr\u00f4ler de <b>Troupes Mercenaires</b> qui ne sont pas \u00e9ligibles pour l\"I.T.S.",
+        "lista_chk_error_25": "An Ashcroft Hunting Party is composed by <b>one Miranda Ashcroft</b> and <b>one</b> regular <b>Autorized Bounty Hunter</b>.",
+        "lista_chk_error_26": "Cette liste est valide pour les tournois ITS saison 10 utilisant l\"Extra <b>Soldat de Fortune</b>",
+        "lista_chk_error_27": "The troop <b>$</b> is not eligible for I.T.S. (Backd00r Crisis)",
+        "lista_chk_error_28": "Les Puppetbots doivent \u00eatre dans un <b>groupe</b> avec un <b>Marionnettiste</b>.",
+        "lista_chk_error_29": "Les Puppetbots d\u00e9passent leur <b>Disponibilit\u00e9</b>.",
+        "lista_chk_error_3": "Il n\"y a pas de <b>Lieutenant</b>.",
+        "lista_chk_error_30": "The AVA of all 112 units is <b>shared</b>, so there can be a maximum of one 112 in the Army List.",
+        "lista_chk_error_31": "The AVA of all 112 units is <b>shared</b>, so there can be a maximum of two 112s (any unit) in the Army List.",
+        "lista_chk_error_32": "The AVA of all 112 units is <b>shared</b>, so there can be a maximum of three 112s (any unit) in the Army List.",
+        "lista_chk_error_4": "Vous ne pouvez ajouter qu\"une seule troupe <b>Lieutenant</b>.",
+        "lista_chk_error_5": "Le <b>Groupe $</b> exc\u00e8de la limite de 10 troupes par groupe.",
+        "lista_chk_error_6": "La troupe <b>$</b> exc\u00e8de sa <b>Disponibilit\u00e9</b>.",
+        "lista_chk_error_7": "Vous ne pouvez pas enr\u00f4ler de troupes <b>Drones</b> sans la pr\u00e9sence d\"un <b>Hacker</b> ou d\"un <b>T.A.G</b>.",
+        "lista_chk_error_8": "Les Drones avec <b>G : Serviteur</b> doivent \u00eatre dans un <b>groupe</b> avec au moins un <b>Ing\u00e9nieur</b> ou un <b>M\u00e9decin</b>.",
+        "lista_chk_error_9": "Vous ne pouvez pas ajouter <b>$</b> deux fois dans la liste.",
+        "lista_guardada": "La liste a \u00e9t\u00e9 sauvegard\u00e9e sur votre syst\u00e8me avec succ\u00e8s.",
+        "lista_guardada_error": "Une erreur est survenue lors de la sauvegarde de la liste sur votre syst\u00e8me. Merci de r\u00e9essayer ult\u00e9rieurement.",
+        "lista_ok": "<p>La liste peut \u00eatre utilis\u00e9e en tournoi <b>I.T.S. Saison 10</b>.</p>",
+        "local": "Local",
+        "login": "Connexion",
+        "loginITS": "Connexion I.T.S.",
+        "loginITS_ERROR_401": "L\"utilisateur n\"est pas valide.",
+        "loginITS_ERROR_403": "Utilisateur d\u00e9sactiv\u00e9.",
+        "loginITS_ERROR_412": "Vous devez r\u00e9initialiser votre mot de passe. Cliquez <a href=https:profile.corvusbelli.com/forget target=_blank>ICI</a>",
+        "loginITS_ERROR_500": "Nom d\"utilisateur ou signature incorrect.",
+        "loginITS_EXITO": "Connexion r\u00e9ussie",
+        "logout": "Voulez-vous vous d\u00e9connecter de l\"I.T.S.?",
+        "menu_volver_inicio": "Retourner au menu principal",
+        "no": "Non",
+        "reset_lista_titulo": "R\u00e9initialiser la liste",
+        "reset_lista_txt": "Supprimer la liste actuelle ? Tous les changements seront perdus.",
+        "saberMas": "Voulez-vous en savoir plus ?",
+        "salir": "Quitter",
+        "si": "Oui"
+    },
+    "SpecOps": {
+        "Armas": "Armes",
+        "Equipo": "\u00c9quipement",
+        "Habilidades": "Comp\u00e9tences",
+        "anadirSO": "Ajouter \u00e0 une liste",
+        "editarSO": "Modifier le Spec-Ops",
+        "perfilBase": "Profil de base",
+        "selArma": "S\u00e9lectionner une Arme",
+        "selEquipo": "S\u00e9lectionner un \u00c9quipement",
+        "selHabilidad": "S\u00e9lectionner une Comp\u00e9tence"
+    },
+    "armas": {
+        "dano": "Dom.",
+        "distancia": "Port\u00e9e",
+        "faccion": "Faction",
+        "lista": "Liste",
+        "muestra1": "Arm\u00e9e",
+        "muestra2": "Unit\u00e9",
+        "muestra3": "Liste",
+        "municion": "Munition",
+        "nombre": "Nom",
+        "propiedades": "Traits",
+        "rafaga": "R",
+        "unidad": "Unit\u00e9"
+    },
+    "filtros": {
+        "CAP": "CAP",
+        "armas": "Armes",
+        "atributo": "Attribut",
+        "caracteristica": "Caract\u00e9ristiques",
+        "categoria": "Classification",
+        "habilidad": "Comp\u00e9tences & \u00c9quipement",
+        "icon_X": "X",
+        "municion": "Munition",
+        "puntos": "Points",
+        "tipo": "Type",
+        "todos": "Tout",
+        "varios": "Multi-s\u00e9lection"
+    },
+    "iconos": {
+        "cargarLista": "Charger une liste",
+        "codigoArmy": "Importer le Code Army",
+        "icon_X": "X",
+        "icon_its": "Connexion I.T.S.",
+        "icon_its_logout": "D\u00e9connexion I.T.S.",
+        "icon_main": "Menu Principal",
+        "listaArmas": "Tableau des Armes",
+        "listaHackeo": "Tableau des Programmes",
+        "panel_CC": "Clquez sur \"Armes CC\" pour ouvrir le Tableau des Armes",
+        "panel_CD": "Cliquez sur \"Armes TR\" pour ouvrir le Tableau des Armes",
+        "reset_filtros": "R\u00e9initialiser les Filtres"
+    },
+    "impresion": {
+        "CLAW-1": [
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "15",
+                "especial": "Aire de Piratage. \u00c9tat : D\u00e9sactiv\u00e9.",
+                "habilidad": "Comp\u00e9tence Courte / ORA",
+                "nombre": "Blackout",
+                "objetivo": "\u00c9quipement de Communication"
+            },
+            {
+                "R": "2",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "13",
+                "especial": "2 Tours. Aire de Piratage. \u00c9tat : IMM-1. ",
+                "habilidad": "Comp\u00e9tence Courte / ORA",
+                "nombre": "Gotcha!",
+                "objetivo": "T.A.G, ILO, D.C.D, Hacker"
+            },
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "14",
+                "especial": "Aire de Piratage. Mun. Sp\u00e9c. Breaker. \u00c9tat : POS.",
+                "habilidad": "Comp\u00e9tence Courte / ORA",
+                "nombre": "Overlord",
+                "objetivo": "T.A.G"
+            },
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "-3",
+                "dano": "-",
+                "especial": "Tour. Aire de Piratage. \u00c9tat : Cibl\u00e9.",
+                "habilidad": "Comp\u00e9tence Courte",
+                "nombre": "Spotlight",
+                "objetivo": "-"
+            }
+        ],
+        "CLAW-2": [
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "13",
+                "especial": "Aire de Piratage. Le T.A.G expulse son Pilote.",
+                "habilidad": "Comp\u00e9tence Courte / ORA",
+                "nombre": "Expulsion",
+                "objetivo": "T.A.G Habit\u00e9"
+            },
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "16",
+                "especial": "Aire de Piratage. \u00c9tat : Isol\u00e9.",
+                "habilidad": "Comp\u00e9tence Courte / ORA",
+                "nombre": "Oblivion",
+                "objetivo": "T.A.G, ILO, D.C.D, Hacker"
+            }
+        ],
+        "CLAW-3": [
+            {
+                "R": "3",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "13",
+                "especial": "2 Tours. Aire de Piratage. \u00c9tat : IMM-1. ",
+                "habilidad": "Comp\u00e9tence Courte / ORA",
+                "nombre": "Basilic",
+                "objetivo": "T.A.G, ILO, D.C.D, Hacker"
+            },
+            {
+                "R": "2",
+                "adversario": "0",
+                "ataque": "3",
+                "dano": "13",
+                "especial": "Aire de Piratage. Mun. Sp\u00e9c. DT. \u00c9tat : IMM-1.",
+                "habilidad": "Comp\u00e9tence Courte / ORA",
+                "nombre": "Carbonite",
+                "objetivo": "T.A.G, ILO, D.C.D, Hacker"
+            },
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "16",
+                "especial": "Aire de Piratage. Mun. Sp\u00e9c. DT. \u00c9tat : POS.",
+                "habilidad": "Comp\u00e9tence Courte / ORA",
+                "nombre": "Contr\u00f4le Total",
+                "objetivo": "T.A.G"
+            }
+        ],
+        "GADGET-1": [
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Tours. Toutes les ILO gagnent les MOD de Firewall.",
+                "habilidad": "Ordre Entier",
+                "nombre": "Fairy Dust",
+                "objetivo": "ILO"
+            },
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "-",
+                "especial": "Contact. Peut ouvrir / activer un terrain de S\u00e9curit\u00e9.",
+                "habilidad": "Comp\u00e9tence Courte",
+                "nombre": "Rossignol",
+                "objetivo": "-"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "Tour. MOD de PH 3 \u00e0 tous les Saut de Combat. ",
+                "habilidad": "Ordre Entier",
+                "nombre": "Saut Contr\u00f4l\u00e9",
+                "objetivo": ""
+            }
+        ],
+        "GADGET-2": [
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Tours. La cible gagne Tir de Pr\u00e9cision N2.",
+                "habilidad": "Ordre Entier",
+                "nombre": "Tir Assist\u00e9",
+                "objetivo": "D.C.D"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Tours. La cible gagne R 2 en ORA.",
+                "habilidad": "Ordre Entier",
+                "nombre": "R\u00e9action Am\u00e9lior\u00e9e",
+                "objetivo": "D.C.D"
+            }
+        ],
+        "GADGET-EVO": [
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Tours. La cible inflige une MOD de -3 VOL.",
+                "habilidad": "Ordre Entier",
+                "nombre": "Kal\u00e9idoscope",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Tours. Toutes les cibles gagnent R 2 en ORA.",
+                "habilidad": "Ordre Entier",
+                "nombre": "Overclock",
+                "objetivo": "D.C.D avec R\u00e9p\u00e9titeur"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Tours. Lors d\"un Jet d\"Opposition, la cible inflige un MOD de -3 VOL en d\u00e9clarant Reset.",
+                "habilidad": "Ordre Entier",
+                "nombre": "Reboot",
+                "objetivo": "T.A.G, ILO, D.C.D, Hacker"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Tours. Permet de nommer un nouveau Meneur d\"\u00c9quipe et d\"utiliser Fireteam: Duo en Arm\u00e9e G\u00e9n\u00e9rique.",
+                "habilidad": "Ordre Entier",
+                "nombre": "TeamPro",
+                "objetivo": "Fireteam"
+            }
+        ],
+        "SHIELD-1": [
+            {
+                "R": "2",
+                "adversario": "-3",
+                "ataque": "0",
+                "dano": "18",
+                "especial": "Annule la Possession. Mun. Sp\u00e9c. DT.",
+                "habilidad": "Comp\u00e9tence Courte",
+                "nombre": "Exorcisme",
+                "objetivo": "T.A.G Poss\u00e9d\u00e9"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-6",
+                "dano": "-",
+                "especial": "Jet d\"Opposition contre PH de l\"utilisateur de Saut de Combat. Applique les r\u00e8gles de D\u00e9viation.",
+                "habilidad": "ORA",
+                "nombre": "Pirater le Transport A\u00e9rien",
+                "objetivo": "-"
+            },
+            {
+                "R": "1",
+                "adversario": "-3",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "MOD cumulatif aux Attaques de Mun. Sp\u00e9c. Guid\u00e9e.",
+                "habilidad": "ORA",
+                "nombre": "U-Turn",
+                "objetivo": "Mun. Sp\u00e9c. Guid\u00e9e"
+            }
+        ],
+        "SHIELD-2": [
+            {
+                "R": "1",
+                "adversario": "-6",
+                "ataque": "0",
+                "dano": "-",
+                "especial": "Annule l\"Attaque de Piratage.",
+                "habilidad": "Comp\u00e9tence Courte / ORA",
+                "nombre": "Brise-lames",
+                "objetivo": "Hacker"
+            }
+        ],
+        "SHIELD-3": [
+            {
+                "R": "1",
+                "adversario": "-3",
+                "ataque": "-3",
+                "dano": "-",
+                "especial": "Renvoie l\"Attaque de Piratage \u00e0 l\"attaquant.",
+                "habilidad": "Comp\u00e9tence Courte / ORA",
+                "nombre": "Counterstrike",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "2*",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "-",
+                "especial": "Annule l\"Attaque de Piratage. R 2 en ORA.",
+                "habilidad": "Comp\u00e9tence Courte / ORA",
+                "nombre": "Zero Pain",
+                "objetivo": "Hacker"
+            }
+        ],
+        "SWORD-1": [
+            {
+                "R": "2",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "14",
+                "especial": "Aire de Piratage. Perte d\"1 Blessure/STR.",
+                "habilidad": "Comp\u00e9tence Courte / ORA",
+                "nombre": "Brain Blast",
+                "objetivo": "Hacker"
+            }
+        ],
+        "SWORD-2": [
+            {
+                "R": "2",
+                "adversario": "-3",
+                "ataque": "0",
+                "dano": "16",
+                "especial": "Aire de Piratage. Munition Sp\u00e9ciale DT. Perte d\"1 Blessure/STR.",
+                "habilidad": "Comp\u00e9tence Courte/ ORA",
+                "nombre": "Redrum",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "2",
+                "adversario": "0",
+                "ataque": "3",
+                "dano": "16",
+                "especial": "Aire de Piratage. Munition Sp\u00e9ciale Breaker. Perte d\"1 Blessure/STR.",
+                "habilidad": "Comp\u00e9tence Courte/ ORA",
+                "nombre": "Skullbuster",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "3",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "16",
+                "especial": "Aire de Piratage, Munition Sp\u00e9ciale Shock, Perte d\"1 Blessure/STR.",
+                "habilidad": "Comp\u00e9tence Courte/ ORA",
+                "nombre": "Trinit\u00e9",
+                "objetivo": "Hacker"
+            }
+        ],
+        "UPGRADE": [
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "-",
+                "especial": "Remplace l\"utilisateur par un Marqueur Supplantation-2. ",
+                "habilidad": "Ordre Entier",
+                "nombre": "Cybermask",
+                "objetivo": ""
+            },
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "-",
+                "especial": "Tour. Incompatible. Aire de Piratage. Gabarit Circulaire.",
+                "habilidad": "Comp\u00e9tence Courte",
+                "nombre": "Bruit Blanc",
+                "objetivo": ""
+            },
+            {
+                "R": "2",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "16",
+                "especial": "2 Tours. Aire de Piratage. Mun. Sp\u00e9c. Breaker \u00c9tat : IMM-1.",
+                "habilidad": "Comp\u00e9tence Courte / ORA",
+                "nombre": "Stop!",
+                "objetivo": "T.A.G, ILO, D.C.D, Hacker"
+            },
+            {
+                "R": "1",
+                "adversario": "-3",
+                "ataque": "0",
+                "dano": "17",
+                "especial": "Aire de Piratage. Mun. Sp\u00e9c. DT. Perte d\"1 Blessure/STR.",
+                "habilidad": "Comp\u00e9tence Courte / ORA",
+                "nombre": "Sucker Punch",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "16",
+                "especial": "Aire de Piratage. \u00c9tat : Isol\u00e9 Annule l\"\u00c9quipe Li\u00e9e.",
+                "habilidad": "Comp\u00e9tence Courte/ ORA",
+                "nombre": "Exil",
+                "objetivo": "Membre d\"une \u00c9quipe Li\u00e9e"
+            },
+            {
+                "R": "2",
+                "adversario": "-",
+                "ataque": "3",
+                "dano": "16",
+                "especial": "Aire de Piratage. Munition Sp\u00e9ciale Breaker. \u00c9tat : Mort.",
+                "habilidad": "Comp\u00e9tence Courte",
+                "nombre": "Bonne nuit",
+                "objetivo": "G : Pilot\u00e9 \u00e0 Distance en \u00e9tat Inconscient"
+            },
+            {
+                "R": "2",
+                "adversario": "-3",
+                "ataque": "3",
+                "dano": "14",
+                "especial": "Aire de Piratage. Munition Sp\u00e9ciale Breaker. \u00c9tat : Inconscient.",
+                "habilidad": "Comp\u00e9tence Courte/ ORA",
+                "nombre": "Maestro",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "2",
+                "adversario": "-6",
+                "ataque": "0",
+                "dano": "15",
+                "especial": "Aire de Piratage. Munition Sp\u00e9ciale Breaker. Perte d\"1 Blessure/STR.",
+                "habilidad": "Comp\u00e9tence Courte/ ORA",
+                "nombre": "Foudre",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "2",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "12",
+                "especial": "Aire de Piratage. R\u00e9duit la valeur de l\"Attribut de PB \u00e0 0. \u00c9tat : IMM-1.",
+                "habilidad": "Comp\u00e9tence Courte/ ORA",
+                "nombre": "Brise-glace",
+                "objetivo": "T.A.G, ILO, D.C.D, Hacker"
+            }
+        ],
+        "botin1": [
+            {
+                "d": "1-3",
+                "rot": "1 BLI"
+            },
+            {
+                "d": "4",
+                "rot": "Arme CC EXP"
+            },
+            {
+                "d": "5",
+                "rot": "Fusil \u00e0 Pompe L\u00e9ger"
+            },
+            {
+                "d": "6",
+                "rot": "4 BLI"
+            },
+            {
+                "d": "7",
+                "rot": "Grenades"
+            },
+            {
+                "d": "8",
+                "rot": "Lance-Adh\u00e9sif"
+            },
+            {
+                "d": "9",
+                "rot": "Lance-Grenades L\u00e9ger"
+            },
+            {
+                "d": "10",
+                "rot": "Lance-Flammes L\u00e9ger"
+            },
+            {
+                "d": "11",
+                "rot": "Panzerfaust"
+            },
+            {
+                "d": "12",
+                "rot": "Grenades E/M"
+            },
+            {
+                "d": "13",
+                "rot": "Arme CC E/M"
+            },
+            {
+                "d": "14-15",
+                "rot": "2 BLI"
+            },
+            {
+                "d": "16",
+                "rot": "Viseur X"
+            },
+            {
+                "d": "17",
+                "rot": "Arme CC Monofilament"
+            },
+            {
+                "d": "18",
+                "rot": "Fusil Combi"
+            },
+            {
+                "d": "19",
+                "rot": "Fusil AP"
+            },
+            {
+                "d": "20",
+                "rot": "AutoM\u00e9diKit"
+            }
+        ],
+        "botin2": [
+            {
+                "d": "1-2",
+                "rot": "1 BLI"
+            },
+            {
+                "d": "3",
+                "rot": "Chain Rifle"
+            },
+            {
+                "d": "4",
+                "rot": "AutoM\u00e9diKit"
+            },
+            {
+                "d": "5",
+                "rot": "Nanopulseur"
+            },
+            {
+                "d": "6",
+                "rot": "Panzerfaust"
+            },
+            {
+                "d": "7",
+                "rot": "Fusil de Sniper MULTI"
+            },
+            {
+                "d": "8",
+                "rot": "Grenades Fumig\u00e8nes"
+            },
+            {
+                "d": "9",
+                "rot": "CD : Mim\u00e9tisme"
+            },
+            {
+                "d": "10",
+                "rot": "2 BLI"
+            },
+            {
+                "d": "11",
+                "rot": "Fusil MULTI"
+            },
+            {
+                "d": "12",
+                "rot": "Viseur Multi-Spectral N1"
+            },
+            {
+                "d": "13",
+                "rot": "Fusil Breaker"
+            },
+            {
+                "d": "14-15",
+                "rot": "Lance-Adh\u00e9sif"
+            },
+            {
+                "d": "16",
+                "rot": "3 BLI"
+            },
+            {
+                "d": "17",
+                "rot": "Pulsation Flash"
+            },
+            {
+                "d": "18",
+                "rot": "Moto (MOV 20-15)"
+            },
+            {
+                "d": "19",
+                "rot": "DDO : Disrupteur Optique"
+            },
+            {
+                "d": "20",
+                "rot": "Mitrailleuse"
+            }
+        ],
+        "metaquimica1": [
+            {
+                "d": "1-3",
+                "rot": "Blindage Naturel (1 BLI)"
+            },
+            {
+                "d": "4-5",
+                "rot": "V : Tenace"
+            },
+            {
+                "d": "6",
+                "rot": "Bio-Immunit\u00e9"
+            },
+            {
+                "d": "7-8",
+                "rot": "Mobilit\u00e9 Am\u00e9lior\u00e9e (MOV: 20-10)"
+            },
+            {
+                "d": "9",
+                "rot": "Biotech Renforc\u00e9e (6 PB)"
+            },
+            {
+                "d": "10-11",
+                "rot": "Physique Am\u00e9lior\u00e9 (3 PH)"
+            },
+            {
+                "d": "12-13",
+                "rot": "V : Ignorer les Blessures"
+            },
+            {
+                "d": "14",
+                "rot": "Sixi\u00e8me Sens N2"
+            },
+            {
+                "d": "15-16",
+                "rot": "R\u00e9g\u00e9n\u00e9ration"
+            },
+            {
+                "d": "17-18",
+                "rot": "Super-Saut"
+            },
+            {
+                "d": "19",
+                "rot": "Escalader Plus"
+            },
+            {
+                "d": "20",
+                "rot": "Immunit\u00e9 Totale"
+            }
+        ],
+        "metaquimica2": [
+            {
+                "d": "1-4",
+                "rot": "Armure Naturelle (1 BLI)  Bio-immunit\u00e9"
+            },
+            {
+                "d": "5-8",
+                "rot": "V : Tenace  Immunit\u00e9 Totale"
+            },
+            {
+                "d": "9-12",
+                "rot": "Mobilit\u00e9 Sup\u00e9rieure (MOV : 15-10)  Super-Saut"
+            },
+            {
+                "d": "13-16",
+                "rot": "Mobilit\u00e9 Sup\u00e9rieure (MOV : 15-10)  Escalader Plus"
+            },
+            {
+                "d": "17-20",
+                "rot": "Super-Physique (3 PH)  R\u00e9g\u00e9n\u00e9ration"
+            }
+        ]
+    },
+    "lista": {
+        "AHD": "AHD",
+        "DHD": "DHD",
+        "EIAHD": "EIAHD",
+        "EIHD": "EIHD",
+        "EIKHD": "EIKHD",
+        "EVO": "EVO",
+        "HD": "HD",
+        "HDP": "HD",
+        "KHD": "KHD",
+        "R": "R",
+        "WHD": "WHD",
+        "chequealista": "V\u00e9rification I.T.S.",
+        "codigolista": "G\u00e9n\u00e9rer un Code Army",
+        "codigolista_entra": "Importer un Code Army",
+        "dano": "Dommage",
+        "dispositivo": "Dispositif",
+        "especial": "Sp\u00e9cial",
+        "exportalista": "Exporter la liste vers un forum",
+        "grupo": "Groupe",
+        "guardalista": "Sauvegarder la liste",
+        "imprimirlista": "Imprimer la liste",
+        "lista_cortesia": "Liste de courtoisie",
+        "maxpuntos": "Points Max. :",
+        "mod_adversario": "MOD de l\"adversaire",
+        "mod_ataque": "MOD d\"Attaque",
+        "no_opcion": "Il n\"y a pas d\"autres options.",
+        "nombre": "Nom",
+        "nombreLista": "Nom de la liste",
+        "nuevogrupo": "Nouveau groupe",
+        "objetivo": "Cible",
+        "resetealista": "Supprimer la liste",
+        "resultado": "R\u00e9sultat",
+        "sustituir_opcion": "Remplacer l\"option",
+        "tabla_armamento": "Tableau des Armes",
+        "tabla_botin": "Tableau de Butin N$",
+        "tabla_hackeo": "Programmes de Piratage",
+        "tabla_metaquimica": "Tableau de M\u00e9ta-Chimie N$",
+        "tabla_notas": "Tableau de FireTeams",
+        "texto_plano": "Texte brut",
+        "tipo_habilidad": "Type de Comp\u00e9tence",
+        "tipo_programa": "Type de Programme",
+        "tirada": "Jet"
+    },
+    "perfil": {
+        "CAP": "CAP",
+        "armasCC": "Armes CC",
+        "armasCD": "Armes TR",
+        "nombre": "Nom",
+        "puntos": "P"
+    },
+    "rotulos": {
+        "rot_0": "Chargement...",
+        "rot_1": "Menu Principal",
+        "rot_2": "Sauvegarde..."
+    }
+}

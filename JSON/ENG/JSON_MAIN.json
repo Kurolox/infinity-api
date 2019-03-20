@@ -1,0 +1,818 @@
+{
+    "QSM": {
+        "CAP": "Support Weapons Cost",
+        "armasCC": "Close Combat Weapons",
+        "armasCD": "Ballistic Skills Weapons",
+        "puntos": "Points Cost"
+    },
+    "SYS": {
+        "abrirArmy": "Open in Infinity Army",
+        "anuncio": "Information of interest to you",
+        "bienvenido": "Welcome",
+        "borrarLista": "Remove List",
+        "borrarLista_ITS": "Do you want to remove the list $ from I.T.S.?",
+        "borrarLista_Slot": "Do you want to remove the list?",
+        "cambios_guardados": "All unsaved changes will be lost. Do you wish to continue?",
+        "cancelar": "Cancel",
+        "cargar": "Load",
+        "cargarLista": "Load list",
+        "cargarLista_Nada": "No list was found in this web browser.",
+        "cargarLista_Nada_ITS": "No list was found in I.T.S.",
+        "cerrar_app": "Application will close completely.",
+        "codigoArmy": "Army Code",
+        "codigoArmy_ERR1": "As you are not logged in I.T.S. I am not authorized to save your list at system. However, you can use this Army Code to reproduce it any time in future:",
+        "codigoArmy_entra": "Import Army Code",
+        "codigoArmy_entra_ERR1": "Please, type or paste a code.",
+        "codigoArmy_entra_ERR2": "Army code is wrong.",
+        "codigoArmy_entra_cambio": "Loading new list will cause all changes not saved will be lost. Do you wish to continue?",
+        "codigoArmy_entra_text": "Insert your Army code and click on button to load your list.",
+        "codigoArmy_show": "You can use this Army Code to reproduce your list any time in future:",
+        "continuar": "Continue",
+        "exportarLista_plano": "Plain text list.",
+        "exportarLista_text": "Copy the code below and paste it into your post at our forums so it is displayed formatted.",
+        "guardarLista": "Save List",
+        "guardarLista_ADV1": "Select a slot which to save your list in. If slot is not empty you will have the option to overwrite.",
+        "guardarLista_ADV2": "Do you want to overwrite the selected slot?",
+        "guardarLista_Vacio": "Empty slot",
+        "holoeco": "Holoecho",
+        "holos": "Holoprojectors Deploy",
+        "holos_ninguno": "Do not use holoecho",
+        "holos_texto": "I am noticing you are using Holoprojector in your list. Below you can state a substitute for each case:",
+        "listaBorrada_ITS": "List was successfully removed from I.T.S.",
+        "listaBorrada_ITS_error": "The lista could not be removed from I.T.S. Try again later, please.",
+        "listaBorrada_Slot": "List was successfully removed.",
+        "lista_carga_ITS": "There was an error retrieving your lists from I.T.S. Try again later, please.",
+        "lista_chequeada": "Checked List",
+        "lista_chk_error_1": "You spent more points than selected (<b>$</b>).",
+        "lista_chk_error_10": "You cannot include more than <b>2 Confr\u00e8re Knights</b>.",
+        "lista_chk_error_11": "Both the <b>Kuang Shi</b> and the <b>Kuang Shi Control Device</b> must be included in the same Combat Group (either that or there has to be one in each Combat Group including <b>Kuang Shi</b>).",
+        "lista_chk_error_12": "You cannot include <b>Kuang Shi</b> without adding a <b>Kuang Shi Control Device</b>.",
+        "lista_chk_error_13": "The shared availability of <b>Dog-Warriors</b> and <b>Cameronians</b> is 2.",
+        "lista_chk_error_14": "You cannot include a <b>Traktor Mul</b> without adding a <b>Traktor Mul Control Device</b>.",
+        "lista_chk_error_15": "Both the <b>Traktor Mul</b> and the <b>Traktor Mul Control Device</b> must be included in the same <b>Combat Group</b>.",
+        "lista_chk_error_16": "Only one <b>Fireteam Haris</b> is allowed.",
+        "lista_chk_error_17": "Troops with <b>G: Autotool</b> need either a <b>Hacker</b>, a <b>TAG</b> or a <b>G: Mnemonica</b> in order to be deployed.",
+        "lista_chk_error_18": "At least 2 <b>Posthumans</b> must be deployed. Maximum 3 of them.",
+        "lista_chk_error_19": "All <b>Posthumans</b> must be deployed in the same Combat Group.",
+        "lista_chk_error_2": "The <b>SWC</b> exceeds the permitted limit (#) for <b>$ Points</b>.",
+        "lista_chk_error_20": "<b>Civvies</b> are not eligible for I.T.S.",
+        "lista_chk_error_21": "A <b>Spec-Ops</b> profile cannot have more than one of <b>Mimetism</b>, <b>Holoprojector L1</b>, or <b>Holoprojector L2</b>.",
+        "lista_chk_error_22": "Both the <b>Hungries</b> and the <b>Hungries Control Device</b> must be included in the same Combat Group (either that or there has to be one in each Combat Group including <b>Hungries</b>).",
+        "lista_chk_error_23": "You cannot include <b>Hungries</b> without adding a <b>Hungries Control Device</b>.",
+        "lista_chk_error_24": "You cannot enlist <b>Mercenary Troops</b> who are not eligible for I.T.S.",
+        "lista_chk_error_25": "An Ashcroft Hunting Party is composed by <b>one Miranda Ashcroft</b> and <b>one</b> regular <b>Autorized Bounty Hunter</b>.",
+        "lista_chk_error_26": "List is correct to be used in a ITS Season 10 Tournament only with the <b>Soldiers of Fortune</b> Extra.",
+        "lista_chk_error_27": "The troop <b>$</b> is not eligible for I.T.S. (Backd00r Crisis)",
+        "lista_chk_error_28": "Puppetbots must be in a <b>group</b> with a <b>Puppet Master</b>.",
+        "lista_chk_error_29": "Puppetbots exceeds its <b>Availability</b>.",
+        "lista_chk_error_3": "There is no <b>Lieutenant</b>.",
+        "lista_chk_error_30": "The AVA of all 112 units is <b>shared</b>, so there can be a maximum of one 112 in the Army List.",
+        "lista_chk_error_31": "The AVA of all 112 units is <b>shared</b>, so there can be a maximum of two 112s (any unit) in the Army List.",
+        "lista_chk_error_32": "The AVA of all 112 units is <b>shared</b>, so there can be a maximum of three 112s (any unit) in the Army List.",
+        "lista_chk_error_4": "You can only add one <b>Lieutenant</b> troop.",
+        "lista_chk_error_5": "The <b>Group $</b> exceeds the 10 troops per group limit.",
+        "lista_chk_error_6": "The troop <b>$</b> exceeds its <b>Availability</b>.",
+        "lista_chk_error_7": "You cannot enlist <b>Remotes</b> troops without the presence of a <b>Hacker</b> or a <b>TAG</b>.",
+        "lista_chk_error_8": "Remotes with <b>G: Servant</b> must be in a <b>group</b> with at least an <b>Engineer</b> or a <b>Doctor</b>.",
+        "lista_chk_error_9": "You cannot add <b>$</b> twice in the list.",
+        "lista_guardada": "List was successfully saved in our system.",
+        "lista_guardada_error": "There was an error saving your list in our system. Try again later, please.",
+        "lista_ok": "<p>List is correct to be used in a <b>I.T.S. Season 10</b> tournament.</p>",
+        "local": "Local",
+        "login": "Login",
+        "loginITS": "I.T.S. Login",
+        "loginITS_ERROR_401": "User is not validated.",
+        "loginITS_ERROR_403": "Disabled user.",
+        "loginITS_ERROR_412": "You need to start reset process for your password. Click <a href=https:profile.corvusbelli.com/forget target=_blank>HERE</a>",
+        "loginITS_ERROR_500": "Invalid username or signature.",
+        "loginITS_EXITO": "Login success",
+        "logout": "Do you wish to logout from I.T.S.?",
+        "menu_volver_inicio": "Go to main menu",
+        "no": "No",
+        "reset_lista_titulo": "Reset list",
+        "reset_lista_txt": "Delete current list? All changes will be lost.",
+        "saberMas": "Do you want to know more?",
+        "salir": "Exit",
+        "si": "Yes"
+    },
+    "SpecOps": {
+        "Armas": "Weapons",
+        "Equipo": "Equipment",
+        "Habilidades": "Skills",
+        "anadirSO": "Add to list",
+        "editarSO": "Edit Spec-Ops",
+        "perfilBase": "Base Profile",
+        "selArma": "Select Weapon",
+        "selEquipo": "Select Equipment",
+        "selHabilidad": "Select Skill"
+    },
+    "armas": {
+        "dano": "Dam.",
+        "distancia": "Range",
+        "faccion": "Faction",
+        "lista": "List",
+        "muestra1": "Army",
+        "muestra2": "Unit",
+        "muestra3": "List",
+        "municion": "Ammo",
+        "nombre": "Name",
+        "propiedades": "Traits",
+        "rafaga": "B",
+        "unidad": "Unit"
+    },
+    "filtros": {
+        "CAP": "SWC",
+        "armas": "Weapons",
+        "atributo": "Attribute",
+        "caracteristica": "Characteristics",
+        "categoria": "Classification",
+        "habilidad": "Skills & Equipment",
+        "icon_X": "X",
+        "municion": "Ammo",
+        "puntos": "Points",
+        "tipo": "Type",
+        "todos": "All",
+        "varios": "Multi-selection"
+    },
+    "iconos": {
+        "cargarLista": "Load list",
+        "codigoArmy": "Import Army Code",
+        "icon_X": "X",
+        "icon_its": "I.T.S. login",
+        "icon_its_logout": "I.T.S. logout",
+        "icon_main": "Main Menu",
+        "listaArmas": "Weapons Chart",
+        "listaHackeo": "Programs Chart",
+        "panel_CC": "Click on \"CC Weapons\" to open Weapons chart",
+        "panel_CD": "Click on \"BS Weapons\" to open Weapons chart",
+        "reset_filtros": "Reset Filters"
+    },
+    "impresion": {
+        "CLAW-1": [
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "15",
+                "especial": "Hacking Area. State: Disabled.",
+                "habilidad": "Short Skill/ARO",
+                "nombre": "Blackout",
+                "objetivo": "Comms Equipment"
+            },
+            {
+                "R": "2",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "13",
+                "especial": "2 Turns. Hacking Area. State: IMM-1.",
+                "habilidad": "Short Skill/ARO",
+                "nombre": "Gotcha!",
+                "objetivo": "TAG, HI, REM, Hacker"
+            },
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "14",
+                "especial": "Hacking Area. Breaker Spec. Ammo. State: POS.",
+                "habilidad": "Short Skill/ARO",
+                "nombre": "Overlord",
+                "objetivo": "TAG"
+            },
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "-3",
+                "dano": "-",
+                "especial": "Turn. Hacking Area. State: Targeted.",
+                "habilidad": "Short Skill",
+                "nombre": "Spotlight",
+                "objetivo": "-"
+            }
+        ],
+        "CLAW-2": [
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "13",
+                "especial": "Hacking Area. The TAG expels its Pilot.",
+                "habilidad": "Short Skill/ARO",
+                "nombre": "Expel",
+                "objetivo": "Manned TAG"
+            },
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "16",
+                "especial": "Hacking Area. State: Isolated",
+                "habilidad": "Short Skill/ARO",
+                "nombre": "Oblivion",
+                "objetivo": "TAG, HI, REM, Hacker"
+            }
+        ],
+        "CLAW-3": [
+            {
+                "R": "3",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "13",
+                "especial": "2 Turns. Hacking Area. State: IMM-1.",
+                "habilidad": "Short Skill/ARO",
+                "nombre": "Basilisk",
+                "objetivo": "TAG, HI, REM, Hacker"
+            },
+            {
+                "R": "2",
+                "adversario": "0",
+                "ataque": "3",
+                "dano": "13",
+                "especial": "Hacking Area. DT Spec. Ammo. State: IMM-1.",
+                "habilidad": "Short Skill/ARO",
+                "nombre": "Carbonite",
+                "objetivo": "TAG, HI, REM, Hacker"
+            },
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "16",
+                "especial": "Hacking Area. DT Spec. Ammo. State: POS",
+                "habilidad": "Short Skill/ARO",
+                "nombre": "Total Control",
+                "objetivo": "TAG"
+            }
+        ],
+        "GADGET-1": [
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "Entire Order 2 Turns. All HIs gain Firewall MODs.",
+                "habilidad": "Entire Order",
+                "nombre": "Fairy Dust",
+                "objetivo": "HI"
+            },
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "-",
+                "especial": "Base to base contact. Can open/activate Security terrain.",
+                "habilidad": "Short Skill",
+                "nombre": "Lockpicker",
+                "objetivo": "-"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "Turn. 3 PH MOD to all Combat Jumps.",
+                "habilidad": "Entire Order",
+                "nombre": "Controlled Jump",
+                "objetivo": ""
+            }
+        ],
+        "GADGET-2": [
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Turns. Target gains Marksmanship L2.",
+                "habilidad": "Entire Order",
+                "nombre": "Assisted Fire",
+                "objetivo": "REM"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Turns. Target gains B2 in ARO.",
+                "habilidad": "Entire Order",
+                "nombre": "Enhanced Reaction",
+                "objetivo": "REM"
+            }
+        ],
+        "GADGET-EVO": [
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Turns. Target imposes a WIP-3 MOD.",
+                "habilidad": "Entire Order",
+                "nombre": "Kaleidoscope",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Turns. All targets gain B2 in ARO.",
+                "habilidad": "Entire Order",
+                "nombre": "Overclock",
+                "objetivo": "REM with Repeater"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Turns. In Face to face Roll targets impose a WIP-3 when declaring Reset.",
+                "habilidad": "Entire Order",
+                "nombre": "Reboot",
+                "objetivo": "TAG, HI, REM, Hacker"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "2 Turns. Allows naming a new Team Leader and the use of Fireteam Duo in Generic Armies.",
+                "habilidad": "Entire Order",
+                "nombre": "TeamPro",
+                "objetivo": "Fireteam"
+            }
+        ],
+        "SHIELD-1": [
+            {
+                "R": "2",
+                "adversario": "-3",
+                "ataque": "0",
+                "dano": "18",
+                "especial": "Cancels Possession. DT Spec. Ammo.",
+                "habilidad": "Short Skill",
+                "nombre": "Exorcism",
+                "objetivo": "Possessed TAG"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-6",
+                "dano": "-",
+                "especial": "Face to Face Roll vs PH of the user of Combat Jump. Apply Dispersion rules.",
+                "habilidad": "ARO",
+                "nombre": "Hack Transport Aircraft",
+                "objetivo": "-"
+            },
+            {
+                "R": "1",
+                "adversario": "-3",
+                "ataque": "-",
+                "dano": "-",
+                "especial": "Cumulative MOD to Attacks with Guided Spec. Ammo.",
+                "habilidad": "ARO",
+                "nombre": "U-Turn",
+                "objetivo": "Guided Spec. Ammo"
+            }
+        ],
+        "SHIELD-2": [
+            {
+                "R": "1",
+                "adversario": "-6",
+                "ataque": "0",
+                "dano": "-",
+                "especial": "Nullifies Hacking Attack.",
+                "habilidad": "Short Skill/ARO",
+                "nombre": "Breakwater",
+                "objetivo": "Hacker"
+            }
+        ],
+        "SHIELD-3": [
+            {
+                "R": "1",
+                "adversario": "-3",
+                "ataque": "-3",
+                "dano": "-",
+                "especial": "Reflects Hacking Attack back to attacker.",
+                "habilidad": "Short Skill/ARO",
+                "nombre": "Counterstrike",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "2*",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "-",
+                "especial": "Nullifies Hacking Attack. B2 in ARO.",
+                "habilidad": "Short Skill/ARO",
+                "nombre": "Zero Pain",
+                "objetivo": "Hacker"
+            }
+        ],
+        "SWORD-1": [
+            {
+                "R": "2",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "14",
+                "especial": "Hacking Area. Loss of 1 Wounds/STR.",
+                "habilidad": "Short Skill/ARO",
+                "nombre": "Brain Blast",
+                "objetivo": "Hacker"
+            }
+        ],
+        "SWORD-2": [
+            {
+                "R": "2",
+                "adversario": "-3",
+                "ataque": "0",
+                "dano": "16",
+                "especial": "Hacking Area. DT Special Ammo. Loss of 1 point of Wounds/STR.",
+                "habilidad": "Short Skill/ ARO",
+                "nombre": "Redrum",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "2",
+                "adversario": "0",
+                "ataque": "3",
+                "dano": "16",
+                "especial": "Hacking Area. Breaker Special Ammo. Loss of 1 point of Wounds/STR.",
+                "habilidad": "Short Skill/ ARO",
+                "nombre": "Skullbuster",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "3",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "16",
+                "especial": "Hacking Area. Shock Special Ammo. Loss of 1 point of Wounds/STR.",
+                "habilidad": "Short Skill/ ARO",
+                "nombre": "Trinity",
+                "objetivo": "Hacker"
+            }
+        ],
+        "UPGRADE": [
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "-",
+                "especial": "Replace user with Impersonation-2 Marker.",
+                "habilidad": "Entire Order",
+                "nombre": "Cybermask",
+                "objetivo": ""
+            },
+            {
+                "R": "1",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "-",
+                "especial": "Turn. NFB. Hacking Area. Circular Template ",
+                "habilidad": "Short Skill/ ARO",
+                "nombre": "White Noise",
+                "objetivo": ""
+            },
+            {
+                "R": "2",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "16",
+                "especial": "2 Turns. Hacking Area. Breaker Spec. Ammo. State: IMM-1.",
+                "habilidad": "Short Skill/ ARO",
+                "nombre": "Stop!",
+                "objetivo": "TAG, HI, REM, Hacker"
+            },
+            {
+                "R": "1",
+                "adversario": "-3",
+                "ataque": "0",
+                "dano": "17",
+                "especial": "Hacking Area. DT Spec. Ammo. Loss of 1 Wounds/STR.",
+                "habilidad": "Short Skill/ ARO",
+                "nombre": "Sucker Punch",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "1",
+                "adversario": "-",
+                "ataque": "-",
+                "dano": "16",
+                "especial": "Hacking Area. State: Isolated. Fireteam cancellation.",
+                "habilidad": "Short Skill/ ARO",
+                "nombre": "Exile",
+                "objetivo": "Fireteam member"
+            },
+            {
+                "R": "2",
+                "adversario": "-",
+                "ataque": "3",
+                "dano": "16",
+                "especial": "Hacking Area. Breaker Special Ammo. State: Dead.",
+                "habilidad": "Short Skill",
+                "nombre": "Goodnight",
+                "objetivo": "Remote Presence in Unconscious state"
+            },
+            {
+                "R": "2",
+                "adversario": "-3",
+                "ataque": "3",
+                "dano": "14",
+                "especial": "Hacking Area. Breaker Special Ammo. State: Unconscious.",
+                "habilidad": "Short Skill/ ARO",
+                "nombre": "Maestro",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "2",
+                "adversario": "-6",
+                "ataque": "0",
+                "dano": "15",
+                "especial": "Hacking Area. Breaker Special Ammo. Loss of 1 Wounds/STR.",
+                "habilidad": "Short Skill/ ARO",
+                "nombre": "Lightning",
+                "objetivo": "Hacker"
+            },
+            {
+                "R": "2",
+                "adversario": "0",
+                "ataque": "0",
+                "dano": "12",
+                "especial": "Hacking Area. Reduces BTS value to 0. State: IMM-1.",
+                "habilidad": "Short Skill/ ARO",
+                "nombre": "Icebreaker",
+                "objetivo": "TAG, HI, REM, Hacker"
+            }
+        ],
+        "botin1": [
+            {
+                "d": "1-3",
+                "rot": "1 ARM"
+            },
+            {
+                "d": "4",
+                "rot": "EXP CC Weapon"
+            },
+            {
+                "d": "5",
+                "rot": "Light Shotgun"
+            },
+            {
+                "d": "6",
+                "rot": "4 ARM"
+            },
+            {
+                "d": "7",
+                "rot": "Grenades"
+            },
+            {
+                "d": "8",
+                "rot": "Adhesive Launcher"
+            },
+            {
+                "d": "9",
+                "rot": "Light GL"
+            },
+            {
+                "d": "10",
+                "rot": "Light Flamethrower"
+            },
+            {
+                "d": "11",
+                "rot": "Panzerfaust"
+            },
+            {
+                "d": "12",
+                "rot": "E/M Grenades"
+            },
+            {
+                "d": "13",
+                "rot": "E/M CC Weapon"
+            },
+            {
+                "d": "14-15",
+                "rot": "2 ARM"
+            },
+            {
+                "d": "16",
+                "rot": "X Visor"
+            },
+            {
+                "d": "17",
+                "rot": "Monofilament CC Weapon"
+            },
+            {
+                "d": "18",
+                "rot": "Combi Rifle"
+            },
+            {
+                "d": "19",
+                "rot": "AP Rifle"
+            },
+            {
+                "d": "20",
+                "rot": "AutoMedikit"
+            }
+        ],
+        "botin2": [
+            {
+                "d": "1-2",
+                "rot": "1 ARM"
+            },
+            {
+                "d": "3",
+                "rot": "Chain Rifle"
+            },
+            {
+                "d": "4",
+                "rot": "AutoMedikit"
+            },
+            {
+                "d": "5",
+                "rot": "Nanopulser"
+            },
+            {
+                "d": "6",
+                "rot": "Panzerfaust"
+            },
+            {
+                "d": "7",
+                "rot": "MULTI Sniper Rifle"
+            },
+            {
+                "d": "8",
+                "rot": "Smoke Grenades"
+            },
+            {
+                "d": "9",
+                "rot": "CH: Mimetism"
+            },
+            {
+                "d": "10",
+                "rot": "2 ARM"
+            },
+            {
+                "d": "11",
+                "rot": "MULTI Rifle"
+            },
+            {
+                "d": "12",
+                "rot": "Multispectral Visor L1"
+            },
+            {
+                "d": "13",
+                "rot": "Breaker Rifle"
+            },
+            {
+                "d": "14-15",
+                "rot": "Adhesive Launcher"
+            },
+            {
+                "d": "16",
+                "rot": "3 ARM"
+            },
+            {
+                "d": "17",
+                "rot": "Flash Pulse"
+            },
+            {
+                "d": "18",
+                "rot": "Motorcycle (MOV 8-6"
+            },
+            {
+                "d": "19",
+                "rot": "ODD: Optical Disruption Device"
+            },
+            {
+                "d": "20",
+                "rot": "HMG"
+            }
+        ],
+        "metaquimica1": [
+            {
+                "d": "1-3",
+                "rot": "Natural Armor (1 ARM)"
+            },
+            {
+                "d": "4-5",
+                "rot": "V:Dogged"
+            },
+            {
+                "d": "6",
+                "rot": "Bioimmunity"
+            },
+            {
+                "d": "7-8",
+                "rot": "Enhanced Mobility (MOV 8-4)"
+            },
+            {
+                "d": "9",
+                "rot": "Reinforced Biotech (6 BTS)"
+            },
+            {
+                "d": "10-11",
+                "rot": "Enhanced Physique (3 PH)"
+            },
+            {
+                "d": "12-13",
+                "rot": "V: No Wound Incapacitation"
+            },
+            {
+                "d": "14",
+                "rot": "Sixth Sense L2"
+            },
+            {
+                "d": "15-16",
+                "rot": "Regeneration"
+            },
+            {
+                "d": "17-18",
+                "rot": "Super-Jump"
+            },
+            {
+                "d": "19",
+                "rot": "Climbing Plus"
+            },
+            {
+                "d": "20",
+                "rot": "Total Immunity"
+            }
+        ],
+        "metaquimica2": [
+            {
+                "d": "1-4",
+                "rot": "Natural Armor (1 to ARM)  Bioimmunity"
+            },
+            {
+                "d": "5-8",
+                "rot": "V:Dogged  Immunity: Total"
+            },
+            {
+                "d": "9-12",
+                "rot": "Superior Mobility (MOV 6-4)  Super-Jump"
+            },
+            {
+                "d": "13-16",
+                "rot": "Superior Mobility (MOV 6-4)  Climbing Plus"
+            },
+            {
+                "d": "17-20",
+                "rot": "Super-Physique (3 PH)  Regeneration"
+            }
+        ]
+    },
+    "lista": {
+        "AHD": "AHD",
+        "DHD": "DHD",
+        "EIAHD": "EIAHD",
+        "EIHD": "EIHD",
+        "EIKHD": "EIKHD",
+        "EVO": "EVO",
+        "HD": "HD",
+        "HDP": "HD",
+        "KHD": "KHD",
+        "R": "B",
+        "WHD": "WHD",
+        "chequealista": "I.T.S. Check report",
+        "codigolista": "Generate Army code",
+        "codigolista_entra": "Import Army code",
+        "dano": "Damage",
+        "dispositivo": "Device",
+        "especial": "Special",
+        "exportalista": "Export list to forums",
+        "grupo": "GROUP",
+        "guardalista": "Save list",
+        "imprimirlista": "Print list",
+        "lista_cortesia": "Courtesy list",
+        "maxpuntos": "Max. Points:",
+        "mod_adversario": "Opponent MOD",
+        "mod_ataque": "Attack MOD",
+        "no_opcion": "There are no more options.",
+        "nombre": "Name",
+        "nombreLista": "List name",
+        "nuevogrupo": "New group",
+        "objetivo": "Target",
+        "resetealista": "Delete list",
+        "resultado": "Result",
+        "sustituir_opcion": "Replace option",
+        "tabla_armamento": "Weapons Chart",
+        "tabla_botin": "Booty L$ Chart",
+        "tabla_hackeo": "Hacking Programs",
+        "tabla_metaquimica": "MetaChemistry L$ Chart",
+        "tabla_notas": "FireTeams Chart",
+        "texto_plano": "Plain text",
+        "tipo_habilidad": "Skill Type",
+        "tipo_programa": "Program Type",
+        "tirada": "Roll"
+    },
+    "perfil": {
+        "CAP": "SWC",
+        "armasCC": "CC Weapons",
+        "armasCD": "BS Weapons",
+        "nombre": "Name",
+        "puntos": "C"
+    },
+    "rotulos": {
+        "rot_0": "Loading...",
+        "rot_1": "Main Menu",
+        "rot_2": "Saving..."
+    }
+}

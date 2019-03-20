@@ -1,0 +1,146 @@
+[
+    {
+        "id": "1",
+        "nombre": "Adhesive"
+    },
+    {
+        "id": "2",
+        "nombre": "N"
+    },
+    {
+        "id": "3",
+        "nombre": "AP"
+    },
+    {
+        "id": "4",
+        "nombre": "N/AP/Exp"
+    },
+    {
+        "id": "5",
+        "nombre": "NE/M"
+    },
+    {
+        "id": "6",
+        "nombre": "Exp"
+    },
+    {
+        "id": "7",
+        "nombre": "Monofilament"
+    },
+    {
+        "id": "8",
+        "nombre": "Shock"
+    },
+    {
+        "id": "9",
+        "nombre": "DA"
+    },
+    {
+        "id": "10",
+        "nombre": "APDA"
+    },
+    {
+        "id": "11",
+        "nombre": "Viral"
+    },
+    {
+        "id": "12",
+        "nombre": "E/M2"
+    },
+    {
+        "id": "13",
+        "nombre": "APExp"
+    },
+    {
+        "id": "14",
+        "nombre": "E/M"
+    },
+    {
+        "id": "15",
+        "nombre": "N/AP"
+    },
+    {
+        "id": "16",
+        "nombre": "N/T2"
+    },
+    {
+        "id": "17",
+        "nombre": "AP/DA"
+    },
+    {
+        "id": "18",
+        "nombre": "T2"
+    },
+    {
+        "id": "19",
+        "nombre": "NEM"
+    },
+    {
+        "id": "20",
+        "nombre": "N/AP/DA"
+    },
+    {
+        "id": "21",
+        "nombre": "Smoke"
+    },
+    {
+        "id": "22",
+        "nombre": "Eclipse Smoke"
+    },
+    {
+        "id": "23",
+        "nombre": "Flash"
+    },
+    {
+        "id": "24",
+        "nombre": "Fire"
+    },
+    {
+        "id": "25",
+        "nombre": "Dep. Repeater"
+    },
+    {
+        "id": "26",
+        "nombre": "Nanotec"
+    },
+    {
+        "id": "27",
+        "nombre": "AP/Fire"
+    },
+    {
+        "id": "28",
+        "nombre": "Swarm"
+    },
+    {
+        "id": "29",
+        "nombre": "Stun"
+    },
+    {
+        "id": "30",
+        "nombre": "APShock"
+    },
+    {
+        "id": "31",
+        "nombre": "K1"
+    },
+    {
+        "id": "32",
+        "nombre": "Breaker"
+    },
+    {
+        "id": "33",
+        "nombre": "Nimbus"
+    },
+    {
+        "id": "34",
+        "nombre": "Plasma"
+    },
+    {
+        "id": "35",
+        "nombre": "AP/Shock"
+    },
+    {
+        "id": "36",
+        "nombre": "Pheromonic"
+    }
+]

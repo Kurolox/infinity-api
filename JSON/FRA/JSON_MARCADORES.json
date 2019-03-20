@@ -1,0 +1,14 @@
+{
+    "rotulos": {
+        "iniciativa": "Ordre d\"Initiative",
+        "mando": "Pions de Commandement",
+        "perdida": "Perte de Lieutenant",
+        "ppretirada": "Points de Retraite:",
+        "retirada": "Retraite!!",
+        "rotulo": "Contr\u00f4le de Retraite",
+        "teniente": "Ordre du Lieutenant",
+        "turnoAC": "Tour Actif",
+        "turnoDES": "D\u00e9ploiement",
+        "turnoRE": "Tour R\u00e9actif"
+    }
+}

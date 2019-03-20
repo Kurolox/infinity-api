@@ -1,0 +1,50 @@
+[
+    {
+        "id": "1",
+        "nombre": "Troupes de Garnison"
+    },
+    {
+        "id": "2",
+        "nombre": "Troupes de Ligne"
+    },
+    {
+        "id": "3",
+        "nombre": "Troupes Sp\u00e9cialement Entra\u00een\u00e9es"
+    },
+    {
+        "id": "4",
+        "nombre": "Troupes V\u00e9t\u00e9rans"
+    },
+    {
+        "id": "5",
+        "nombre": "Troupes d\"\u00c9lite"
+    },
+    {
+        "id": "6",
+        "nombre": "Troupes du Quartier G\u00e9n\u00e9ral"
+    },
+    {
+        "id": "7",
+        "nombre": "Troupes M\u00e9canis\u00e9es"
+    },
+    {
+        "id": "8",
+        "nombre": "Troupes de Soutien"
+    },
+    {
+        "id": "9",
+        "nombre": "Liee"
+    },
+    {
+        "id": "10",
+        "nombre": "Personnage"
+    },
+    {
+        "id": "11",
+        "nombre": "Troupes Mercenaires"
+    },
+    {
+        "id": "12",
+        "nombre": "Troupes du Quartier G\u00e9n\u00e9ral / Troupes M\u00e9canis\u00e9es"
+    }
+]

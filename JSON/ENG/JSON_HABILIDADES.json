@@ -1,0 +1,987 @@
+[
+    {
+        "equipo": "0",
+        "id": "19",
+        "nombre": "Martial Arts L1"
+    },
+    {
+        "equipo": "0",
+        "id": "20",
+        "nombre": "Martial Arts L2"
+    },
+    {
+        "equipo": "0",
+        "id": "21",
+        "nombre": "Martial Arts L3"
+    },
+    {
+        "equipo": "0",
+        "id": "22",
+        "nombre": "Martial Arts L4"
+    },
+    {
+        "equipo": "0",
+        "id": "23",
+        "nombre": "Martial Arts L5"
+    },
+    {
+        "equipo": "0",
+        "id": "24",
+        "nombre": "Berserk"
+    },
+    {
+        "equipo": "0",
+        "id": "25",
+        "nombre": "Booty L1"
+    },
+    {
+        "equipo": "0",
+        "id": "26",
+        "nombre": "Chain of Command"
+    },
+    {
+        "equipo": "0",
+        "id": "27",
+        "nombre": "CH: Limited Camouflage"
+    },
+    {
+        "equipo": "0",
+        "id": "28",
+        "nombre": "CH: Mimetism"
+    },
+    {
+        "equipo": "0",
+        "id": "29",
+        "nombre": "CH: Camouflage"
+    },
+    {
+        "equipo": "0",
+        "id": "30",
+        "nombre": "CH: TO Camouflage"
+    },
+    {
+        "equipo": "0",
+        "id": "31",
+        "nombre": "Coma"
+    },
+    {
+        "equipo": "0",
+        "id": "32",
+        "nombre": "Dual Wield"
+    },
+    {
+        "equipo": "0",
+        "id": "33",
+        "nombre": "AD: Parachutist"
+    },
+    {
+        "equipo": "0",
+        "id": "34",
+        "nombre": "AD: Airborne Infiltration"
+    },
+    {
+        "equipo": "0",
+        "id": "35",
+        "nombre": "AD: Combat Jump"
+    },
+    {
+        "equipo": "0",
+        "id": "36",
+        "nombre": "AD: Tactical Jump"
+    },
+    {
+        "equipo": "0",
+        "id": "37",
+        "nombre": "Mechanized Deployment"
+    },
+    {
+        "equipo": "0",
+        "id": "38",
+        "nombre": "Explode"
+    },
+    {
+        "equipo": "0",
+        "id": "39",
+        "nombre": "Natural Born Warrior"
+    },
+    {
+        "equipo": "0",
+        "id": "40",
+        "nombre": "Hyper-Dynamics L1"
+    },
+    {
+        "equipo": "0",
+        "id": "41",
+        "nombre": "Hyper-Dynamics L2"
+    },
+    {
+        "equipo": "0",
+        "id": "42",
+        "nombre": "Hyper-Dynamics L3"
+    },
+    {
+        "equipo": "0",
+        "id": "43",
+        "nombre": "I-kohl L1"
+    },
+    {
+        "equipo": "0",
+        "id": "44",
+        "nombre": "I-kohl L2"
+    },
+    {
+        "equipo": "0",
+        "id": "45",
+        "nombre": "I-kohl L3"
+    },
+    {
+        "equipo": "0",
+        "id": "46",
+        "nombre": "Inferior Infiltration"
+    },
+    {
+        "equipo": "0",
+        "id": "47",
+        "nombre": "Infiltration"
+    },
+    {
+        "equipo": "0",
+        "id": "48",
+        "nombre": "Superior Infiltration"
+    },
+    {
+        "equipo": "0",
+        "id": "49",
+        "nombre": "Engineer"
+    },
+    {
+        "equipo": "0",
+        "id": "50",
+        "nombre": "Shock Immunity"
+    },
+    {
+        "equipo": "0",
+        "id": "51",
+        "nombre": "Total Immunity"
+    },
+    {
+        "equipo": "0",
+        "id": "52",
+        "nombre": "Inspiring Leadership"
+    },
+    {
+        "equipo": "0",
+        "id": "53",
+        "nombre": "Doctor"
+    },
+    {
+        "equipo": "0",
+        "id": "54",
+        "nombre": "Meta-Agility"
+    },
+    {
+        "equipo": "0",
+        "id": "55",
+        "nombre": "MetaChemistry L1"
+    },
+    {
+        "equipo": "0",
+        "id": "56",
+        "nombre": "Minelayer"
+    },
+    {
+        "equipo": "0",
+        "id": "57",
+        "nombre": "Superior Movement"
+    },
+    {
+        "equipo": "0",
+        "id": "58",
+        "nombre": "Multiterrain"
+    },
+    {
+        "equipo": "0",
+        "id": "59",
+        "nombre": "Forward Observer"
+    },
+    {
+        "equipo": "0",
+        "id": "60",
+        "nombre": "Pilot"
+    },
+    {
+        "equipo": "0",
+        "id": "61",
+        "nombre": "Total Reaction"
+    },
+    {
+        "equipo": "0",
+        "id": "62",
+        "nombre": "Regeneration"
+    },
+    {
+        "equipo": "1",
+        "id": "63",
+        "nombre": "Repeater"
+    },
+    {
+        "equipo": "0",
+        "id": "64",
+        "nombre": "Paramedic"
+    },
+    {
+        "equipo": "0",
+        "id": "65",
+        "nombre": "Sensor"
+    },
+    {
+        "equipo": "0",
+        "id": "66",
+        "nombre": "Seed-Embryo"
+    },
+    {
+        "equipo": "0",
+        "id": "67",
+        "nombre": "Sixth Sense L1"
+    },
+    {
+        "equipo": "0",
+        "id": "68",
+        "nombre": "Sixth Sense L2"
+    },
+    {
+        "equipo": "0",
+        "id": "69",
+        "nombre": "Strategos L1"
+    },
+    {
+        "equipo": "0",
+        "id": "70",
+        "nombre": "Strategos L2"
+    },
+    {
+        "equipo": "0",
+        "id": "71",
+        "nombre": "Strategos L3"
+    },
+    {
+        "equipo": "0",
+        "id": "72",
+        "nombre": "Protheion L1"
+    },
+    {
+        "equipo": "0",
+        "id": "73",
+        "nombre": "Morpho-scan"
+    },
+    {
+        "equipo": "0",
+        "id": "74",
+        "nombre": "Super-Jump"
+    },
+    {
+        "equipo": "0",
+        "id": "75",
+        "nombre": "Basic Impersonation"
+    },
+    {
+        "equipo": "0",
+        "id": "76",
+        "nombre": "Impersonation Plus"
+    },
+    {
+        "equipo": "0",
+        "id": "77",
+        "nombre": "Aquatic Terrain"
+    },
+    {
+        "equipo": "0",
+        "id": "78",
+        "nombre": "Mountain Terrain"
+    },
+    {
+        "equipo": "0",
+        "id": "79",
+        "nombre": "Jungle Terrain"
+    },
+    {
+        "equipo": "0",
+        "id": "80",
+        "nombre": "Zero-G"
+    },
+    {
+        "equipo": "0",
+        "id": "81",
+        "nombre": "Desert Terrain"
+    },
+    {
+        "equipo": "0",
+        "id": "82",
+        "nombre": "Climbing Plus"
+    },
+    {
+        "equipo": "0",
+        "id": "83",
+        "nombre": "Religious Troop"
+    },
+    {
+        "equipo": "0",
+        "id": "84",
+        "nombre": "V: Courage"
+    },
+    {
+        "equipo": "0",
+        "id": "85",
+        "nombre": "V: Dogged"
+    },
+    {
+        "equipo": "0",
+        "id": "86",
+        "nombre": "V: No Wound Incapacitation"
+    },
+    {
+        "equipo": "0",
+        "id": "87",
+        "nombre": "Poison"
+    },
+    {
+        "equipo": "0",
+        "id": "88",
+        "nombre": "Veteran L1"
+    },
+    {
+        "equipo": "0",
+        "id": "89",
+        "nombre": "Sapper"
+    },
+    {
+        "equipo": "1",
+        "id": "90",
+        "nombre": "AutoMediKit"
+    },
+    {
+        "equipo": "1",
+        "id": "91",
+        "nombre": "Baggage"
+    },
+    {
+        "equipo": "1",
+        "id": "92",
+        "nombre": "AI Beacon"
+    },
+    {
+        "equipo": "1",
+        "id": "93",
+        "nombre": "Minesweeper"
+    },
+    {
+        "equipo": "1",
+        "id": "94",
+        "nombre": "Biolocator"
+    },
+    {
+        "equipo": "1",
+        "id": "95",
+        "nombre": "Antipode Control Device"
+    },
+    {
+        "equipo": "1",
+        "id": "96",
+        "nombre": "Kuang Shi Control Device"
+    },
+    {
+        "equipo": "1",
+        "id": "97",
+        "nombre": "Traktor Mul Control Device"
+    },
+    {
+        "equipo": "1",
+        "id": "98",
+        "nombre": "ODD: Optical Disruptor"
+    },
+    {
+        "equipo": "1",
+        "id": "99",
+        "nombre": "ODD: Optical Disruptor Field"
+    },
+    {
+        "equipo": "1",
+        "id": "100",
+        "nombre": "Hacking Device"
+    },
+    {
+        "equipo": "1",
+        "id": "101",
+        "nombre": "Hacking Device Plus"
+    },
+    {
+        "equipo": "1",
+        "id": "102",
+        "nombre": "ECM"
+    },
+    {
+        "equipo": "1",
+        "id": "103",
+        "nombre": "Braces"
+    },
+    {
+        "equipo": "1",
+        "id": "104",
+        "nombre": "Holoprojector L1"
+    },
+    {
+        "equipo": "1",
+        "id": "105",
+        "nombre": "Holoprojector L2"
+    },
+    {
+        "equipo": "1",
+        "id": "106",
+        "nombre": "MediKit"
+    },
+    {
+        "equipo": "1",
+        "id": "107",
+        "nombre": "Motorcycle"
+    },
+    {
+        "equipo": "1",
+        "id": "108",
+        "nombre": "Nanoscreen"
+    },
+    {
+        "equipo": "0",
+        "id": "109",
+        "nombre": "Neurocinetics"
+    },
+    {
+        "equipo": "1",
+        "id": "110",
+        "nombre": "EVO Repeater"
+    },
+    {
+        "equipo": "1",
+        "id": "111",
+        "nombre": "Deployable Repeater"
+    },
+    {
+        "equipo": "1",
+        "id": "112",
+        "nombre": "ED: Ejection System"
+    },
+    {
+        "equipo": "1",
+        "id": "113",
+        "nombre": "360\u00ba Visor"
+    },
+    {
+        "equipo": "1",
+        "id": "114",
+        "nombre": "Multispectral Visor L1"
+    },
+    {
+        "equipo": "1",
+        "id": "115",
+        "nombre": "Multispectral Visor L2"
+    },
+    {
+        "equipo": "1",
+        "id": "116",
+        "nombre": "Multispectral Visor L3"
+    },
+    {
+        "equipo": "1",
+        "id": "117",
+        "nombre": "X Visor"
+    },
+    {
+        "equipo": "1",
+        "id": "118",
+        "nombre": "X-2 Visor"
+    },
+    {
+        "equipo": "0",
+        "id": "119",
+        "nombre": "Lieutenant"
+    },
+    {
+        "equipo": "0",
+        "id": "120",
+        "nombre": "Fireteam: Core"
+    },
+    {
+        "equipo": "0",
+        "id": "121",
+        "nombre": "Fireteam: Haris"
+    },
+    {
+        "equipo": "0",
+        "id": "122",
+        "nombre": "Number 2"
+    },
+    {
+        "equipo": "0",
+        "id": "123",
+        "nombre": "Specialist Troop"
+    },
+    {
+        "equipo": "1",
+        "id": "124",
+        "nombre": "Hungries Control Device"
+    },
+    {
+        "equipo": "0",
+        "id": "125",
+        "nombre": "Fireteam: Enomotarchos"
+    },
+    {
+        "equipo": "1",
+        "id": "126",
+        "nombre": "Spotter"
+    },
+    {
+        "equipo": "0",
+        "id": "127",
+        "nombre": "Journalist L1"
+    },
+    {
+        "equipo": "0",
+        "id": "128",
+        "nombre": "Journalist L2"
+    },
+    {
+        "equipo": "0",
+        "id": "129",
+        "nombre": "Fireteam: Triad"
+    },
+    {
+        "equipo": "1",
+        "id": "130",
+        "nombre": "Defensive Hacking Device"
+    },
+    {
+        "equipo": "1",
+        "id": "131",
+        "nombre": "Symbiont Armour"
+    },
+    {
+        "equipo": "0",
+        "id": "132",
+        "nombre": "Civvie"
+    },
+    {
+        "equipo": "0",
+        "id": "133",
+        "nombre": "MEDEVAC Plus"
+    },
+    {
+        "equipo": "0",
+        "id": "134",
+        "nombre": "CUBEVAC Plus"
+    },
+    {
+        "equipo": "0",
+        "id": "135",
+        "nombre": "AD: Inferior Combat Jump"
+    },
+    {
+        "equipo": "0",
+        "id": "136",
+        "nombre": "Booty L2"
+    },
+    {
+        "equipo": "1",
+        "id": "137",
+        "nombre": "ED: Escape System"
+    },
+    {
+        "equipo": "0",
+        "id": "138",
+        "nombre": "Bioimmunity"
+    },
+    {
+        "equipo": "1",
+        "id": "139",
+        "nombre": "Assault Hacking Device"
+    },
+    {
+        "equipo": "0",
+        "id": "140",
+        "nombre": "Assault"
+    },
+    {
+        "equipo": "0",
+        "id": "141",
+        "nombre": "Kinematika L1"
+    },
+    {
+        "equipo": "1",
+        "id": "142",
+        "nombre": "Advanced ECM"
+    },
+    {
+        "equipo": "1",
+        "id": "143",
+        "nombre": "Deactivator"
+    },
+    {
+        "equipo": "0",
+        "id": "144",
+        "nombre": "Sat-lock"
+    },
+    {
+        "equipo": "1",
+        "id": "145",
+        "nombre": "Killer Hacking Device"
+    },
+    {
+        "equipo": "0",
+        "id": "146",
+        "nombre": "Executive Order"
+    },
+    {
+        "equipo": "0",
+        "id": "147",
+        "nombre": "Advanced Command"
+    },
+    {
+        "equipo": "0",
+        "id": "148",
+        "nombre": "CH: Ambush Camouflage"
+    },
+    {
+        "equipo": "0",
+        "id": "149",
+        "nombre": "Marksmanship LX"
+    },
+    {
+        "equipo": "0",
+        "id": "150",
+        "nombre": "Marksmanship L1"
+    },
+    {
+        "equipo": "0",
+        "id": "151",
+        "nombre": "Veteran L2 (Sixth Sense L2, V: NWI)"
+    },
+    {
+        "equipo": "0",
+        "id": "152",
+        "nombre": "Scavenger"
+    },
+    {
+        "equipo": "0",
+        "id": "153",
+        "nombre": "Kinematika L2"
+    },
+    {
+        "equipo": "0",
+        "id": "154",
+        "nombre": "AD: Superior Combat Jump"
+    },
+    {
+        "equipo": "0",
+        "id": "155",
+        "nombre": "Doctor Plus"
+    },
+    {
+        "equipo": "0",
+        "id": "156",
+        "nombre": "Marksmanship L2"
+    },
+    {
+        "equipo": "0",
+        "id": "157",
+        "nombre": "Akbar Doctor"
+    },
+    {
+        "equipo": "0",
+        "id": "158",
+        "nombre": "Heavyweight"
+    },
+    {
+        "equipo": "1",
+        "id": "159",
+        "nombre": "EI Hacking Device"
+    },
+    {
+        "equipo": "1",
+        "id": "160",
+        "nombre": "EI Assault Hacking Device"
+    },
+    {
+        "equipo": "0",
+        "id": "161",
+        "nombre": "Forward Deployment L1"
+    },
+    {
+        "equipo": "0",
+        "id": "162",
+        "nombre": "Immunity: POS"
+    },
+    {
+        "equipo": "0",
+        "id": "163",
+        "nombre": "Explode L1"
+    },
+    {
+        "equipo": "0",
+        "id": "164",
+        "nombre": "Stealth"
+    },
+    {
+        "equipo": "1",
+        "id": "165",
+        "nombre": "Smoke Light Grenade Launcher"
+    },
+    {
+        "equipo": "0",
+        "id": "166",
+        "nombre": "Lieutenant L2"
+    },
+    {
+        "equipo": "1",
+        "id": "167",
+        "nombre": "Aerocam"
+    },
+    {
+        "equipo": "1",
+        "id": "168",
+        "nombre": "TinBot A (Deflector L1)"
+    },
+    {
+        "equipo": "1",
+        "id": "169",
+        "nombre": "TinBot B (Deflector L2)"
+    },
+    {
+        "equipo": "0",
+        "id": "170",
+        "nombre": "Corahtar Discipline L1"
+    },
+    {
+        "equipo": "0",
+        "id": "171",
+        "nombre": "MetaChemistry L2"
+    },
+    {
+        "equipo": "0",
+        "id": "172",
+        "nombre": "Protheion L2"
+    },
+    {
+        "equipo": "0",
+        "id": "173",
+        "nombre": "Protheion L3"
+    },
+    {
+        "equipo": "0",
+        "id": "174",
+        "nombre": "Protheion L4"
+    },
+    {
+        "equipo": "0",
+        "id": "175",
+        "nombre": "Protheion L5"
+    },
+    {
+        "equipo": "0",
+        "id": "176",
+        "nombre": "Forward Deployment L2"
+    },
+    {
+        "equipo": "0",
+        "id": "177",
+        "nombre": "Guard L1"
+    },
+    {
+        "equipo": "0",
+        "id": "178",
+        "nombre": "Guard L2"
+    },
+    {
+        "equipo": "0",
+        "id": "179",
+        "nombre": "Guard L3"
+    },
+    {
+        "equipo": "0",
+        "id": "180",
+        "nombre": "Guard L4"
+    },
+    {
+        "equipo": "0",
+        "id": "181",
+        "nombre": "Fireteam: Duo"
+    },
+    {
+        "equipo": "1",
+        "id": "182",
+        "nombre": "EVO Hacking Device"
+    },
+    {
+        "equipo": "1",
+        "id": "183",
+        "nombre": "Albedo"
+    },
+    {
+        "equipo": "1",
+        "id": "184",
+        "nombre": "Biometric Visor L1"
+    },
+    {
+        "equipo": "1",
+        "id": "185",
+        "nombre": "Biometric Visor L2"
+    },
+    {
+        "equipo": "0",
+        "id": "186",
+        "nombre": "Free Agent"
+    },
+    {
+        "equipo": "0",
+        "id": "187",
+        "nombre": "Manned"
+    },
+    {
+        "equipo": "1",
+        "id": "188",
+        "nombre": "TinBot C (Neourocinetics)"
+    },
+    {
+        "equipo": "0",
+        "id": "189",
+        "nombre": "Specialist Operative"
+    },
+    {
+        "equipo": "0",
+        "id": "190",
+        "nombre": "Lo-Tech A"
+    },
+    {
+        "equipo": "0",
+        "id": "191",
+        "nombre": "Surprise Shot L1"
+    },
+    {
+        "equipo": "0",
+        "id": "192",
+        "nombre": "Surprise Shot L2"
+    },
+    {
+        "equipo": "1",
+        "id": "193",
+        "nombre": "TinBot D (Albedo)"
+    },
+    {
+        "equipo": "1",
+        "id": "194",
+        "nombre": "TinBot E (Spotter)"
+    },
+    {
+        "equipo": "1",
+        "id": "195",
+        "nombre": "Holoprojector L3"
+    },
+    {
+        "equipo": "1",
+        "id": "196",
+        "nombre": "White Hacking Device"
+    },
+    {
+        "equipo": "0",
+        "id": "197",
+        "nombre": "Remote Pilot"
+    },
+    {
+        "equipo": "0",
+        "id": "198",
+        "nombre": "Remote Assistant Level 1"
+    },
+    {
+        "equipo": "0",
+        "id": "199",
+        "nombre": "Fatality L1"
+    },
+    {
+        "equipo": "0",
+        "id": "200",
+        "nombre": "Fatality L2"
+    },
+    {
+        "equipo": "0",
+        "id": "201",
+        "nombre": "Full Auto L1"
+    },
+    {
+        "equipo": "0",
+        "id": "202",
+        "nombre": "Full Auto L2"
+    },
+    {
+        "equipo": "1",
+        "id": "203",
+        "nombre": "EI Killer Hacking Device"
+    },
+    {
+        "equipo": "0",
+        "id": "204",
+        "nombre": "Infinity Spec-Ops"
+    },
+    {
+        "equipo": "1",
+        "id": "205",
+        "nombre": "AI Motorcycle"
+    },
+    {
+        "equipo": "1",
+        "id": "206",
+        "nombre": "1 Zondmate"
+    },
+    {
+        "equipo": "0",
+        "id": "207",
+        "nombre": "Counterintelligence"
+    },
+    {
+        "equipo": "1",
+        "id": "208",
+        "nombre": "Chain Rifle"
+    },
+    {
+        "equipo": "1",
+        "id": "209",
+        "nombre": "Smoke Light Grenade Launcher"
+    },
+    {
+        "equipo": "1",
+        "id": "210",
+        "nombre": "Medjector"
+    },
+    {
+        "equipo": "0",
+        "id": "211",
+        "nombre": "NCO"
+    },
+    {
+        "equipo": "1",
+        "id": "212",
+        "nombre": "Mine Dispenser"
+    },
+    {
+        "equipo": "0",
+        "id": "213",
+        "nombre": "Tactical Awareness"
+    },
+    {
+        "equipo": "0",
+        "id": "214",
+        "nombre": "Explode LX"
+    },
+    {
+        "equipo": "0",
+        "id": "215",
+        "nombre": "Decoy"
+    }
+]
