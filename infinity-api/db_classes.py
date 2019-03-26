@@ -3,7 +3,7 @@ from sqlalchemy import create_engine, Table, Column, String, Integer, Float,\
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-db = create_engine("sqlite:///infinity_1.db")
+db = create_engine("sqlite:///infinity.db")
 BaseModel = declarative_base()
 Session = sessionmaker(db)
 
