@@ -49,7 +49,7 @@ def populate_abilities(session: Session) -> None:
 
     populate_strings("ability_wiki", wiki_links, session)
 
-    print("Generating DB Ability entries...", end=" ")
+    print("Generating DB Ability entries...")
 
     with open(f"JSON/{listdir('JSON')[0]}/JSON_HABILIDADES.json") as skill_file:
         for ability in load(skill_file):
@@ -67,7 +67,30 @@ def populate_abilities(session: Session) -> None:
 
             session.add(Ability(**data))
 
-    print("Done.")
+
+def populate_characteristics(session: Session) -> None:
+    """Populates the database with the list of characteristics."""
+
+    characteristics = defaultdict(dict)
+
+    for language in listdir("JSON"):
+        with open(f"JSON/{language}/JSON_CARACTERISTICAS.json") as traits_file:
+            for item in load(traits_file):
+                characteristics[item["id"]][language] = item["nombre"]
+
+    populate_strings("characteristic", characteristics, session)
+
+    print("Generating DB Characteristic entries...")
+
+    for characteristic in characteristics.keys():
+        if session.query(Characteristic).get(characteristic):
+            continue
+
+        session.add(
+            Characteristic(
+                id=characteristic,
+                name=session.query(Strings).get(
+                    f"characteristic_{characteristic}")))
 
 
 def populate_strings(
@@ -100,7 +123,7 @@ def populate_db() -> None:
 
     populate_ammo(session)
     populate_abilities(session)
-    # populate_characteristics()
+    populate_characteristics(session)
     # populate_sectorials()
     # populate_weapons()
     # populate_units()
