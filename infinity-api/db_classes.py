@@ -106,9 +106,10 @@ class Ability(BaseModel):
     id = Column(Integer, primary_key=True)
     name_id = Column(ForeignKey(Strings.id))
     is_item = Column(Boolean)
-    wiki_url = Column(String)
+    wiki_url_id = Column(ForeignKey(Strings.id))
 
-    name = relationship("Strings")
+    name = relationship("Strings", foreign_keys=name_id)
+    wiki_url = relationship("Strings", foreign_keys=wiki_url_id)
     profiles = relationship(
         "Profile", secondary=profileability, back_populates="abilities")
     units = relationship("Unit", secondary=unitability,

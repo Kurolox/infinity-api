@@ -22,11 +22,52 @@ def populate_ammo(session: Session) -> None:
     print("Generating DB Ammo entries...")
 
     for ammo in ammo_dict.keys():
-        if not session.query(Ammo).get(ammo):
-            session.add(
-                Ammo(
-                    id=ammo,
-                    name=session.query(Strings).get(f"ammo_{ammo}")))
+        if session.query(Ammo).get(ammo):
+            continue
+
+        session.add(
+            Ammo(id=ammo, name=session.query(Strings).get(f"ammo_{ammo}")))
+
+
+def populate_abilities(session: Session) -> None:
+    """Populates the database with the list of abilities."""
+
+    abilities = defaultdict(dict)
+    wiki_links = defaultdict(dict)
+
+    for language in listdir("JSON"):
+        with open(f"JSON/{language}/JSON_HABILIDADES.json") as abilities_file:
+            for ability in load(abilities_file):
+                abilities[ability["id"]][language] = ability["nombre"]
+
+    populate_strings("ability", abilities, session)
+
+    for language in listdir("JSON"):
+        with open(f"JSON/{language}/JSON_HABS_WIKI_URLS.json") as wiki_file:
+            for ability_id, name in load(wiki_file).items():
+                wiki_links[int(ability_id)][language] = name
+
+    populate_strings("ability_wiki", wiki_links, session)
+
+    print("Generating DB Ability entries...", end=" ")
+
+    with open(f"JSON/{listdir('JSON')[0]}/JSON_HABILIDADES.json") as skill_file:
+        for ability in load(skill_file):
+            ability_id = int(ability["id"])
+
+            if session.query(Ability).get(ability_id):
+                continue
+
+            data = {
+                "id": ability_id,
+                "name": session.query(Strings).get(f"ability_{ability_id}"),
+                "is_item": bool(int(ability["equipo"])),
+                "wiki_url": session.query(Strings).get(
+                    f"ability_wiki_{ability_id}")}
+
+            session.add(Ability(**data))
+
+    print("Done.")
 
 
 def populate_strings(
@@ -42,13 +83,14 @@ def populate_strings(
 
     for numeric_id, strings in string_dict.items():
         string_id = f"{id_prefix}_{numeric_id}"
-        if not session.query(Strings).get(string_id):
-            session.add(Strings(
-                id=string_id,
-                english=strings["ENG"] if "ENG" in strings.keys() else None,
-                spanish=strings["ESP"] if "ESP" in strings.keys() else None,
-                french=strings["FRA"] if "FRA" in strings.keys() else None)
-            )
+        if session.query(Strings).get(string_id):
+            continue
+        session.add(Strings(
+            id=string_id,
+            english=strings["ENG"] if "ENG" in strings.keys() else None,
+            spanish=strings["ESP"] if "ESP" in strings.keys() else None,
+            french=strings["FRA"] if "FRA" in strings.keys() else None)
+        )
 
 
 def populate_db() -> None:
@@ -57,7 +99,7 @@ def populate_db() -> None:
     session = Session()
 
     populate_ammo(session)
-    # populate_abilities()
+    populate_abilities(session)
     # populate_characteristics()
     # populate_sectorials()
     # populate_weapons()
@@ -67,8 +109,7 @@ def populate_db() -> None:
     session.close()
 
 
-if "infinity.db" not in listdir():
-    if "JSON" not in listdir():
-        for language in ["ENG", "ESP", "FRA"]:
-            fetch_json(language)
-    populate_db()
+if "JSON" not in listdir():
+    for language in ["ENG", "ESP", "FRA"]:
+        fetch_json(language)
+populate_db()
