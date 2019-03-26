@@ -4,16 +4,16 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-pylint = "*"
 autopep8 = "*"
 pep8 = "*"
+flake8 = "*"
 
 [packages]
 requests = "*"
 regex = "*"
-peewee = "*"
-flask = "*"
-flask-restplus = "*"
+fastapi = "*"
+uvicorn = "*"
+sqlalchemy = "*"
 
 [requires]
 python_version = "3.7"
