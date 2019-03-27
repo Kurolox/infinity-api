@@ -234,6 +234,168 @@ def populate_properties(session: Session) -> None:
     print("Done.")
 
 
+def populate_units(session: Session) -> None:
+    """Populates the database with the units and their profiles."""
+
+    strings = defaultdict(dict)
+
+    # 901 sectorial is an outlier that makes everything harder since it doesn't
+    # follow any structure, so we blacklist it.
+    sectorials = [sectorial.id for sectorial in session.query(Sectorial)
+                  if sectorial.id != 901]
+
+    for language in listdir("JSON"):
+        for sectorial in sectorials:
+            with open(f"JSON/{language}/{sectorial}.json") as sectorial_json:
+                for unit in load(sectorial_json):
+                    for profile in unit["perfiles"]:
+                        unit_id = int(profile["id"])
+                        strings[unit_id][language] = profile["nombre"]
+
+    populate_strings("unit", strings, session)
+
+    print("Generating DB Unit entries...")
+
+    for sectorial in sectorials:
+        file_path = f"JSON/{listdir('JSON')[0]}/{sectorial}.json"
+        with open(file_path) as sectorial_json:
+            for unit in load(sectorial_json):
+                for profile in unit["perfiles"]:
+                    unit_id = int(profile["id"])
+
+                    if session.query(Unit).get(unit_id):
+                        continue
+
+                    unit_dict = {
+                        "id": unit_id,
+                        "name": session.query(Strings).get(f"unit_{unit_id}"),
+                        "mov_1": int(profile["atributos"]["MOV1"]),
+                        "mov_2": int(profile["atributos"]["MOV2"]),
+                        "close_combat": int(profile["atributos"]["CC"]),
+                        "ballistic_skill": int(profile["atributos"]["CD"]),
+                        "phisique": int(profile["atributos"]["FIS"]),
+                        "willpower": int(profile["atributos"]["VOL"]),
+                        "armor": int(profile["atributos"]["BLI"]),
+                        "bts": int(profile["atributos"]["PB"]),
+                        "wounds": int(profile["atributos"]["H"]),
+                        "silhouette": int(profile["atributos"]["S"]),
+                        "availability": int(profile["atributos"]["Disp"]),
+                        "has_structure": bool(int(profile["atributos"]["EST"])),
+                        "sectorial": session.query(Sectorial).get(int(unit["idFaccion"])),
+                        # TODO: Fix svg_icon to work with non-first profiles
+                        "svg_icon": f"https://assets.infinitythegame.net/infinityarmy/img/logos/logos_{sectorial}/logo_{unit['IDArmy']}.svg"
+                    }
+
+                    unit_item = Unit(**unit_dict)
+
+                    for characteristic_id in strip_separators(
+                            profile["caracteristicas"]):
+
+                        unit_item.characteristics.append(
+                            session.query(Characteristic).get(characteristic_id))
+
+                    for ability_id in strip_separators(
+                            profile["equipo_habs"]):
+
+                        unit_item.abilities.append(
+                            session.query(Ability).get(ability_id))
+
+                    session.add(unit_item)
+
+    populate_unit_profiles(session)
+
+
+def populate_unit_profiles(session: Session) -> None:
+    """Populates each unit profile in the database."""
+
+    strings = defaultdict(dict)
+
+    # 901 sectorial is an outlier that makes everything harder since it doesn't
+    # follow any structure, so we blacklist it.
+    sectorials = [sectorial.id for sectorial in session.query(Sectorial)
+                  if sectorial.id != 901]
+
+    for language in listdir("JSON"):
+        for sectorial in sectorials:
+            with open(f"JSON/{language}/{sectorial}.json") as sectorial_json:
+                for unit in load(sectorial_json):
+                    for unit_profile in unit["perfiles"]:
+                        for profile in unit_profile["opciones"]:
+                            profile_id = int(profile["id"])
+                            strings[profile_id][language] = profile["nombre"]
+
+    populate_strings("profile", strings, session)
+
+    print("Generating DB Profile entries...")
+
+    for sectorial in sectorials:
+        file_path = f"JSON/{listdir('JSON')[0]}/{sectorial}.json"
+        with open(file_path) as sectorial_json:
+            for unit in load(sectorial_json):
+                for unit_profile in unit["perfiles"]:
+                    for profile in unit_profile["opciones"]:
+                        profile_id = int(profile["id"])
+
+                        if session.query(Profile).get(profile_id):
+                            continue
+
+                        reg, irreg, impetuous = get_orders(profile["ordenes"])
+                        name_id = f"profile_{profile['id']}"
+                        profile_dict = {
+                            "id": profile_id,
+                            "name": session.query(Strings).get(name_id),
+                            "unit": session.query(Unit).get(int(profile["idPerfil"])),
+                            "cap": float(profile["CAP"])
+                            if profile["CAP"].replace("-", "") else 0.,
+                            "point_cost": int(profile["puntos"]),
+                            "regular_orders": reg,
+                            "irregular_orders": irreg,
+                            "impetuous_orders": impetuous}
+
+                        profile_item = Profile(**profile_dict)
+
+                        for weapon_id in strip_separators(profile["armas"]):
+                            weapon_item = session.query(Weapon).get(weapon_id)
+                            if weapon_item not in profile_item.weapons:
+                                profile_item.weapons.append(weapon_item)
+
+                        for characteristic_id in strip_separators(
+                                profile["caracteristicas"]):
+                            char_item = session.query(Characteristic).get(
+                                characteristic_id)
+                            if char_item not in profile_item.characteristics:
+                                profile_item.characteristics.append(char_item)
+
+                        for ability_id in strip_separators(profile["extra"]):
+                            ability_item = session.query(
+                                Ability).get(ability_id)
+                            if ability_item not in profile_item.abilities:
+                                profile_item.abilities.append(ability_item)
+
+                        session.add(profile_item)
+
+
+def strip_separators(raw_string: str, separator: str = "|") -> tuple:
+    """Given a string with numerical values separated by separators,
+    it returns a tuple with it's contents."""
+
+    # TODO: Remove extra replace due to some scenarios where multiple
+    # separators are being used at once
+    return tuple(
+        int(value) for value in findall(r"(\d+)", raw_string)
+        if raw_string.strip("|"))
+
+
+def get_orders(raw_orders: str) -> tuple:
+    """Returns a tuple with the orders of an unit. They are, from left to right,
+    the regular, irregular, and impetuous orders."""
+
+    orders = [int(order) if int(order) else None
+              for order in raw_orders.split("%")]
+
+    return orders[0], orders[1], orders[2]
+
+
 def populate_strings(
         id_prefix: str, string_dict: tuple, session: Session) -> None:
     """Generates the strings in the database. It needs a dict of dicts,
@@ -267,7 +429,7 @@ def populate_db() -> None:
     populate_characteristics(session)
     populate_sectorials(session)
     populate_weapons(session)
-    # populate_units()
+    populate_units(session)
 
     session.commit()
     session.close()
@@ -277,3 +439,4 @@ if "JSON" not in listdir():
     for language in ["ENG", "ESP", "FRA"]:
         fetch_json(language)
 populate_db()
+
