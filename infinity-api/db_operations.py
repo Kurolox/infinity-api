@@ -113,9 +113,125 @@ def populate_sectorials(session: Session) -> None:
         if session.query(Sectorial).get(sectorial):
             continue
 
-        session.add(Sectorial(id=sectorial, name=session.query(Strings).get(
-            f"sectorial_{sectorial}"), is_faction=True if sectorial % 100 == 1 else False))
+        session.add(
+            Sectorial(
+                id=sectorial, name=session.query(Strings).get(
+                    f"sectorial_{sectorial}"),
+                is_faction=True if sectorial % 100 == 1 else False))
 
+
+def populate_weapons(session: Session) -> None:
+    """Populates the weapons and weapon characteristic tables."""
+
+    populate_properties(session)
+
+    weapon_dict = defaultdict(dict)
+
+    for language in listdir("JSON"):
+        with open(f"JSON/{language}/JSON_ARMAS.json") as weapon_file:
+            for weapon in load(weapon_file):
+                weapon_dict[int(weapon["id"])
+                            ][language] = weapon["nombre_completo"]
+
+    populate_strings("weapon", weapon_dict, session)
+
+    weapon_wiki_dict = defaultdict(dict)
+    for language in listdir("JSON"):
+        with open(f"JSON/{language}/JSON_ARMAS_WIKI_URLS.json") as weapon_wiki:
+            for weapon_id, weapon_wiki_link in load(weapon_wiki).items():
+                weapon_wiki_dict[int(weapon_id)][language] = weapon_wiki_link
+
+    populate_strings("weapon_wiki", weapon_wiki_dict, session)
+
+    print("Generating DB Weapon entries...")
+
+    with open(f"JSON/{listdir('JSON')[0]}/JSON_ARMAS.json") as weapon_file:
+        # This has to be sorted, otherwise it may attempt to generate weapons
+        # with a parent that hasn't been generated yet
+        for weapon in sorted(load(weapon_file), key=lambda x: x["parent"]):
+            weapon_id = int(weapon["id"])
+
+            if session.query(Weapon).get(weapon_id):
+                continue
+
+            burst_range, burst_melee = calculate_burst(weapon)
+            weapon_stats = {
+                "id": weapon_id,
+                # TODO: Correct damage language by using JSON_ATRIBUTOS_ROT
+                "damage": weapon["dano"],
+                "name": session.query(Strings).get(f"weapon_{weapon['id']}"),
+                "is_melee": True if weapon["CC"] == "1" else False,
+                "short_range": validate_range(weapon["corta"]),
+                "medium_range": validate_range(weapon["media"]),
+                "long_range": validate_range(weapon["larga"]),
+                "maximum_range": validate_range(weapon["maxima"]),
+                "ammo": session.query(Ammo).get(int(weapon["idMunicion"])),
+                "burst_range": burst_range,
+                "burst_melee": burst_melee,
+                "parent_weapon": session.query(Weapon).get(int(weapon["parent"]))}
+
+            weapon_object = Weapon(**weapon_stats)
+
+            properties = [int(prop_id)
+                          for prop_id in weapon["propiedades"].split("|")
+                          if weapon["propiedades"]]
+
+            weapon_object.properties = [
+                session.query(Property).get(property_id)
+                for property_id in properties]
+
+            session.add(weapon_object)
+
+
+def calculate_burst(weapon: dict) -> tuple:
+    """Get the burst values of a weapon depending if it's melee, ranged or both.
+    The first value is the ranged burst, while the second one is the CC burst.
+    If the weapon only has one type of burst, the other one will be None."""
+
+    burst = weapon["rafaga"]
+
+    if "(" in burst:
+        return tuple(int(char) for char in burst if char.isdigit())
+    if not [char for char in burst if char.isdigit()]:
+        return None, None
+    return (int(burst), None) if not int(weapon["CC"]) else (None, int(burst))
+
+
+def validate_range(weapon_range: str) -> str:
+    """Given a weapon value range, it checks if it's a valid range or not.
+     If it isn't, this returns Null."""
+
+    return weapon_range.replace("|", ",") if "|" in weapon_range else None
+
+
+def populate_properties(session: Session) -> None:
+    """Based on the local weapons JSON, extracts all the weapon properties
+    and populates the database with them.."""
+
+    weapon_properties = defaultdict(dict)
+
+    for language in listdir("JSON"):
+        with open(f"JSON/{language}/JSON_ARMAS.json") as weapon_file:
+            for weapon in load(weapon_file):
+                for property_id, property_name in zip(
+                    [int(identifier or -1)
+                     for identifier in weapon["propiedades"].split("|")],
+                        weapon["lista_propiedades"].split("|")):
+                    if property_id != -1:
+                        weapon_properties[property_id][language] = property_name
+
+    populate_strings("property", weapon_properties, session)
+
+    print("Generating DB Property entries...", end=" ")
+
+    for property_id in weapon_properties.keys():
+        if session.query(Property).get(property_id):
+            continue
+
+        session.add(Property(id=property_id, name=session.query(Strings).get(
+            f"property_{property_id}")))
+
+    print("Done.")
 
 
 def populate_strings(
@@ -130,7 +246,7 @@ def populate_strings(
     print(f"Generating DB String entries for {id_prefix}...")
 
     for numeric_id, strings in string_dict.items():
-        string_id=f"{id_prefix}_{numeric_id}"
+        string_id = f"{id_prefix}_{numeric_id}"
         if session.query(Strings).get(string_id):
             continue
         session.add(Strings(
@@ -144,13 +260,13 @@ def populate_strings(
 def populate_db() -> None:
     """Populates the database tables with the local JSON information."""
 
-    session=Session()
+    session = Session()
 
     populate_ammo(session)
     populate_abilities(session)
     populate_characteristics(session)
     populate_sectorials(session)
-    # populate_weapons()
+    populate_weapons(session)
     # populate_units()
 
     session.commit()
