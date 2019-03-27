@@ -93,6 +93,31 @@ def populate_characteristics(session: Session) -> None:
                     f"characteristic_{characteristic}")))
 
 
+def populate_sectorials(session: Session) -> None:
+    """Populates the database with the sectorials and their respective ID's."""
+
+    sectorial_dict = defaultdict(dict)
+
+    for language in listdir("JSON"):
+        with open(f"JSON/{language}/JSON_SECTORIAL_NOMBRE.json") as ammo_file:
+            for sectorial, name in load(ammo_file)["nombresSectorial"].items():
+                sectorial_dict[int(sectorial.lstrip(
+                    "idSectorial_"))][language] = name
+
+    populate_strings("sectorial", sectorial_dict, session)
+
+    print("Generating DB Sectorial entries...")
+
+    for sectorial in sectorial_dict.keys():
+
+        if session.query(Sectorial).get(sectorial):
+            continue
+
+        session.add(Sectorial(id=sectorial, name=session.query(Strings).get(
+            f"sectorial_{sectorial}"), is_faction=True if sectorial % 100 == 1 else False))
+
+
+
 def populate_strings(
         id_prefix: str, string_dict: tuple, session: Session) -> None:
     """Generates the strings in the database. It needs a dict of dicts,
@@ -105,7 +130,7 @@ def populate_strings(
     print(f"Generating DB String entries for {id_prefix}...")
 
     for numeric_id, strings in string_dict.items():
-        string_id = f"{id_prefix}_{numeric_id}"
+        string_id=f"{id_prefix}_{numeric_id}"
         if session.query(Strings).get(string_id):
             continue
         session.add(Strings(
@@ -119,12 +144,12 @@ def populate_strings(
 def populate_db() -> None:
     """Populates the database tables with the local JSON information."""
 
-    session = Session()
+    session=Session()
 
     populate_ammo(session)
     populate_abilities(session)
     populate_characteristics(session)
-    # populate_sectorials()
+    populate_sectorials(session)
     # populate_weapons()
     # populate_units()
 
